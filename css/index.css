@@ -704,15 +704,11 @@ div.cat_bar
 {
 	background: #0a0a0a;
 	border-radius: 6px 6px 0 0;
-	padding: 5px;
+	padding: 10px 7px;
 	border: 1px solid #131313;
 	border-bottom: none;
 }
-div.cat_bar .catbg {
-	color: #F00;
-	padding: 0 0 0 5px;
-}
-.catbg a {
+div.cat_bar .catbg, .catbg a {
 	color: #F00;
 }
 
@@ -727,15 +723,15 @@ img#upshrink_ic, img#newsupshrink
 	float: right;
 	margin: 10px 5px 0 0;
 }
-table.table_list a.unreadlink, table.table_list a.collapse
+table.table_list a.unreadlink
 {
 	float: right;
 }
-table.table_list a.collapse
+/* Take this collapse class as generic */
+a.collapse
 {
-	margin: 10px 5px 0 1em;
-	height: 31px;
-	line-height: 31px;
+	margin: 2px 5px 0 1em;
+	float: right;
 }
 
 /* The half-round header bars for some tables. */

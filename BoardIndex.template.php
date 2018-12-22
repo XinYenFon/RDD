@@ -141,15 +141,15 @@ function template_main()
 				// If the board or children is new, show an indicator.
 				if ($board['new'] || $board['children_new'])
 					echo '
-							<i class="fa fa-lg fa-envelope', $board['children_new'] ? '-o' : '','"></i>';
+							<i class="fa fa-3x fa-envelope', $board['children_new'] ? '-o' : '','"></i>';
 				// Is it a redirection board?
 				elseif ($board['is_redirect'])
 					echo '
-							<i class="fa fa-2x fa-share"></i>';
+							<i class="fa fa-3x fa-share"></i>';
 				// No new posts at all! The agony!!
 				else
 					echo '
-							<i class="fa fa-2x fa-envelope-open"></i>';
+							<i class="fa fa-3x fa-envelope-open"></i>';
 
 				echo '
 						</a>
@@ -279,7 +279,7 @@ function template_info_center()
 	<br class="clear" />
 		<div class="cat_bar">
 			<h3 class="catbg">
-				<a onClick="toggleItem()"><i class="icon fa fa-lg" id="upshrink_ic" title="', $txt['upshrink_description'], '"></i></a>
+				<a onClick="toggleItem()" class="collapse"><i class="icon fa fa-lg" id="upshrink_ic" title="', $txt['upshrink_description'], '"></i></a>
 				', sprintf($txt['info_center_title'], $context['forum_name_html_safe']), '
 			</h3>
 		</div>
@@ -291,10 +291,8 @@ function template_info_center()
 		echo '
 			<div class="title_barIC">
 				<h4 class="titlebg">
-					<span class="ie6_header floatleft">
-						<a href="', $scripturl, '?action=recent"><img class="icon" src="', $settings['images_url'], '/post/xx.gif" alt="', $txt['recent_posts'], '" /></a>
-						', $txt['recent_posts'], '
-					</span>
+					<a href="', $scripturl, '?action=recent"><img class="icon" src="', $settings['images_url'], '/post/xx.gif" alt="', $txt['recent_posts'], '" /></a>
+					', $txt['recent_posts'], '
 				</h4>
 			</div>
 			<div class="hslice" id="recent_posts_content">
@@ -339,10 +337,8 @@ function template_info_center()
 		echo '
 			<div class="title_barIC">
 				<h4 class="titlebg">
-					<span class="ie6_header floatleft">
-						<a href="', $scripturl, '?action=calendar' . '"><img class="icon" src="', $settings['images_url'], '/icons/calendar.gif', '" alt="', $context['calendar_only_today'] ? $txt['calendar_today'] : $txt['calendar_upcoming'], '" /></a>
-						', $context['calendar_only_today'] ? $txt['calendar_today'] : $txt['calendar_upcoming'], '
-					</span>
+					<a href="', $scripturl, '?action=calendar' . '"><img class="icon" src="', $settings['images_url'], '/icons/calendar.gif', '" alt="', $context['calendar_only_today'] ? $txt['calendar_today'] : $txt['calendar_upcoming'], '" /></a>
+					', $context['calendar_only_today'] ? $txt['calendar_today'] : $txt['calendar_upcoming'], '
 				</h4>
 			</div>
 			<p class="smalltext windowbg">';
@@ -384,10 +380,8 @@ function template_info_center()
 		echo '
 			<div class="title_barIC">
 				<h4 class="titlebg">
-					<span class="ie6_header floatleft">
-						<a href="', $scripturl, '?action=stats"><i class="fa fa-lg fa-pie-chart"></i></a>
-						', $txt['forum_stats'], '
-					</span>
+					<a href="', $scripturl, '?action=stats"><i class="fa fa-lg fa-pie-chart"></i></a>
+					', $txt['forum_stats'], '
 				</h4>
 			</div>
 			<p class="windowbg">
@@ -402,10 +396,8 @@ function template_info_center()
 	echo '
 			<div class="title_barIC">
 				<h4 class="titlebg">
-					<span class="ie6_header floatleft">
-						', $context['show_who'] ? '<a href="' . $scripturl . '?action=who' . '">' : '', '<i class="fa fa-lg fa-group"></i>', $context['show_who'] ? '</a>' : '', '
-						', $txt['online_users'], '
-					</span>
+					', $context['show_who'] ? '<a href="' . $scripturl . '?action=who' . '">' : '', '<i class="fa fa-lg fa-group"></i>', $context['show_who'] ? '</a>' : '', '
+					', $txt['online_users'], '
 				</h4>
 			</div>
 			<p class="inline stats windowbg">
@@ -452,10 +444,8 @@ function template_info_center()
 		echo '
 			<div class="title_barIC">
 				<h4 class="titlebg">
-					<span class="ie6_header floatleft">
-						', $context['allow_pm'] ? '<a href="' . $scripturl . '?action=pm">' : '', '<img class="icon" src="', $settings['images_url'], '/message_sm.gif" alt="', $txt['personal_message'], '" />', $context['allow_pm'] ? '</a>' : '', '
-						<span>', $txt['personal_message'], '</span>
-					</span>
+					', $context['allow_pm'] ? '<a href="' . $scripturl . '?action=pm">' : '', '<img class="icon" src="', $settings['images_url'], '/message_sm.gif" alt="', $txt['personal_message'], '" />', $context['allow_pm'] ? '</a>' : '', '
+					<span>', $txt['personal_message'], '</span>
 				</h4>
 			</div>
 			<p class="pminfo windowbg">
