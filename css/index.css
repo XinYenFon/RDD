@@ -3306,3 +3306,30 @@ tr.catbg {
 .quickbuttons .fa-fw {
 	vertical-align: top;
 }
+
+/* On/Off Icons (User) */
+.on, .off {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	border: 1px solid transparent;
+	vertical-align: middle;
+}
+.on {
+	background: #89e75a;
+	border-color: #74d246;
+}
+.off {
+	background: #a7a2a2;
+	border-color: #969292;
+}
+
+/* Getting lil'crazy here */
+#header {
+	display: flex;
+	flex-flow: row wrap;
+}
+#header > * {
+	flex: 1 100%;
+}

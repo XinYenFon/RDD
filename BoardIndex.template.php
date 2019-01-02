@@ -107,7 +107,7 @@ function template_main()
 		// If this category even can collapse, show a link to collapse it.
 		if ($category['can_collapse'])
 			echo '
-								<a class="collapse" href="', $category['collapse_href'], '"><i class="fa fa-lg ', $category['is_collapsed'] ? 'fa-toggle-up' : 'fa-toggle-down','"></i></a>';
+								<a class="collapse" href="', $category['collapse_href'], '"><i class="fas ', $category['is_collapsed'] ? 'toggle-up' : 'toggle-down','"></i></a>';
 
 		if (!$context['user']['is_guest'] && !empty($category['show_unread']))
 			echo '
@@ -234,11 +234,13 @@ function template_main()
 	}
 	echo '
 		</table>
-	</div>
-	<div id="posting_icons" class="floatleft">';
+	</div>';
 
 	if ($context['user']['is_logged'])
 	{
+		echo '
+	<div id="posting_icons" class="floatleft">';
+
 		// Mark read button.
 		$mark_read_button = array(
 			'markread' => array('text' => 'mark_as_read', 'image' => 'markread.gif', 'lang' => true, 'url' => $scripturl . '?action=markasread;sa=all;' . $context['session_var'] . '=' . $context['session_id']),
@@ -249,7 +251,8 @@ function template_main()
 			<li class="floatleft"><i class="fa fa-lg fa-envelope"></i> ', $txt['new_posts'], '</li>
 			<li class="floatleft"><i class="fa fa-lg fa-envelope-open"></i> ', $txt['old_posts'], '</li>
 			<li class="floatleft"><i class="fa fa-lg fa-share"></i> ', $txt['redirect_board'], '</li>
-		</ul>';
+		</ul>
+	</div>';
 
 		// Show the mark all as read button?
 		if ($settings['show_mark_read'] && !empty($context['categories']))
@@ -258,14 +261,16 @@ function template_main()
 	else
 	{
 		echo '
+	<div id="posting_icons" class="flow_hidden">
 		<ul class="reset">
 			<li class="floatleft"><i class="fa fa-lg fa-envelope-open"></i> ', $txt['old_posts'], '</li>
 			<li class="floatleft"><i class="fa fa-lg fa-share"></i> ', $txt['redirect_board'], '</li>
-		</ul>';
+		</ul>
+	</div>';
 	}
 
 	echo '
-	</div>';
+	<br class="clear">';
 
 	template_info_center();
 }
@@ -276,7 +281,6 @@ function template_info_center()
 
 	// Here's where the "Info Center" starts...
 	echo '
-	<br class="clear" />
 		<div class="cat_bar">
 			<h3 class="catbg">
 				<a onClick="toggleItem()" class="collapse"><i class="icon fa fa-lg" id="upshrink_ic" title="', $txt['upshrink_description'], '"></i></a>
@@ -380,7 +384,7 @@ function template_info_center()
 		echo '
 			<div class="title_barIC">
 				<h4 class="titlebg">
-					<a href="', $scripturl, '?action=stats"><i class="fa fa-lg fa-pie-chart"></i></a>
+					<a href="', $scripturl, '?action=stats"><i class="fas fa-chart-pie"></i></a>
 					', $txt['forum_stats'], '
 				</h4>
 			</div>
@@ -396,7 +400,7 @@ function template_info_center()
 	echo '
 			<div class="title_barIC">
 				<h4 class="titlebg">
-					', $context['show_who'] ? '<a href="' . $scripturl . '?action=who' . '">' : '', '<i class="fa fa-lg fa-group"></i>', $context['show_who'] ? '</a>' : '', '
+					', $context['show_who'] ? '<a href="' . $scripturl . '?action=who' . '">' : '', '<i class="fas fa-users"></i>', $context['show_who'] ? '</a>' : '', '
 					', $txt['online_users'], '
 				</h4>
 			</div>
@@ -464,19 +468,19 @@ function template_info_center()
 	<script type="text/javascript"><!-- // --><![CDATA[
 		var a = document.getElementById("upshrinkHeaderIC");
 		if (a.style.display == "none") {
-			$( "#upshrink_ic" ).toggleClass( "fa-toggle-up" );
+			$( "#upshrink_ic" ).toggleClass( "toggle-up" );
 		} else {
-			$( "#upshrink_ic" ).toggleClass( "fa-toggle-down" );
+			$( "#upshrink_ic" ).toggleClass( "toggle-down" );
 		}
 
 		function toggleItem() {
 			var x = document.getElementById("upshrinkHeaderIC");
 			if (x.style.display == "none") {
-				$( "#upshrink_ic" ).addClass( "fa-toggle-up" );
-				$( "#upshrink_ic" ).removeClass( "fa-toggle-down" );
+				$( "#upshrink_ic" ).addClass( "toggle-up" );
+				$( "#upshrink_ic" ).removeClass( "toggle-down" );
 			} else {
-				$( "#upshrink_ic" ).addClass( "fa-toggle-down" );
-				$( "#upshrink_ic" ).removeClass( "fa-toggle-up" );
+				$( "#upshrink_ic" ).addClass( "toggle-down" );
+				$( "#upshrink_ic" ).removeClass( "toggle-up" );
 			}
 		}
 		var oInfoCenterToggle = new smc_Toggle({

@@ -80,7 +80,7 @@ function template_html_above()
 	global $context, $settings, $options, $scripturl, $txt, $modSettings;
 
 	// Show right to left and the character set for ease of translating.
-	echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	echo '
 <!DOCTYPE html>
 <head>';
 
@@ -88,7 +88,7 @@ function template_html_above()
 	echo '
 	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/index', $context['theme_variant'], '.css?fin20" />
 	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/responsive', $context['theme_variant'], '.css?fin20" />
-	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/font-awesome.css" />';
+	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/all.css" />';
 
 	// RTL languages require an additional stylesheet.
 	if ($context['right_to_left'])

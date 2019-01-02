@@ -35,11 +35,10 @@ function template_main()
 			<div id="poll">
 				<div class="cat_bar">
 					<h3 class="catbg">
-						<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/topic/', $context['poll']['is_locked'] ? 'normal_poll_locked' : 'normal_poll', '.gif" alt="" class="icon" /> ', $txt['poll'], '</span>
+						<img src="', $settings['images_url'], '/topic/', $context['poll']['is_locked'] ? 'normal_poll_locked' : 'normal_poll', '.gif" alt="" class="icon" /> ', $txt['poll'], '
 					</h3>
 				</div>
 				<div class="windowbg">
-					<span class="topslice"><span></span></span>
 					<div class="content" id="poll_options">
 						<h4 id="pollquestion">
 							', $context['poll']['question'], '
@@ -109,7 +108,6 @@ function template_main()
 
 		echo '
 					</div>
-					<span class="botslice"><span></span></span>
 				</div>
 			</div>
 			<div id="pollmoderation">';
@@ -139,7 +137,6 @@ function template_main()
 					<h3 class="titlebg headerpadding">', $txt['calendar_linked_events'], '</h3>
 				</div>
 				<div class="windowbg">
-					<span class="topslice"><span></span></span>
 					<div class="content">
 						<ul class="reset">';
 
@@ -152,7 +149,6 @@ function template_main()
 		echo '
 						</ul>
 					</div>
-					<span class="botslice"><span></span></span>
 				</div>
 			</div>';
 	}
@@ -184,7 +180,7 @@ function template_main()
 					<h3 class="catbg">
 						<img src="', $settings['images_url'], '/topic/', $context['class'], '.gif" align="bottom" alt="" />
 						<span id="author">', $txt['author'], '</span>
-						<span class="t_subject">', $txt['topic'], ': ', $context['subject'], '</span> <span class="t_num">(', $txt['read'], ' ', $context['num_views'], ' ', $txt['times'], ')</span>
+						', $txt['topic'], ': ', $context['subject'], ' &nbsp;(', $txt['read'], ' ', $context['num_views'], ' ', $txt['times'], ')
 					</h3>
 				</div>';
 
@@ -234,7 +230,6 @@ function template_main()
 
 		echo '
 				<div class="', $message['approved'] ? ($message['alternate'] == 0 ? 'windowbg' : 'windowbg2') : 'approvebg', ' nopad">
-					<span class="topslice"><span></span></span>
 					<div class="post_wrapper">';
 
 		// Show information about the poster of this message.
@@ -628,7 +623,6 @@ function template_main()
 
 		echo '
 					</div>
-					<span class="botslice"><span></span></span>
 				</div>
 				<hr class="post_separator" />';
 	}
@@ -679,15 +673,13 @@ function template_main()
 			<div class="tborder" id="quickreplybox">
 				<div class="cat_bar">
 					<h3 class="catbg">
-						<span class="ie6_header floatleft"><a href="javascript:oQuickReply.swap();">
+						<a href="javascript:oQuickReply.swap();">
 							<img src="', $settings['images_url'], '/', $options['display_quick_reply'] == 2 ? 'collapse' : 'expand', '.gif" alt="+" id="quickReplyExpand" class="icon" />
 						</a>
 						<a href="javascript:oQuickReply.swap();">', $txt['quick_reply'], '</a>
-						</span>
 					</h3>
 				</div>
 				<div id="quickReplyOptions"', $options['display_quick_reply'] == 2 ? '' : ' style="display: none"', '>
-					<span class="upperframe"><span></span></span>
 					<div class="roundframe">
 						<p class="smalltext lefttext">', $txt['quick_reply_desc'], '</p>
 						', $context['is_locked'] ? '<p class="alert smalltext">' . $txt['quick_reply_warning'] . '</p>' : '',
@@ -733,7 +725,6 @@ function template_main()
 							</div>
 						</form>
 					</div>
-					<span class="lowerframe"><span></span></span>
 				</div>
 			</div>';
 	}
