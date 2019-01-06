@@ -51,11 +51,11 @@ function template_main()
 						<option value="', $year, '"', $year == $context['current_year'] ? ' selected="selected"' : '', '>', $year, '</option>';
 	echo '
 					</select>
-					<input type="submit" class="button_submit" value="', $txt['view'], '" />';
+					<input type="submit" class="button_submit" value="', $txt['view'], '">';
 
 	echo '
 				</form>
-				<br class="clear" />
+				<br class="clear">
 			</div>
 		</div>';
 }
@@ -102,7 +102,7 @@ function template_event_post()
 
 	if (!empty($context['event']['new']))
 		echo '
-			<input type="hidden" name="eventid" value="', $context['event']['eventid'], '" />';
+			<input type="hidden" name="eventid" value="', $context['event']['eventid'], '">';
 
 	// Start the main table.
 	echo '
@@ -122,7 +122,7 @@ function template_event_post()
 						', $context['error_type'] == 'serious' ? '<strong>' . $txt['error_while_submitting'] . '</strong>' : '', '
 					</dt>
 					<dt class="error">
-						', implode('<br />', $context['post_error']['messages']), '
+						', implode('<br>', $context['post_error']['messages']), '
 					</dt>
 				</dl>
 			</div>';
@@ -133,9 +133,9 @@ function template_event_post()
 				<div class="roundframe">
 					<fieldset id="event_main">
 						<legend><span', isset($context['post_error']['no_event']) ? ' class="error"' : '', '>', $txt['calendar_event_title'], '</span></legend>
-						<input type="text" name="evtitle" maxlength="255" size="70" value="', $context['event']['title'], '" class="input_text" />
+						<input type="text" name="evtitle" maxlength="255" size="70" value="', $context['event']['title'], '" class="input_text">
 						<div class="smalltext">
-							<input type="hidden" name="calendar" value="1" />', $txt['calendar_year'], '
+							<input type="hidden" name="calendar" value="1">', $txt['calendar_year'], '
 							<select name="year" id="year" onchange="generateDays();">';
 
 	// Show a list of all the years we allow...
@@ -198,7 +198,7 @@ function template_event_post()
 		echo '
 								<li>
 									', $txt['calendar_link_event'], '
-									<input type="checkbox" style="vertical-align: middle;" class="input_check" name="link_to_board" checked="checked" onclick="toggleLinked(this.form);" />
+									<input type="checkbox" style="vertical-align: middle;" class="input_check" name="link_to_board" checked="checked" onclick="toggleLinked(this.form);">
 								</li>
 								<li>
 									', $txt['calendar_post_in'], '
@@ -226,21 +226,21 @@ function template_event_post()
 
 	echo '
 					<div class="righttext">
-						<input type="submit" value="', empty($context['event']['new']) ? $txt['save'] : $txt['post'], '" class="button_submit" />';
+						<input type="submit" value="', empty($context['event']['new']) ? $txt['save'] : $txt['post'], '" class="button_submit">';
 	// Delete button?
 	if (empty($context['event']['new']))
 		echo '
-						<input type="submit" name="deleteevent" value="', $txt['event_delete'], '" onclick="return confirm(\'', $txt['calendar_confirm_delete'], '\');" class="button_submit" />';
+						<input type="submit" name="deleteevent" value="', $txt['event_delete'], '" onclick="return confirm(\'', $txt['calendar_confirm_delete'], '\');" class="button_submit">';
 
 	echo '
-						<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
-						<input type="hidden" name="eventid" value="', $context['event']['eventid'], '" />
+						<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '">
+						<input type="hidden" name="eventid" value="', $context['event']['eventid'], '">
 					</div>
 				</div>
 			</div>
 			</div>
 		</form>
-		<br class="clear" />';
+		<br class="clear">';
 }
 
 // Display a monthly calendar grid.
@@ -262,7 +262,7 @@ function template_show_month_grid($grid_name)
 
 		if (empty($calendar_data['previous_calendar']['disabled']) && $calendar_data['show_next_prev'])
 			echo '
-					<span class="floatleft"><a href="', $calendar_data['previous_calendar']['href'], '">&#171;</a></span>';
+					<a href="', $calendar_data['previous_calendar']['href'], '">&#171;</a>';
 
 		if (empty($calendar_data['next_calendar']['disabled']) && $calendar_data['show_next_prev'])
 			echo '
@@ -362,7 +362,7 @@ function template_show_month_grid($grid_name)
 
 						// Stop at ten?
 						if ($count == 10 && $use_js_hide)
-							echo '<span class="hidelink" id="bdhidelink_', $day['day'], '">...<br /><a href="', $scripturl, '?action=calendar;month=', $calendar_data['current_month'], ';year=', $calendar_data['current_year'], ';showbd" onclick="document.getElementById(\'bdhide_', $day['day'], '\').style.display = \'\'; document.getElementById(\'bdhidelink_', $day['day'], '\').style.display = \'none\'; return false;">(', sprintf($txt['calendar_click_all'], count($day['birthdays'])), ')</a></span><span id="bdhide_', $day['day'], '" style="display: none;">, ';
+							echo '<span class="hidelink" id="bdhidelink_', $day['day'], '">...<br><a href="', $scripturl, '?action=calendar;month=', $calendar_data['current_month'], ';year=', $calendar_data['current_year'], ';showbd" onclick="document.getElementById(\'bdhide_', $day['day'], '\').style.display = \'\'; document.getElementById(\'bdhidelink_', $day['day'], '\').style.display = \'none\'; return false;">(', sprintf($txt['calendar_click_all'], count($day['birthdays'])), ')</a></span><span id="bdhide_', $day['day'], '" style="display: none;">, ';
 
 						$count++;
 					}
@@ -388,7 +388,7 @@ function template_show_month_grid($grid_name)
 						// If they can edit the event, show a star they can click on....
 						if ($event['can_edit'])
 							echo '
-								<a class="modify_event" href="', $event['modify_href'], '"><img src="' . $settings['images_url'] . '/icons/modify_small.gif" alt="*" /></a>';
+								<a class="modify_event" href="', $event['modify_href'], '"><img src="' . $settings['images_url'] . '/icons/modify_small.gif" alt="*"></a>';
 
 						echo '
 								', $event['link'], $event['is_last'] ? '' : ', ';
@@ -430,7 +430,7 @@ function template_show_week_grid($grid_name)
 
 		if (empty($calendar_data['previous_calendar']['disabled']) && $calendar_data['show_next_prev'] && empty($done_title))
 			echo '
-					<span class="floatleft"><a href="', $calendar_data['previous_week']['href'], '">&#171;</a></span>';
+					<a href="', $calendar_data['previous_week']['href'], '">&#171;</a>';
 
 		if (empty($calendar_data['next_calendar']['disabled']) && $calendar_data['show_next_prev'] && empty($done_title))
 			echo '
@@ -506,7 +506,7 @@ function template_show_week_grid($grid_name)
 					// If they can edit the event, show a star they can click on....
 					if ($event['can_edit'])
 						echo '
-								<a href="', $event['modify_href'], '"><img src="' . $settings['images_url'] . '/icons/modify_small.gif" alt="*" /></a> ';
+								<a href="', $event['modify_href'], '"><img src="' . $settings['images_url'] . '/icons/modify_small.gif" alt="*"></a> ';
 
 					echo '
 								', $event['link'], $event['is_last'] ? '' : ', ';
@@ -543,7 +543,7 @@ function template_bcd()
 
 		foreach ($v as $i)
 			echo '
-				<img src="', $context['offimg'], '" alt="" id="', $t, '_', $i, '" /><br />';
+				<img src="', $context['offimg'], '" alt="" id="', $t, '_', $i, '"><br>';
 
 		echo '
 			</td>';
@@ -636,7 +636,7 @@ function template_hms()
 		<td align="right">';
 		foreach ($v as $i)
 			echo '
-			<img src="', $context['offimg'], '" alt="" id="', $t, '_', $i, '" />';
+			<img src="', $context['offimg'], '" alt="" id="', $t, '_', $i, '">';
 		echo '
 		</td>';
 		$alt = !$alt;
@@ -720,7 +720,7 @@ function template_omfg()
 		<td align="right">';
 		foreach ($v as $i)
 			echo '
-			<img src="', $context['offimg'], '" alt="" id="', $t, '_', $i, '" />';
+			<img src="', $context['offimg'], '" alt="" id="', $t, '_', $i, '">';
 		echo '
 		</td>';
 		$alt = !$alt;
@@ -807,7 +807,7 @@ function template_thetime()
 		<td align="right">';
 		foreach ($v as $i)
 			echo '
-			<img src="', $i ? $context['onimg'] : $context['offimg'], '" alt="" />';
+			<img src="', $i ? $context['onimg'] : $context['offimg'], '" alt="">';
 		echo '
 		</td>';
 		$alt = !$alt;

@@ -50,15 +50,15 @@ function template_main()
 	// Disable the reason textarea when the postRedirect checkbox is unchecked...
 	echo '
 						</dl>
-						<label for="reset_subject"><input type="checkbox" name="reset_subject" id="reset_subject" onclick="document.getElementById(\'subjectArea\').style.display = this.checked ? \'block\' : \'none\';" class="input_check" /> ', $txt['moveTopic2'], '.</label><br />
+						<label for="reset_subject"><input type="checkbox" name="reset_subject" id="reset_subject" onclick="document.getElementById(\'subjectArea\').style.display = this.checked ? \'block\' : \'none\';" class="input_check"> ', $txt['moveTopic2'], '.</label><br>
 						<fieldset id="subjectArea" style="display: none;">
 							<dl class="settings">
 								<dt><strong>', $txt['moveTopic3'], ':</strong></dt>
-								<dd><input type="text" name="custom_subject" size="30" value="', $context['subject'], '" class="input_text" /></dd>
+								<dd><input type="text" name="custom_subject" size="30" value="', $context['subject'], '" class="input_text"></dd>
 							</dl>
-							<label for="enforce_subject"><input type="checkbox" name="enforce_subject" id="enforce_subject" class="input_check" /> ', $txt['moveTopic4'], '.</label>
+							<label for="enforce_subject"><input type="checkbox" name="enforce_subject" id="enforce_subject" class="input_check"> ', $txt['moveTopic4'], '.</label>
 						</fieldset>
-						<label for="postRedirect"><input type="checkbox" name="postRedirect" id="postRedirect" ', $context['is_approved'] ? 'checked="checked"' : '', ' onclick="', $context['is_approved'] ? '' : 'if (this.checked && !confirm(\'' . $txt['move_topic_unapproved_js'] . '\')) return false; ', 'document.getElementById(\'reasonArea\').style.display = this.checked ? \'block\' : \'none\';" class="input_check" /> ', $txt['moveTopic1'], '.</label>
+						<label for="postRedirect"><input type="checkbox" name="postRedirect" id="postRedirect" ', $context['is_approved'] ? 'checked="checked"' : '', ' onclick="', $context['is_approved'] ? '' : 'if (this.checked && !confirm(\'' . $txt['move_topic_unapproved_js'] . '\')) return false; ', 'document.getElementById(\'reasonArea\').style.display = this.checked ? \'block\' : \'none\';" class="input_check"> ', $txt['moveTopic1'], '.</label>
 						<fieldset id="reasonArea" style="margin-top: 1ex;', $context['is_approved'] ? '' : 'display: none;', '">
 							<dl class="settings">
 								<dt>
@@ -70,7 +70,7 @@ function template_main()
 							</dl>
 						</fieldset>
 						<div class="righttext">
-							<input type="submit" value="', $txt['move_topic'], '" onclick="return submitThisOnce(this);" accesskey="s" class="button_submit" />
+							<input type="submit" value="', $txt['move_topic'], '" onclick="return submitThisOnce(this);" accesskey="s" class="button_submit">
 						</div>
 					</div>
 				</div>
@@ -78,11 +78,11 @@ function template_main()
 
 	if ($context['back_to_topic'])
 		echo '
-			<input type="hidden" name="goback" value="1" />';
+			<input type="hidden" name="goback" value="1">';
 
 	echo '
-			<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
-			<input type="hidden" name="seqnum" value="', $context['form_sequence_number'], '" />
+			<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '">
+			<input type="hidden" name="seqnum" value="', $context['form_sequence_number'], '">
 		</form>
 	</div>';
 }

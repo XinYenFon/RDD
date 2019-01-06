@@ -25,7 +25,7 @@ function template_main()
 	<div class="main_section" id="memberlist">
 		<div class="cat_bar">
 			<h4 class="catbg">
-				<span class="floatleft">', $txt['members_list'], '</span>';
+				', $txt['members_list'], '';
 		if (!isset($context['old_search']))
 				echo '
 				<span class="floatright">', $context['letter_links'], '</span>';
@@ -55,7 +55,7 @@ function template_main()
 		elseif ($column['selected'])
 			echo '
 					<th scope="col" class="', isset($column['class']) ? ' ' . $column['class'] : '', '" style="width: auto;"' . (isset($column['colspan']) ? ' colspan="' . $column['colspan'] . '"' : '') . ' nowrap="nowrap">
-						<a href="' . $column['href'] . '" rel="nofollow">' . $column['label'] . ' <img src="' . $settings['images_url'] . '/sort_' . $context['sort_direction'] . '.gif" alt="" /></a></th>';
+						<a href="' . $column['href'] . '" rel="nofollow">' . $column['label'] . ' <img src="' . $settings['images_url'] . '/sort_' . $context['sort_direction'] . '.gif" alt=""></a></th>';
 		// This is just some column... show the link and be done with it.
 		else
 			echo '
@@ -75,14 +75,14 @@ function template_main()
 			echo '
 				<tr ', empty($member['sort_letter']) ? '' : ' id="letter' . $member['sort_letter'] . '"', '>
 					<td class="windowbg2">
-						', $context['can_send_pm'] ? '<a href="' . $member['online']['href'] . '" title="' . $member['online']['text'] . '">' : '', $settings['use_image_buttons'] ? '<img src="' . $member['online']['image_href'] . '" alt="' . $member['online']['text'] . '" align="middle" />' : $member['online']['label'], $context['can_send_pm'] ? '</a>' : '', '
+						', $context['can_send_pm'] ? '<a href="' . $member['online']['href'] . '" title="' . $member['online']['text'] . '">' : '', $settings['use_image_buttons'] ? '<img src="' . $member['online']['image_href'] . '" alt="' . $member['online']['text'] . '" align="middle">' : $member['online']['label'], $context['can_send_pm'] ? '</a>' : '', '
 					</td>
 					<td class="windowbg lefttext">', $member['link'], '</td>
-					<td class="windowbg2 hidden">', $member['show_email'] == 'no' ? '' : '<a href="' . $scripturl . '?action=emailuser;sa=email;uid=' . $member['id'] . '" rel="nofollow"><img src="' . $settings['images_url'] . '/email_sm.gif" alt="' . $txt['email'] . '" title="' . $txt['email'] . ' ' . $member['name'] . '" /></a>', '</td>';
+					<td class="windowbg2 hidden">', $member['show_email'] == 'no' ? '' : '<a href="' . $scripturl . '?action=emailuser;sa=email;uid=' . $member['id'] . '" rel="nofollow"><img src="' . $settings['images_url'] . '/email_sm.gif" alt="' . $txt['email'] . '" title="' . $txt['email'] . ' ' . $member['name'] . '"></a>', '</td>';
 
 		if (!isset($context['disabled_fields']['website']))
 			echo '
-					<td class="windowbg hidden">', $member['website']['url'] != '' ? '<a href="' . $member['website']['url'] . '" target="_blank" class="new_win"><img src="' . $settings['images_url'] . '/www.gif" alt="' . $member['website']['title'] . '" title="' . $member['website']['title'] . '" /></a>' : '', '</td>';
+					<td class="windowbg hidden">', $member['website']['url'] != '' ? '<a href="' . $member['website']['url'] . '" target="_blank" class="new_win"><img src="' . $settings['images_url'] . '/www.gif" alt="' . $member['website']['title'] . '" title="' . $member['website']['title'] . '"></a>' : '', '</td>';
 
 		// ICQ?
 		if (!isset($context['disabled_fields']['icq']))
@@ -175,7 +175,7 @@ function template_search()
 		<div id="memberlist">
 			<div class="cat_bar">
 				<h3 class="catbg mlist">
-					', !empty($settings['use_buttons']) ? '<img src="' . $settings['images_url'] . '/buttons/search.gif" alt="" class="icon" />' : '', $txt['mlist_search'], '
+					', !empty($settings['use_buttons']) ? '<img src="' . $settings['images_url'] . '/buttons/search.gif" alt="" class="icon">' : '', $txt['mlist_search'], '
 				</h3>
 			</div>
 			<div class="pagesection">
@@ -185,9 +185,9 @@ function template_search()
 	echo '	<div id="memberlist_search" class="clear">
 				<div class="roundframe">
 					<div id="mlist_search" class="flow_hidden">
-						<div id="search_term_input"><br />
+						<div id="search_term_input"><br>
 							<strong>', $txt['search_for'], ':</strong>
-							<input type="text" name="search" value="', $context['old_search'], '" size="35" class="input_text" /> <input type="submit" name="submit" value="' . $txt['search'] . '" class="button_submit" />
+							<input type="text" name="search" value="', $context['old_search'], '" size="35" class="input_text"> <input type="submit" name="submit" value="' . $txt['search'] . '" class="button_submit">
 						</div>
 						<span class="floatleft">';
 
@@ -195,7 +195,7 @@ function template_search()
 	foreach ($context['search_fields'] as $id => $title)
 	{
 		echo '
-							<label for="fields-', $id, '"><input type="checkbox" name="fields[]" id="fields-', $id, '" value="', $id, '" ', in_array($id, $context['search_defaults']) ? 'checked="checked"' : '', ' class="input_check" />', $title, '</label><br />';
+							<label for="fields-', $id, '"><input type="checkbox" name="fields[]" id="fields-', $id, '" value="', $id, '" ', in_array($id, $context['search_defaults']) ? 'checked="checked"' : '', ' class="input_check">', $title, '</label><br>';
 	// Half way through?
 		if (round(count($context['search_fields']) / 2) == ++$count)
 			echo '

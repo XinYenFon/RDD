@@ -37,7 +37,7 @@ function template_generic_menu_sidebar_above()
 		if ($firstSection && !empty($menu_context['can_toggle_drop_down']))
 		{
 			echo '
-						<a href="', $menu_context['toggle_url'], '">', $section['title'],'<img style="margin: 0 5px; vertical-align: middle;" src="', $context['menu_image_path'], '/change_menu', $context['right_to_left'] ? '' : '2', '.png" alt="!" /></a>';
+						<a href="', $menu_context['toggle_url'], '">', $section['title'],'<img style="margin: 0 5px; vertical-align: middle;" src="', $context['menu_image_path'], '/change_menu', $context['right_to_left'] ? '' : '2', '.png" alt="!"></a>';
 		}
 		else
 		{
@@ -101,7 +101,7 @@ function template_generic_menu_sidebar_below()
 
 	echo '
 		</div>
-	</div><br class="clear" />';
+	</div><br class="clear">';
 }
 
 // This contains the html for the side bar of the admin center, which is used for all admin pages.
@@ -115,7 +115,7 @@ function template_generic_menu_dropdown_above()
 
 	if (!empty($menu_context['can_toggle_drop_down']))
 		echo '
-	<a href="', $menu_context['toggle_url'], '"><img id="menu_toggle" src="', $context['menu_image_path'], '/change_menu', $context['right_to_left'] ? '2' : '', '.png" alt="*" /></a>';
+	<a href="', $menu_context['toggle_url'], '"><img id="menu_toggle" src="', $context['menu_image_path'], '/change_menu', $context['right_to_left'] ? '2' : '', '.png" alt="*"></a>';
 
 	echo '
 <div id="admin_menu">
@@ -272,7 +272,7 @@ function template_generic_menu_tabs(&$menu_context)
 	if (!empty($selected_tab['icon']) || !empty($tab_context['icon']) || !empty($selected_tab['help']) || !empty($tab_context['help']))
 	{
 		if (!empty($selected_tab['icon']) || !empty($tab_context['icon']))
-			echo '<img src="', $settings['images_url'], '/icons/', !empty($selected_tab['icon']) ? $selected_tab['icon'] : $tab_context['icon'], '" alt="" class="icon" />';
+			echo '<img src="', $settings['images_url'], '/icons/', !empty($selected_tab['icon']) ? $selected_tab['icon'] : $tab_context['icon'], '" alt="" class="icon">';
 
 		if (!empty($selected_tab['help']) || !empty($tab_context['help']))
 			echo '<a href="', $scripturl, '?action=helpadmin;help=', !empty($selected_tab['help']) ? $selected_tab['help'] : $tab_context['help'], '" onclick="return reqWin(this.href);" class="help"><i class="fas fa-question-circle"></i></a>';
@@ -325,7 +325,7 @@ function template_generic_menu_tabs(&$menu_context)
 		// the end of tabs
 		echo '
 		</ul>
-	</div><br class="clear" />';
+	</div><br class="clear">';
 	}
 	// ...if not use the old style
 	else
@@ -342,7 +342,7 @@ function template_generic_menu_tabs(&$menu_context)
 			if (!empty($tab['is_selected']))
 			{
 				echo '
-		<img src="', $settings['images_url'], '/selected.gif" alt="*" /> <strong><a href="', isset($tab['url']) ? $tab['url'] : $menu_context['base_url'] . ';area=' . $menu_context['current_area'] . ';sa=' . $sa, $menu_context['extra_parameters'], '">', $tab['label'], '</a></strong>';
+		<img src="', $settings['images_url'], '/selected.gif" alt="*"> <strong><a href="', isset($tab['url']) ? $tab['url'] : $menu_context['base_url'] . ';area=' . $menu_context['current_area'] . ';sa=' . $sa, $menu_context['extra_parameters'], '">', $tab['label'], '</a></strong>';
 			}
 			else
 				echo '

@@ -29,7 +29,7 @@ function template_main()
 	<div id="newsfader">
 		<div class="cat_bar">
 			<h3 class="catbg">
-				<img id="newsupshrink" src="', $settings['images_url'], '/collapse.gif" alt="*" title="', $txt['upshrink_description'], '" align="bottom" style="display: none;" />
+				<img id="newsupshrink" src="', $settings['images_url'], '/collapse.gif" alt="*" title="', $txt['upshrink_description'], '" align="bottom" style="display: none;">
 				', $txt['news'], '
 			</h3>
 		</div>
@@ -175,7 +175,7 @@ function template_main()
 					echo '
 					</td>
 					<td class="stats windowbg">
-						<p>', comma_format($board['posts']), ' ', $board['is_redirect'] ? $txt['redirects'] : $txt['posts'], ' <br />
+						<p>', comma_format($board['posts']), ' ', $board['is_redirect'] ? $txt['redirects'] : $txt['posts'], ' <br>
 						', $board['is_redirect'] ? '' : comma_format($board['topics']) . ' ' . $txt['board_topics'], '
 						</p>
 					</td>
@@ -187,8 +187,8 @@ function template_main()
 				and member. (which has id, name, link, href, username in it.) */
 				if (!empty($board['last_post']['id']))
 					echo '
-						<p><strong>', $txt['last_post'], '</strong>  ', $txt['by'], ' <span class="member_link">', $board['last_post']['member']['link'] , '</span><br />
-						', $txt['in'], ' ', $board['last_post']['link'], '<br />
+						<p><strong>', $txt['last_post'], '</strong>  ', $txt['by'], ' <span class="member_link">', $board['last_post']['member']['link'] , '</span><br>
+						', $txt['in'], ' ', $board['last_post']['link'], '<br>
 						', $txt['on'], ' ', $board['last_post']['time'],'
 						</p>';
 				echo '
@@ -204,7 +204,7 @@ function template_main()
 					foreach ($board['children'] as $child)
 					{
 						if (!$child['is_redirect'])
-							$child['link'] = '<a href="' . $child['href'] . '" ' . ($child['new'] ? 'class="new_posts" ' : '') . 'title="' . ($child['new'] ? $txt['new_posts'] : $txt['old_posts']) . ' (' . $txt['board_topics'] . ': ' . comma_format($child['topics']) . ', ' . $txt['posts'] . ': ' . comma_format($child['posts']) . ')">' . $child['name'] . ($child['new'] ? '</a> <a href="' . $scripturl . '?action=unread;board=' . $child['id'] . '" title="' . $txt['new_posts'] . ' (' . $txt['board_topics'] . ': ' . comma_format($child['topics']) . ', ' . $txt['posts'] . ': ' . comma_format($child['posts']) . ')"><img src="' . $settings['lang_images_url'] . '/new.gif" class="new_posts" alt="" />' : '') . '</a>';
+							$child['link'] = '<a href="' . $child['href'] . '" ' . ($child['new'] ? 'class="new_posts" ' : '') . 'title="' . ($child['new'] ? $txt['new_posts'] : $txt['old_posts']) . ' (' . $txt['board_topics'] . ': ' . comma_format($child['topics']) . ', ' . $txt['posts'] . ': ' . comma_format($child['posts']) . ')">' . $child['name'] . ($child['new'] ? '</a> <a href="' . $scripturl . '?action=unread;board=' . $child['id'] . '" title="' . $txt['new_posts'] . ' (' . $txt['board_topics'] . ': ' . comma_format($child['topics']) . ', ' . $txt['posts'] . ': ' . comma_format($child['posts']) . ')"><img src="' . $settings['lang_images_url'] . '/new.gif" class="new_posts" alt="">' : '') . '</a>';
 						else
 							$child['link'] = '<a href="' . $child['href'] . '" title="' . comma_format($child['posts']) . ' ' . $txt['redirects'] . '">' . $child['name'] . '</a>';
 
@@ -295,7 +295,7 @@ function template_info_center()
 		echo '
 			<div class="title_barIC">
 				<h4 class="titlebg">
-					<a href="', $scripturl, '?action=recent"><img class="icon" src="', $settings['images_url'], '/post/xx.gif" alt="', $txt['recent_posts'], '" /></a>
+					<a href="', $scripturl, '?action=recent"><img class="icon" src="', $settings['images_url'], '/post/xx.gif" alt="', $txt['recent_posts'], '"></a>
 					', $txt['recent_posts'], '
 				</h4>
 			</div>
@@ -312,7 +312,7 @@ function template_info_center()
 			echo '
 				<strong><a href="', $scripturl, '?action=recent">', $txt['recent_posts'], '</a></strong>
 				<p id="infocenter_onepost" class="middletext windowbg">
-					', $txt['recent_view'], ' &quot;', $context['latest_post']['link'], '&quot; ', $txt['recent_updated'], ' (', $context['latest_post']['time'], ')<br />
+					', $txt['recent_view'], ' &quot;', $context['latest_post']['link'], '&quot; ', $txt['recent_updated'], ' (', $context['latest_post']['time'], ')<br>
 				</p>';
 		}
 		// Show lots of posts.
@@ -341,7 +341,7 @@ function template_info_center()
 		echo '
 			<div class="title_barIC">
 				<h4 class="titlebg">
-					<a href="', $scripturl, '?action=calendar' . '"><img class="icon" src="', $settings['images_url'], '/icons/calendar.gif', '" alt="', $context['calendar_only_today'] ? $txt['calendar_today'] : $txt['calendar_upcoming'], '" /></a>
+					<a href="', $scripturl, '?action=calendar' . '"><img class="icon" src="', $settings['images_url'], '/icons/calendar.gif', '" alt="', $context['calendar_only_today'] ? $txt['calendar_today'] : $txt['calendar_upcoming'], '"></a>
 					', $context['calendar_only_today'] ? $txt['calendar_today'] : $txt['calendar_upcoming'], '
 				</h4>
 			</div>
@@ -350,7 +350,7 @@ function template_info_center()
 		// Holidays like "Christmas", "Chanukah", and "We Love [Unknown] Day" :P.
 		if (!empty($context['calendar_holidays']))
 				echo '
-				<span class="holiday">', $txt['calendar_prompt'], ' ', implode(', ', $context['calendar_holidays']), '</span><br />';
+				<span class="holiday">', $txt['calendar_prompt'], ' ', implode(', ', $context['calendar_holidays']), '</span><br>';
 
 		// People's birthdays. Like mine. And yours, I guess. Kidding.
 		if (!empty($context['calendar_birthdays']))
@@ -361,7 +361,7 @@ function template_info_center()
 				id, name (person), age (if they have one set?), is_last. (last in list?), and is_today (birthday is today?) */
 		foreach ($context['calendar_birthdays'] as $member)
 				echo '
-				<a href="', $scripturl, '?action=profile;u=', $member['id'], '">', $member['is_today'] ? '<strong>' : '', $member['name'], $member['is_today'] ? '</strong>' : '', isset($member['age']) ? ' (' . $member['age'] . ')' : '', '</a>', $member['is_last'] ? '<br />' : ', ';
+				<a href="', $scripturl, '?action=profile;u=', $member['id'], '">', $member['is_today'] ? '<strong>' : '', $member['name'], $member['is_today'] ? '</strong>' : '', isset($member['age']) ? ' (' . $member['age'] . ')' : '', '</a>', $member['is_last'] ? '<br>' : ', ';
 		}
 		// Events like community get-togethers.
 		if (!empty($context['calendar_events']))
@@ -372,7 +372,7 @@ function template_info_center()
 					title, href, is_last, can_edit (are they allowed?), modify_href, and is_today. */
 			foreach ($context['calendar_events'] as $event)
 				echo '
-					', $event['can_edit'] ? '<a href="' . $event['modify_href'] . '" title="' . $txt['calendar_edit'] . '"><img src="' . $settings['images_url'] . '/icons/modify_small.gif" alt="*" /></a> ' : '', $event['href'] == '' ? '' : '<a href="' . $event['href'] . '">', $event['is_today'] ? '<strong>' . $event['title'] . '</strong>' : $event['title'], $event['href'] == '' ? '' : '</a>', $event['is_last'] ? '<br />' : ', ';
+					', $event['can_edit'] ? '<a href="' . $event['modify_href'] . '" title="' . $txt['calendar_edit'] . '"><img src="' . $settings['images_url'] . '/icons/modify_small.gif" alt="*"></a> ' : '', $event['href'] == '' ? '' : '<a href="' . $event['href'] . '">', $event['is_today'] ? '<strong>' . $event['title'] . '</strong>' : $event['title'], $event['href'] == '' ? '' : '</a>', $event['is_last'] ? '<br>' : ', ';
 		}
 		echo '
 			</p>';
@@ -389,9 +389,9 @@ function template_info_center()
 				</h4>
 			</div>
 			<p class="windowbg">
-				', $context['common_stats']['total_posts'], ' ', $txt['posts_made'], ' ', $txt['in'], ' ', $context['common_stats']['total_topics'], ' ', $txt['topics'], ' ', $txt['by'], ' ', $context['common_stats']['total_members'], ' ', $txt['members'], '. ', !empty($settings['show_latest_member']) ? $txt['latest_member'] . ': <strong> ' . $context['common_stats']['latest_member']['link'] . '</strong>' : '', '<br />
-				', (!empty($context['latest_post']) ? $txt['latest_post'] . ': <strong>&quot;' . $context['latest_post']['link'] . '&quot;</strong>  ( ' . $context['latest_post']['time'] . ' )<br />' : ''), '
-				<a href="', $scripturl, '?action=recent">', $txt['recent_view'], '</a>', $context['show_stats'] ? '<br />
+				', $context['common_stats']['total_posts'], ' ', $txt['posts_made'], ' ', $txt['in'], ' ', $context['common_stats']['total_topics'], ' ', $txt['topics'], ' ', $txt['by'], ' ', $context['common_stats']['total_members'], ' ', $txt['members'], '. ', !empty($settings['show_latest_member']) ? $txt['latest_member'] . ': <strong> ' . $context['common_stats']['latest_member']['link'] . '</strong>' : '', '<br>
+				', (!empty($context['latest_post']) ? $txt['latest_post'] . ': <strong>&quot;' . $context['latest_post']['link'] . '&quot;</strong>  ( ' . $context['latest_post']['time'] . ' )<br>' : ''), '
+				<a href="', $scripturl, '?action=recent">', $txt['recent_view'], '</a>', $context['show_stats'] ? '<br>
 				<a href="' . $scripturl . '?action=stats">' . $txt['more_stats'] . '</a>' : '', '
 			</p>';
 	}
@@ -427,12 +427,12 @@ function template_info_center()
 	if (!empty($context['users_online']))
 	{
 		echo '
-				', sprintf($txt['users_active'], $modSettings['lastActive']), ':<br />', implode(', ', $context['list_users_online']);
+				', sprintf($txt['users_active'], $modSettings['lastActive']), ':<br>', implode(', ', $context['list_users_online']);
 
 		// Showing membergroups?
 		if (!empty($settings['show_group_key']) && !empty($context['membergroups']))
 			echo '
-				<br />[' . implode(']&nbsp;&nbsp;[', $context['membergroups']) . ']';
+				<br>[' . implode(']&nbsp;&nbsp;[', $context['membergroups']) . ']';
 	}
 
 	echo '
@@ -448,7 +448,7 @@ function template_info_center()
 		echo '
 			<div class="title_barIC">
 				<h4 class="titlebg">
-					', $context['allow_pm'] ? '<a href="' . $scripturl . '?action=pm">' : '', '<img class="icon" src="', $settings['images_url'], '/message_sm.gif" alt="', $txt['personal_message'], '" />', $context['allow_pm'] ? '</a>' : '', '
+					', $context['allow_pm'] ? '<a href="' . $scripturl . '?action=pm">' : '', '<img class="icon" src="', $settings['images_url'], '/message_sm.gif" alt="', $txt['personal_message'], '">', $context['allow_pm'] ? '</a>' : '', '
 					<span>', $txt['personal_message'], '</span>
 				</h4>
 			</div>

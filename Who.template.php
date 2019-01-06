@@ -35,15 +35,15 @@ function template_main()
 		echo '
 						</select>
 						<noscript>
-							<input type="submit" name="submit_top" value="', $txt['go'], '" class="button_submit" />
+							<input type="submit" name="submit_top" value="', $txt['go'], '" class="button_submit">
 						</noscript>
 					</div>
 				</div>
 				<table class="table_grid" cellspacing="0">
 					<thead>
 						<tr class="catbg">
-							<th scope="col" class="lefttext first_th" width="40%"><a href="', $scripturl, '?action=who;start=', $context['start'], ';show=', $context['show_by'], ';sort=user', $context['sort_direction'] != 'down' && $context['sort_by'] == 'user' ? '' : ';asc', '" rel="nofollow">', $txt['who_user'], ' ', $context['sort_by'] == 'user' ? '<img src="' . $settings['images_url'] . '/sort_' . $context['sort_direction'] . '.gif" alt="" />' : '', '</a></th>
-							<th scope="col" class="lefttext" width="10%"><a href="', $scripturl, '?action=who;start=', $context['start'], ';show=', $context['show_by'], ';sort=time', $context['sort_direction'] == 'down' && $context['sort_by'] == 'time' ? ';asc' : '', '" rel="nofollow">', $txt['who_time'], ' ', $context['sort_by'] == 'time' ? '<img src="' . $settings['images_url'] . '/sort_' . $context['sort_direction'] . '.gif" alt="" />' : '', '</a></th>
+							<th scope="col" class="lefttext first_th" width="40%"><a href="', $scripturl, '?action=who;start=', $context['start'], ';show=', $context['show_by'], ';sort=user', $context['sort_direction'] != 'down' && $context['sort_by'] == 'user' ? '' : ';asc', '" rel="nofollow">', $txt['who_user'], ' ', $context['sort_by'] == 'user' ? '<img src="' . $settings['images_url'] . '/sort_' . $context['sort_direction'] . '.gif" alt="">' : '', '</a></th>
+							<th scope="col" class="lefttext" width="10%"><a href="', $scripturl, '?action=who;start=', $context['start'], ';show=', $context['show_by'], ';sort=time', $context['sort_direction'] == 'down' && $context['sort_by'] == 'time' ? ';asc' : '', '" rel="nofollow">', $txt['who_time'], ' ', $context['sort_by'] == 'time' ? '<img src="' . $settings['images_url'] . '/sort_' . $context['sort_direction'] . '.gif" alt="">' : '', '</a></th>
 							<th scope="col" class="lefttext last_th" width="50%">', $txt['who_action'], '</th>
 						</tr>
 					</thead>
@@ -64,7 +64,7 @@ function template_main()
 		{
 			echo '
 								<span class="contact_info floatright">
-									', $context['can_send_pm'] ? '<a href="' . $member['online']['href'] . '" title="' . $member['online']['label'] . '">' : '', $settings['use_image_buttons'] ? '<img src="' . $member['online']['image_href'] . '" alt="' . $member['online']['text'] . '" align="bottom" />' : $member['online']['text'], $context['can_send_pm'] ? '</a>' : '', '
+									', $context['can_send_pm'] ? '<a href="' . $member['online']['href'] . '" title="' . $member['online']['label'] . '">' : '', $settings['use_image_buttons'] ? '<img src="' . $member['online']['image_href'] . '" alt="' . $member['online']['text'] . '" align="bottom">' : $member['online']['text'], $context['can_send_pm'] ? '</a>' : '', '
 									', isset($context['disabled_fields']['icq']) ? '' : $member['icq']['link'] , ' ', isset($context['disabled_fields']['msn']) ? '' : $member['msn']['link'], ' ', isset($context['disabled_fields']['yim']) ? '' : $member['yim']['link'], ' ', isset($context['disabled_fields']['aim']) ? '' : $member['aim']['link'], '
 								</span>';
 		}
@@ -116,7 +116,7 @@ function template_main()
 	echo '
 					</select>
 					<noscript>
-						<input type="submit" value="', $txt['go'], '" class="button_submit" />
+						<input type="submit" value="', $txt['go'], '" class="button_submit">
 					</noscript>
 				</div>
 			</div>

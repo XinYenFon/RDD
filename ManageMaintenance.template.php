@@ -31,8 +31,8 @@ function template_maintain_database()
 			<div class="content">
 				<form action="', $scripturl, '?action=admin;area=maintain;sa=database;activity=optimize" method="post" accept-charset="', $context['character_set'], '">
 					<p>', $txt['maintain_optimize_info'], '</p>
-					<span><input type="submit" value="', $txt['maintain_run_now'], '" class="button_submit" /></span>
-					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
+					<span><input type="submit" value="', $txt['maintain_run_now'], '" class="button_submit"></span>
+					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '">
 				</form>
 			</div>
 		</div>
@@ -50,16 +50,16 @@ function template_maintain_database()
 
 	if ($db_type == 'sqlite')
 		echo '
-					<p><input type="submit" value="', $txt['maintain_backup_save'], '" id="submitDump" class="button_submit" /></p>';
+					<p><input type="submit" value="', $txt['maintain_backup_save'], '" id="submitDump" class="button_submit"></p>';
 	else
 		echo '
-					<p><label for="struct"><input type="checkbox" name="struct" id="struct" onclick="document.getElementById(\'submitDump\').disabled = !document.getElementById(\'struct\').checked &amp;&amp; !document.getElementById(\'data\').checked;" class="input_check" checked="checked" /> ', $txt['maintain_backup_struct'], '</label><br />
-					<label for="data"><input type="checkbox" name="data" id="data" onclick="document.getElementById(\'submitDump\').disabled = !document.getElementById(\'struct\').checked &amp;&amp; !document.getElementById(\'data\').checked;" checked="checked" class="input_check" /> ', $txt['maintain_backup_data'], '</label><br />
-					<label for="compress"><input type="checkbox" name="compress" id="compress" value="gzip" checked="checked" class="input_check" /> ', $txt['maintain_backup_gz'], '</label></p>
-					<p><input type="submit" value="', $txt['maintain_backup_save'], '" id="submitDump" onclick="return document.getElementById(\'struct\').checked || document.getElementById(\'data\').checked;" class="button_submit" /></p>';
+					<p><label for="struct"><input type="checkbox" name="struct" id="struct" onclick="document.getElementById(\'submitDump\').disabled = !document.getElementById(\'struct\').checked &amp;&amp; !document.getElementById(\'data\').checked;" class="input_check" checked="checked"> ', $txt['maintain_backup_struct'], '</label><br>
+					<label for="data"><input type="checkbox" name="data" id="data" onclick="document.getElementById(\'submitDump\').disabled = !document.getElementById(\'struct\').checked &amp;&amp; !document.getElementById(\'data\').checked;" checked="checked" class="input_check"> ', $txt['maintain_backup_data'], '</label><br>
+					<label for="compress"><input type="checkbox" name="compress" id="compress" value="gzip" checked="checked" class="input_check"> ', $txt['maintain_backup_gz'], '</label></p>
+					<p><input type="submit" value="', $txt['maintain_backup_save'], '" id="submitDump" onclick="return document.getElementById(\'struct\').checked || document.getElementById(\'data\').checked;" class="button_submit"></p>';
 
 	echo '
-					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
+					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '">
 				</form>
 			</div>
 		</div>';
@@ -77,7 +77,7 @@ function template_maintain_database()
 					<p>', $txt['utf8_introduction'], '</p>
 					', !empty($modSettings['search_index']) && $modSettings['search_index'] == 'fulltext' ? '<p class="error">' . $txt['utf8_cannot_convert_fulltext'] . '</p>' : '', '
 					<span><input type="submit" value="', $txt['maintain_run_now'], '" class="button_submit" ', !empty($modSettings['search_index']) && $modSettings['search_index'] == 'fulltext' ? 'disabled="disabled"' : '', '/></span>
-					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
+					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '">
 				</form>
 			</div>
 		</div>';
@@ -94,8 +94,8 @@ function template_maintain_database()
 			<div class="content">
 				<form action="', $scripturl, '?action=admin;area=maintain;sa=database;activity=convertentities" method="post" accept-charset="', $context['character_set'], '">
 					<p>', $txt['entity_convert_introduction'], '</p>
-					<span><input type="submit" value="', $txt['maintain_run_now'], '" class="button_submit" /></span>
-					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
+					<span><input type="submit" value="', $txt['maintain_run_now'], '" class="button_submit"></span>
+					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '">
 				</form>
 			</div>
 		</div>';
@@ -103,7 +103,7 @@ function template_maintain_database()
 
 	echo '
 	</div>
-	<br class="clear" />';
+	<br class="clear">';
 }
 
 // Template for the routine maintenance tasks.
@@ -128,8 +128,8 @@ function template_maintain_routine()
 			<div class="content">
 				<form action="', $scripturl, '?action=admin;area=maintain;sa=routine;activity=version" method="post" accept-charset="', $context['character_set'], '">
 					<p>', $txt['maintain_version_info'], '</p>
-					<span><input type="submit" value="', $txt['maintain_run_now'], '" class="button_submit" /></span>
-					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
+					<span><input type="submit" value="', $txt['maintain_run_now'], '" class="button_submit"></span>
+					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '">
 				</form>
 			</div>
 		</div>
@@ -140,8 +140,8 @@ function template_maintain_routine()
 			<div class="content">
 				<form action="', $scripturl, '?action=admin;area=repairboards" method="post" accept-charset="', $context['character_set'], '">
 					<p>', $txt['maintain_errors_info'], '</p>
-					<span><input type="submit" value="', $txt['maintain_run_now'], '" class="button_submit" /></span>
-					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
+					<span><input type="submit" value="', $txt['maintain_run_now'], '" class="button_submit"></span>
+					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '">
 				</form>
 			</div>
 		</div>
@@ -152,8 +152,8 @@ function template_maintain_routine()
 			<div class="content">
 				<form action="', $scripturl, '?action=admin;area=maintain;sa=routine;activity=recount" method="post" accept-charset="', $context['character_set'], '">
 					<p>', $txt['maintain_recount_info'], '</p>
-					<span><input type="submit" value="', $txt['maintain_run_now'], '" class="button_submit" /></span>
-					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
+					<span><input type="submit" value="', $txt['maintain_run_now'], '" class="button_submit"></span>
+					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '">
 				</form>
 			</div>
 		</div>
@@ -164,8 +164,8 @@ function template_maintain_routine()
 			<div class="content">
 				<form action="', $scripturl, '?action=admin;area=maintain;sa=routine;activity=logs" method="post" accept-charset="', $context['character_set'], '">
 					<p>', $txt['maintain_logs_info'], '</p>
-					<span><input type="submit" value="', $txt['maintain_run_now'], '" class="button_submit" /></span>
-					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
+					<span><input type="submit" value="', $txt['maintain_run_now'], '" class="button_submit"></span>
+					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '">
 				</form>
 			</div>
 		</div>
@@ -176,13 +176,13 @@ function template_maintain_routine()
 			<div class="content">
 				<form action="', $scripturl, '?action=admin;area=maintain;sa=routine;activity=cleancache" method="post" accept-charset="', $context['character_set'], '">
 					<p>', $txt['maintain_cache_info'], '</p>
-					<span><input type="submit" value="', $txt['maintain_run_now'], '" class="button_submit" /></span>
-					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
+					<span><input type="submit" value="', $txt['maintain_run_now'], '" class="button_submit"></span>
+					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '">
 				</form>
 			</div>
 		</div>
 	</div>
-	<br class="clear" />';
+	<br class="clear">';
 }
 
 // Template for the member maintenance tasks.
@@ -258,16 +258,16 @@ function template_maintain_members()
 					<p><strong>', $txt['reattribute_guest_posts'], '</strong></p>
 					<dl class="settings">
 						<dt>
-							<label for="type_email"><input type="radio" name="type" id="type_email" value="email" checked="checked" class="input_radio" />', $txt['reattribute_email'], '</label>
+							<label for="type_email"><input type="radio" name="type" id="type_email" value="email" checked="checked" class="input_radio">', $txt['reattribute_email'], '</label>
 						</dt>
 						<dd>
-							<input type="text" name="from_email" id="from_email" value="" onclick="document.getElementById(\'type_email\').checked = \'checked\'; document.getElementById(\'from_name\').value = \'\';" />
+							<input type="text" name="from_email" id="from_email" value="" onclick="document.getElementById(\'type_email\').checked = \'checked\'; document.getElementById(\'from_name\').value = \'\';">
 						</dd>
 						<dt>
-							<label for="type_name"><input type="radio" name="type" id="type_name" value="name" class="input_radio" />', $txt['reattribute_username'], '</label>
+							<label for="type_name"><input type="radio" name="type" id="type_name" value="name" class="input_radio">', $txt['reattribute_username'], '</label>
 						</dt>
 						<dd>
-							<input type="text" name="from_name" id="from_name" value="" onclick="document.getElementById(\'type_name\').checked = \'checked\'; document.getElementById(\'from_email\').value = \'\';" class="input_text" />
+							<input type="text" name="from_name" id="from_name" value="" onclick="document.getElementById(\'type_name\').checked = \'checked\'; document.getElementById(\'from_email\').value = \'\';" class="input_text">
 						</dd>
 					</dl>
 					<dl class="settings">
@@ -275,15 +275,15 @@ function template_maintain_members()
 							<label for="to"><strong>', $txt['reattribute_current_member'], ':</strong></label>
 						</dt>
 						<dd>
-							<input type="text" name="to" id="to" value="" class="input_text" />
+							<input type="text" name="to" id="to" value="" class="input_text">
 						</dd>
 					</dl>
 					<p class="maintain_members">
-						<input type="checkbox" name="posts" id="posts" checked="checked" class="input_check" />
+						<input type="checkbox" name="posts" id="posts" checked="checked" class="input_check">
 						<label for="posts">', $txt['reattribute_increase_posts'], '</label>
 					</p>
-					<span><input type="submit" id="do_attribute" value="', $txt['reattribute'], '" onclick="if (!checkAttributeValidity()) return false; return confirm(warningMessage);" class="button_submit" /></span>
-					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
+					<span><input type="submit" id="do_attribute" value="', $txt['reattribute'], '" onclick="if (!checkAttributeValidity()) return false; return confirm(warningMessage);" class="button_submit"></span>
+					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '">
 				</form>
 			</div>
 		</div>
@@ -299,25 +299,25 @@ function template_maintain_members()
 					<select name="del_type">
 						<option value="activated" selected="selected">', $txt['maintain_members_activated'], '</option>
 						<option value="logged">', $txt['maintain_members_logged_in'], '</option>
-					</select> ', $txt['maintain_members_since2'], ' <input type="text" name="maxdays" value="30" size="3" class="input_text" />', $txt['maintain_members_since3'], '</p>';
+					</select> ', $txt['maintain_members_since2'], ' <input type="text" name="maxdays" value="30" size="3" class="input_text">', $txt['maintain_members_since3'], '</p>';
 
 	echo '
-					<p><a href="#membersLink" onclick="swapMembers();"><img src="', $settings['images_url'], '/expand.gif" alt="+" id="membersIcon" /></a> <a href="#membersLink" onclick="swapMembers();" id="membersText" style="font-weight: bold;">', $txt['maintain_members_all'], '</a></p>
+					<p><a href="#membersLink" onclick="swapMembers();"><img src="', $settings['images_url'], '/expand.gif" alt="+" id="membersIcon"></a> <a href="#membersLink" onclick="swapMembers();" id="membersText" style="font-weight: bold;">', $txt['maintain_members_all'], '</a></p>
 					<div style="display: none; padding: 3px" id="membersPanel">';
 
 	foreach ($context['membergroups'] as $group)
 		echo '
-						<label for="groups', $group['id'], '"><input type="checkbox" name="groups[', $group['id'], ']" id="groups', $group['id'], '" checked="checked" class="input_check" /> ', $group['name'], '</label><br />';
+						<label for="groups', $group['id'], '"><input type="checkbox" name="groups[', $group['id'], ']" id="groups', $group['id'], '" checked="checked" class="input_check"> ', $group['name'], '</label><br>';
 
 	echo '
 					</div>
-					<span><input type="submit" value="', $txt['maintain_old_remove'], '" onclick="return confirm(\'', $txt['maintain_members_confirm'], '\');" class="button_submit" /></span>
-					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
+					<span><input type="submit" value="', $txt['maintain_old_remove'], '" onclick="return confirm(\'', $txt['maintain_members_confirm'], '\');" class="button_submit"></span>
+					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '">
 				</form>
 			</div>
 		</div>
 	</div>
-	<br class="clear" />
+	<br class="clear">
 
 	<script type="text/javascript" src="', $settings['default_theme_url'], '/scripts/suggest.js?fin20"></script>
 	<script type="text/javascript"><!-- // --><![CDATA[
@@ -384,23 +384,23 @@ function template_maintain_topics()
 	// The otherwise hidden "choose which boards to prune".
 	echo '
 					<p>
-						<a id="rotLink"></a>', $txt['maintain_old_since_days1'], '<input type="text" name="maxdays" value="30" size="3" />', $txt['maintain_old_since_days2'], '
+						<a id="rotLink"></a>', $txt['maintain_old_since_days1'], '<input type="text" name="maxdays" value="30" size="3">', $txt['maintain_old_since_days2'], '
 					</p>
 					<p>
-						<label for="delete_type_nothing"><input type="radio" name="delete_type" id="delete_type_nothing" value="nothing" class="input_radio" /> ', $txt['maintain_old_nothing_else'], '</label><br />
-						<label for="delete_type_moved"><input type="radio" name="delete_type" id="delete_type_moved" value="moved" class="input_radio" checked="checked" /> ', $txt['maintain_old_are_moved'], '</label><br />
-						<label for="delete_type_locked"><input type="radio" name="delete_type" id="delete_type_locked" value="locked" class="input_radio" /> ', $txt['maintain_old_are_locked'], '</label><br />
+						<label for="delete_type_nothing"><input type="radio" name="delete_type" id="delete_type_nothing" value="nothing" class="input_radio"> ', $txt['maintain_old_nothing_else'], '</label><br>
+						<label for="delete_type_moved"><input type="radio" name="delete_type" id="delete_type_moved" value="moved" class="input_radio" checked="checked"> ', $txt['maintain_old_are_moved'], '</label><br>
+						<label for="delete_type_locked"><input type="radio" name="delete_type" id="delete_type_locked" value="locked" class="input_radio"> ', $txt['maintain_old_are_locked'], '</label><br>
 					</p>';
 
 	if (!empty($modSettings['enableStickyTopics']))
 		echo '
 					<p>
-						<label for="delete_old_not_sticky"><input type="checkbox" name="delete_old_not_sticky" id="delete_old_not_sticky" class="input_check" checked="checked" /> ', $txt['maintain_old_are_not_stickied'], '</label><br />
+						<label for="delete_old_not_sticky"><input type="checkbox" name="delete_old_not_sticky" id="delete_old_not_sticky" class="input_check" checked="checked"> ', $txt['maintain_old_are_not_stickied'], '</label><br>
 					</p>';
 
 		echo '
 					<p>
-						<a href="#rotLink" onclick="swapRot();"><img src="', $settings['images_url'], '/expand.gif" alt="+" id="rotIcon" /></a> <a href="#rotLink" onclick="swapRot();" id="rotText" style="font-weight: bold;">', $txt['maintain_old_all'], '</a>
+						<a href="#rotLink" onclick="swapRot();"><img src="', $settings['images_url'], '/expand.gif" alt="+" id="rotIcon"></a> <a href="#rotLink" onclick="swapRot();" id="rotText" style="font-weight: bold;">', $txt['maintain_old_all'], '</a>
 					</p>
 					<div style="display: none;" id="rotPanel" class="flow_hidden">
 						<div class="floatleft" style="width: 49%">';
@@ -419,7 +419,7 @@ function template_maintain_topics()
 		// Display a checkbox with every board.
 		foreach ($category['boards'] as $board)
 			echo '
-									<li style="margin-', $context['right_to_left'] ? 'right' : 'left', ': ', $board['child_level'] * 1.5, 'em;"><label for="boards_', $board['id'], '"><input type="checkbox" name="boards[', $board['id'], ']" id="boards_', $board['id'], '" checked="checked" class="input_check" />', $board['name'], '</label></li>';
+									<li style="margin-', $context['right_to_left'] ? 'right' : 'left', ': ', $board['child_level'] * 1.5, 'em;"><label for="boards_', $board['id'], '"><input type="checkbox" name="boards[', $board['id'], ']" id="boards_', $board['id'], '" checked="checked" class="input_check">', $board['name'], '</label></li>';
 
 		echo '
 								</ul>
@@ -435,8 +435,8 @@ function template_maintain_topics()
 	echo '
 						</div>
 					</div>
-					<span><input type="submit" value="', $txt['maintain_old_remove'], '" onclick="return confirm(\'', $txt['maintain_old_confirm'], '\');" class="button_submit" /></span>
-					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
+					<span><input type="submit" value="', $txt['maintain_old_remove'], '" onclick="return confirm(\'', $txt['maintain_old_confirm'], '\');" class="button_submit"></span>
+					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '">
 				</form>
 			</div>
 		</div>
@@ -483,13 +483,13 @@ function template_maintain_topics()
 	}
 	echo '
 					</select></p>
-					<span><input type="submit" value="', $txt['move_topics_now'], '" onclick="if (document.getElementById(\'id_board_from\').options[document.getElementById(\'id_board_from\').selectedIndex].disabled || document.getElementById(\'id_board_from\').options[document.getElementById(\'id_board_to\').selectedIndex].disabled) return false; var confirmText = \'', $txt['move_topics_confirm'] . '\'; return confirm(confirmText.replace(/%board_from%/, document.getElementById(\'id_board_from\').options[document.getElementById(\'id_board_from\').selectedIndex].text.replace(/^=+&gt;&nbsp;/, \'\')).replace(/%board_to%/, document.getElementById(\'id_board_to\').options[document.getElementById(\'id_board_to\').selectedIndex].text.replace(/^=+&gt;&nbsp;/, \'\')));" class="button_submit" /></span>
-					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
+					<span><input type="submit" value="', $txt['move_topics_now'], '" onclick="if (document.getElementById(\'id_board_from\').options[document.getElementById(\'id_board_from\').selectedIndex].disabled || document.getElementById(\'id_board_from\').options[document.getElementById(\'id_board_to\').selectedIndex].disabled) return false; var confirmText = \'', $txt['move_topics_confirm'] . '\'; return confirm(confirmText.replace(/%board_from%/, document.getElementById(\'id_board_from\').options[document.getElementById(\'id_board_from\').selectedIndex].text.replace(/^=+&gt;&nbsp;/, \'\')).replace(/%board_to%/, document.getElementById(\'id_board_to\').options[document.getElementById(\'id_board_to\').selectedIndex].text.replace(/^=+&gt;&nbsp;/, \'\')));" class="button_submit"></span>
+					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '">
 				</form>
 			</div>
 		</div>
 	</div>
-	<br class="clear" />';
+	<br class="clear">';
 }
 
 // Simple template for showing results of our optimization...
@@ -505,17 +505,17 @@ function template_optimize()
 		<div class="windowbg">
 			<div class="content">
 				<p>
-					', $txt['database_numb_tables'], '<br />
-					', $txt['database_optimize_attempt'], '<br />';
+					', $txt['database_numb_tables'], '<br>
+					', $txt['database_optimize_attempt'], '<br>';
 
 	// List each table being optimized...
 	foreach ($context['optimized_tables'] as $table)
 		echo '
-					', sprintf($txt['database_optimizing'], $table['name'], $table['data_freed']), '<br />';
+					', sprintf($txt['database_optimizing'], $table['name'], $table['data_freed']), '<br>';
 
 	// How did we go?
 	echo '
-					<br />', $context['num_tables_optimized'] == 0 ? $txt['database_already_optimized'] : $context['num_tables_optimized'] . ' ' . $txt['database_optimized'];
+					<br>', $context['num_tables_optimized'] == 0 ? $txt['database_already_optimized'] : $context['num_tables_optimized'] . ' ' . $txt['database_optimized'];
 
 	echo '
 				</p>
@@ -523,7 +523,7 @@ function template_optimize()
 			</div>
 		</div>
 	</div>
-	<br class="clear" />';
+	<br class="clear">';
 }
 
 function template_convert_utf8()
@@ -554,14 +554,14 @@ function template_convert_utf8()
 						<dt><strong>', $txt['utf8_target_charset'], ': </strong></dt>
 						<dd>', $txt['utf8_utf8'], '</dd>
 					</dl>
-					<input type="submit" value="', $txt['utf8_proceed'], '" class="button_submit" />
-					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
-					<input type="hidden" name="proceed" value="1" />
+					<input type="submit" value="', $txt['utf8_proceed'], '" class="button_submit">
+					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '">
+					<input type="hidden" name="proceed" value="1">
 				</form>
 			</div>
 		</div>
 	</div>
-	<br class="clear" />';
+	<br class="clear">';
 }
 
 function template_convert_entities()
@@ -577,12 +577,12 @@ function template_convert_entities()
 			<div class="content">
 				<p>', $txt['entity_convert_introduction'], '</p>
 				<form action="', $scripturl, '?action=admin;area=maintain;sa=database;activity=convertentities;start=0;', $context['session_var'], '=', $context['session_id'], '" method="post" accept-charset="', $context['character_set'], '">
-					<input type="submit" value="', $txt['entity_convert_proceed'], '" class="button_submit" />
+					<input type="submit" value="', $txt['entity_convert_proceed'], '" class="button_submit">
 				</form>
 			</div>
 		</div>
 	</div>
-	<br class="clear" />';
+	<br class="clear">';
 }
 
 ?>

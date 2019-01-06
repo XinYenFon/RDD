@@ -57,7 +57,7 @@ function template_main()
 
 		if (!empty($category['move_link']))
 			echo '
-						<li><a href="', $category['move_link']['href'], '" title="', $category['move_link']['label'], '"><img src="', $settings['images_url'], '/smiley_select_spot.gif" alt="', $category['move_link']['label'], '" /></a></li>';
+						<li><a href="', $category['move_link']['href'], '" title="', $category['move_link']['label'], '"><img src="', $settings['images_url'], '/smiley_select_spot.gif" alt="', $category['move_link']['label'], '"></a></li>';
 
 		$alternate = false;
 
@@ -67,10 +67,10 @@ function template_main()
 			$alternate = !$alternate;
 
 			echo '
-						<li', !empty($modSettings['recycle_board']) && !empty($modSettings['recycle_enable']) && $modSettings['recycle_board'] == $board['id'] ? ' id="recycle_board"' : ' ', ' class="windowbg', $alternate ? '' : '2', '" style="padding-' . ($context['right_to_left'] ? 'right' : 'left') . ': ', 5 + 30 * $board['child_level'], 'px;', $board['move'] ? 'color: red;' : '', '"><span class="floatleft"><a href="', $scripturl, '?board=', $board['id'], '">', $board['name'], '</a>', !empty($modSettings['recycle_board']) && !empty($modSettings['recycle_enable']) && $modSettings['recycle_board'] == $board['id'] ? '<a href="' . $scripturl . '?action=admin;area=manageboards;sa=settings"> <img src="' . $settings['images_url'] . '/post/recycled.gif" alt="' . $txt['recycle_board'] . '" /></a></span>' : '</span>', '
+						<li', !empty($modSettings['recycle_board']) && !empty($modSettings['recycle_enable']) && $modSettings['recycle_board'] == $board['id'] ? ' id="recycle_board"' : ' ', ' class="windowbg', $alternate ? '' : '2', '" style="padding-' . ($context['right_to_left'] ? 'right' : 'left') . ': ', 5 + 30 * $board['child_level'], 'px;', $board['move'] ? 'color: red;' : '', '"><span class="floatleft"><a href="', $scripturl, '?board=', $board['id'], '">', $board['name'], '</a>', !empty($modSettings['recycle_board']) && !empty($modSettings['recycle_enable']) && $modSettings['recycle_board'] == $board['id'] ? '<a href="' . $scripturl . '?action=admin;area=manageboards;sa=settings"> <img src="' . $settings['images_url'] . '/post/recycled.gif" alt="' . $txt['recycle_board'] . '"></a></span>' : '</span>', '
 							<span class="floatright">', $context['can_manage_permissions'] ? '<span class="modify_boards"><a href="' . $scripturl . '?action=admin;area=permissions;sa=index;pid=' . $board['permission_profile'] . ';' . $context['session_var'] . '=' . $context['session_id'] . '">' . $txt['mboards_permissions'] . '</a></span>' : '', '
 							<span class="modify_boards"><a href="', $scripturl, '?action=admin;area=manageboards;move=', $board['id'], '">', $txt['mboards_move'], '</a></span>
-							<span class="modify_boards"><a href="', $scripturl, '?action=admin;area=manageboards;sa=board;boardid=', $board['id'], '">', $txt['mboards_modify'], '</a></span></span><br style="clear: right;" />
+							<span class="modify_boards"><a href="', $scripturl, '?action=admin;area=manageboards;sa=board;boardid=', $board['id'], '">', $txt['mboards_modify'], '</a></span></span><br style="clear: right;">
 						</li>';
 
 			if (!empty($board['move_links']))
@@ -82,7 +82,7 @@ function template_main()
 
 				foreach ($board['move_links'] as $link)
 					echo '
-							<a href="', $link['href'], '" class="move_links" title="', $link['label'], '"><img src="', $settings['images_url'], '/board_select_spot', $link['child_level'] > 0 ? '_child' : '', '.gif" alt="', $link['label'], '" style="padding: 0px; margin: 0px;" /></a>';
+							<a href="', $link['href'], '" class="move_links" title="', $link['label'], '"><img src="', $settings['images_url'], '/board_select_spot', $link['child_level'] > 0 ? '_child' : '', '.gif" alt="', $link['label'], '" style="padding: 0px; margin: 0px;"></a>';
 
 				echo '
 						</li>';
@@ -93,8 +93,8 @@ function template_main()
 		echo '
 					</ul>
 					<div class="righttext">
-						<input type="submit" value="', $txt['mboards_new_board'], '" class="button_submit" />
-						<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
+						<input type="submit" value="', $txt['mboards_new_board'], '" class="button_submit">
+						<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '">
 					</div>
 				</div>
 			</div>
@@ -102,7 +102,7 @@ function template_main()
 	}
 	echo '
 	</div>
-	<br class="clear" />';
+	<br class="clear">';
 }
 
 // Template for editing/adding a category on the forum.
@@ -114,7 +114,7 @@ function template_modify_category()
 	echo '
 	<div id="manage_boards">
 		<form action="', $scripturl, '?action=admin;area=manageboards;sa=cat2" method="post" accept-charset="', $context['character_set'], '">
-			<input type="hidden" name="cat" value="', $context['category']['id'], '" />
+			<input type="hidden" name="cat" value="', $context['category']['id'], '">
 				<div class="cat_bar">
 					<h3 class="catbg">
 					', isset($context['category']['is_new']) ? $txt['mboards_new_cat_name'] : $txt['catEdit'], '
@@ -141,18 +141,18 @@ function template_modify_category()
 	// Allow the user to edit the category name and/or choose whether you can collapse the category.
 	echo '
 						<dt>
-							<strong>', $txt['full_name'], ':</strong><br />
+							<strong>', $txt['full_name'], ':</strong><br>
 							<span class="smalltext">', $txt['name_on_display'], '</span>
 						</dt>
 						<dd>
-							<input type="text" name="cat_name" value="', $context['category']['editable_name'], '" size="30" tabindex="', $context['tabindex']++, '" class="input_text" />
+							<input type="text" name="cat_name" value="', $context['category']['editable_name'], '" size="30" tabindex="', $context['tabindex']++, '" class="input_text">
 						</dd>
 						<dt>
-							<strong>' . $txt['collapse_enable'] . '</strong><br />
+							<strong>' . $txt['collapse_enable'] . '</strong><br>
 							<span class="smalltext">' . $txt['collapse_desc'] . '</span>
 						</dt>
 						<dd>
-							<input type="checkbox" name="collapse"', $context['category']['can_collapse'] ? ' checked="checked"' : '', ' tabindex="', $context['tabindex']++, '" class="input_check" />
+							<input type="checkbox" name="collapse"', $context['category']['can_collapse'] ? ' checked="checked"' : '', ' tabindex="', $context['tabindex']++, '" class="input_check">
 						</dd>';
 
 	// Table footer.
@@ -162,18 +162,18 @@ function template_modify_category()
 
 	if (isset($context['category']['is_new']))
 		echo '
-						<input type="submit" name="add" value="', $txt['mboards_add_cat_button'], '" onclick="return !isEmptyText(this.form.cat_name);" tabindex="', $context['tabindex']++, '" class="button_submit" />';
+						<input type="submit" name="add" value="', $txt['mboards_add_cat_button'], '" onclick="return !isEmptyText(this.form.cat_name);" tabindex="', $context['tabindex']++, '" class="button_submit">';
 	else
 		echo '
-						<input type="submit" name="edit" value="', $txt['modify'], '" onclick="return !isEmptyText(this.form.cat_name);" tabindex="', $context['tabindex']++, '" class="button_submit" />
-						<input type="submit" name="delete" value="', $txt['mboards_delete_cat'], '" onclick="return confirm(\'', $txt['catConfirm'], '\');" class="button_submit" />';
+						<input type="submit" name="edit" value="', $txt['modify'], '" onclick="return !isEmptyText(this.form.cat_name);" tabindex="', $context['tabindex']++, '" class="button_submit">
+						<input type="submit" name="delete" value="', $txt['mboards_delete_cat'], '" onclick="return confirm(\'', $txt['catConfirm'], '\');" class="button_submit">';
 	echo '
-						<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />';
+						<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '">';
 
 	// If this category is empty we don't bother with the next confirmation screen.
 	if ($context['category']['is_empty'])
 		echo '
-						<input type="hidden" name="empty" value="1" />';
+						<input type="hidden" name="empty" value="1">';
 
 	echo '
 					</div>
@@ -181,7 +181,7 @@ function template_modify_category()
 			</div>
 		</form>
 	</div>
-	<br class="clear" />';
+	<br class="clear">';
 }
 
 // A template to confirm if a user wishes to delete a category - and whether they want to save the boards.
@@ -193,7 +193,7 @@ function template_confirm_category_delete()
 	echo '
 	<div id="manage_boards">
 		<form action="', $scripturl, '?action=admin;area=manageboards;sa=cat2" method="post" accept-charset="', $context['character_set'], '">
-			<input type="hidden" name="cat" value="', $context['category']['id'], '" />
+			<input type="hidden" name="cat" value="', $context['category']['id'], '">
 			<div class="cat_bar">
 				<h3 class="catbg">', $txt['mboards_delete_cat'], '</h3>
 			</div>
@@ -217,8 +217,8 @@ function template_confirm_category_delete()
 			<div class="windowbg">
 				<div class="content">
 					<p>
-						<label for="delete_action0"><input type="radio" id="delete_action0" name="delete_action" value="0" class="input_radio" checked="checked" />', $txt['mboards_delete_option1'], '</label><br />
-						<label for="delete_action1"><input type="radio" id="delete_action1" name="delete_action" value="1" class="input_radio"', count($context['category_order']) == 1 ? ' disabled="disabled"' : '', ' />', $txt['mboards_delete_option2'], '</label>:
+						<label for="delete_action0"><input type="radio" id="delete_action0" name="delete_action" value="0" class="input_radio" checked="checked">', $txt['mboards_delete_option1'], '</label><br>
+						<label for="delete_action1"><input type="radio" id="delete_action1" name="delete_action" value="1" class="input_radio"', count($context['category_order']) == 1 ? ' disabled="disabled"' : '', '>', $txt['mboards_delete_option2'], '</label>:
 						<select name="cat_to" ', count($context['category_order']) == 1 ? 'disabled="disabled"' : '', '>';
 
 	foreach ($context['category_order'] as $cat)
@@ -229,15 +229,15 @@ function template_confirm_category_delete()
 	echo '
 						</select>
 					</p>
-					<input type="submit" name="delete" value="', $txt['mboards_delete_confirm'], '" class="button_submit" />
-					<input type="submit" name="cancel" value="', $txt['mboards_delete_cancel'], '" class="button_submit" />
-					<input type="hidden" name="confirmation" value="1" />
-					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
+					<input type="submit" name="delete" value="', $txt['mboards_delete_confirm'], '" class="button_submit">
+					<input type="submit" name="cancel" value="', $txt['mboards_delete_cancel'], '" class="button_submit">
+					<input type="hidden" name="confirmation" value="1">
+					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '">
 				</div>
 			</div>
 		</form>
 	</div>
-	<br class="clear" />';
+	<br class="clear">';
 }
 
 // Below is the template for adding/editing an board on the forum.
@@ -249,7 +249,7 @@ function template_modify_board()
 	echo '
 	<div id="manage_boards">
 		<form action="', $scripturl, '?action=admin;area=manageboards;sa=board2" method="post" accept-charset="', $context['character_set'], '">
-			<input type="hidden" name="boardid" value="', $context['board']['id'], '" />
+			<input type="hidden" name="boardid" value="', $context['board']['id'], '">
 			<div class="cat_bar">
 				<h3 class="catbg">
 					', isset($context['board']['is_new']) ? $txt['mboards_new_board_name'] : $txt['boardsEdit'], '
@@ -308,21 +308,21 @@ function template_modify_board()
 	// Options for board name and description.
 	echo '
 						<dt>
-							<strong>', $txt['full_name'], ':</strong><br />
+							<strong>', $txt['full_name'], ':</strong><br>
 							<span class="smalltext">', $txt['name_on_display'], '</span>
 						</dt>
 						<dd>
-							<input type="text" name="board_name" value="', $context['board']['name'], '" size="30" class="input_text" />
+							<input type="text" name="board_name" value="', $context['board']['name'], '" size="30" class="input_text">
 						</dd>
 						<dt>
-							<strong>', $txt['mboards_description'], ':</strong><br />
+							<strong>', $txt['mboards_description'], ':</strong><br>
 							<span class="smalltext">', $txt['mboards_description_desc'], '</span>
 						</dt>
 						<dd>
 							<textarea name="desc" rows="3" cols="35" style="' . ($context['browser']['is_ie8'] ? 'width: 635px; max-width: 99%; min-width: 99%' : 'width: 99%') . ';">', $context['board']['description'], '</textarea>
 						</dd>
 						<dt>
-							<strong>', $txt['permission_profile'], ':</strong><br />
+							<strong>', $txt['permission_profile'], ':</strong><br>
 							<span class="smalltext">', $context['can_manage_permissions'] ? sprintf($txt['permission_profile_desc'], $scripturl . '?action=admin;area=permissions;sa=profiles;' . $context['session_var'] . '=' . $context['session_id']) : strip_tags($txt['permission_profile_desc']), '</span>
 						</dt>
 						<dd>
@@ -340,7 +340,7 @@ function template_modify_board()
 							</select>
 						</dd>
 						<dt>
-							<strong>', $txt['mboards_groups'], ':</strong><br />
+							<strong>', $txt['mboards_groups'], ':</strong><br>
 							<span class="smalltext">', $txt['mboards_groups_desc'], '</span>
 						</dt>
 						<dd>';
@@ -349,38 +349,38 @@ function template_modify_board()
 	foreach ($context['groups'] as $group)
 		echo '
 							<label for="groups_', $group['id'], '">
-								<input type="checkbox" name="groups[]" value="', $group['id'], '" id="groups_', $group['id'], '"', $group['checked'] ? ' checked="checked"' : '', ' class="input_check" />
+								<input type="checkbox" name="groups[]" value="', $group['id'], '" id="groups_', $group['id'], '"', $group['checked'] ? ' checked="checked"' : '', ' class="input_check">
 								<span', $group['is_post_group'] ? ' class="post_group" title="' . $txt['mboards_groups_post_group'] . '"' : '', $group['id'] == 0 ? ' class="regular_members" title="' . $txt['mboards_groups_regular_members'] . '"' : '', '>
 									', $group['name'], '
 								</span>
-							</label><br />';
+							</label><br>';
 	echo '
-							<em>', $txt['check_all'], '</em> <input type="checkbox" class="input_check" onclick="invertAll(this, this.form, \'groups[]\');" /><br />
-							<br />
+							<em>', $txt['check_all'], '</em> <input type="checkbox" class="input_check" onclick="invertAll(this, this.form, \'groups[]\');"><br>
+							<br>
 						</dd>';
 
 	// Options to choose moderators, specifiy as announcement board and choose whether to count posts here.
 	echo '
 						<dt>
-							<strong>', $txt['mboards_moderators'], ':</strong><br />
-							<span class="smalltext">', $txt['mboards_moderators_desc'], '</span><br />
+							<strong>', $txt['mboards_moderators'], ':</strong><br>
+							<span class="smalltext">', $txt['mboards_moderators_desc'], '</span><br>
 						</dt>
 						<dd>
-							<input type="text" name="moderators" id="moderators" value="', $context['board']['moderator_list'], '" size="30" class="input_text" />
+							<input type="text" name="moderators" id="moderators" value="', $context['board']['moderator_list'], '" size="30" class="input_text">
 							<div id="moderator_container"></div>
 						</dd>
 					</dl>
-					<hr class="hrcolor" />';
+					<hr class="hrcolor">';
 
 	if (empty($context['board']['is_recycle']) && empty($context['board']['topics']))
 		echo '
 					<dl class="settings">
 						<dt>
-							<strong', $context['board']['topics'] ? ' style="color: gray;"' : '', '>', $txt['mboards_redirect'], ':</strong><br />
-							<span class="smalltext">', $txt['mboards_redirect_desc'], '</span><br />
+							<strong', $context['board']['topics'] ? ' style="color: gray;"' : '', '>', $txt['mboards_redirect'], ':</strong><br>
+							<span class="smalltext">', $txt['mboards_redirect_desc'], '</span><br>
 						</dt>
 						<dd>
-							<input type="checkbox" id="redirect_enable" name="redirect_enable"', $context['board']['topics'] ? ' disabled="disabled"' : '', $context['board']['redirect'] != '' ? ' checked="checked"' : '', ' onclick="refreshOptions();" class="input_check" />
+							<input type="checkbox" id="redirect_enable" name="redirect_enable"', $context['board']['topics'] ? ' disabled="disabled"' : '', $context['board']['redirect'] != '' ? ' checked="checked"' : '', ' onclick="refreshOptions();" class="input_check">
 						</dd>
 					</dl>';
 
@@ -391,7 +391,7 @@ function template_modify_board()
 	if (empty($context['board']['is_recycle']) && !empty($context['board']['topics']))
 		echo '
 					<div class="information">
-						<strong>', $txt['mboards_redirect'],'</strong><br />
+						<strong>', $txt['mboards_redirect'],'</strong><br>
 						', $txt['mboards_redirect_disabled'], '
 					</div>';
 
@@ -401,11 +401,11 @@ function template_modify_board()
 					<div id="redirect_address_div">
 						<dl class="settings">
 							<dt>
-								<strong>', $txt['mboards_redirect_url'], ':</strong><br />
-								<span class="smalltext">', $txt['mboards_redirect_url_desc'], '</span><br />
+								<strong>', $txt['mboards_redirect_url'], ':</strong><br>
+								<span class="smalltext">', $txt['mboards_redirect_url_desc'], '</span><br>
 							</dt>
 							<dd>
-								<input type="text" name="redirect_address" value="', $context['board']['redirect'], '" size="40" class="input_text" />
+								<input type="text" name="redirect_address" value="', $context['board']['redirect'], '" size="40" class="input_text">
 							</dd>
 						</dl>
 					</div>';
@@ -415,11 +415,11 @@ function template_modify_board()
 					<div id="reset_redirect_div">
 						<dl class="settings">
 							<dt>
-								<strong>', $txt['mboards_redirect_reset'], ':</strong><br />
-								<span class="smalltext">', $txt['mboards_redirect_reset_desc'], '</span><br />
+								<strong>', $txt['mboards_redirect_reset'], ':</strong><br>
+								<span class="smalltext">', $txt['mboards_redirect_reset_desc'], '</span><br>
 							</dt>
 							<dd>
-								<input type="checkbox" name="reset_redirect" class="input_check" />
+								<input type="checkbox" name="reset_redirect" class="input_check">
 								<em>(', sprintf($txt['mboards_current_redirects'], $context['board']['posts']), ')</em>
 							</dd>
 						</dl>
@@ -430,11 +430,11 @@ function template_modify_board()
 					<div id="count_posts_div">
 						<dl class="settings">
 							<dt>
-								<strong>', $txt['mboards_count_posts'], ':</strong><br />
-								<span class="smalltext">', $txt['mboards_count_posts_desc'], '</span><br />
+								<strong>', $txt['mboards_count_posts'], ':</strong><br>
+								<span class="smalltext">', $txt['mboards_count_posts_desc'], '</span><br>
 							</dt>
 							<dd>
-								<input type="checkbox" name="count" ', $context['board']['count_posts'] ? ' checked="checked"' : '', ' class="input_check" />
+								<input type="checkbox" name="count" ', $context['board']['count_posts'] ? ' checked="checked"' : '', ' class="input_check">
 							</dd>
 						</dl>
 					</div>';
@@ -444,8 +444,8 @@ function template_modify_board()
 					<div id="board_theme_div">
 						<dl class="settings">
 							<dt>
-								<strong>', $txt['mboards_theme'], ':</strong><br />
-								<span class="smalltext">', $txt['mboards_theme_desc'], '</span><br />
+								<strong>', $txt['mboards_theme'], ':</strong><br>
+								<span class="smalltext">', $txt['mboards_theme_desc'], '</span><br>
 							</dt>
 							<dd>
 								<select name="boardtheme" id="boardtheme" onchange="refreshOptions();">
@@ -463,11 +463,11 @@ function template_modify_board()
 					<div id="override_theme_div">
 						<dl class="settings">
 							<dt>
-								<strong>', $txt['mboards_override_theme'], ':</strong><br />
-								<span class="smalltext">', $txt['mboards_override_theme_desc'], '</span><br />
+								<strong>', $txt['mboards_override_theme'], ':</strong><br>
+								<span class="smalltext">', $txt['mboards_override_theme_desc'], '</span><br>
 							</dt>
 							<dd>
-								<input type="checkbox" name="override_theme"', $context['board']['override_theme'] ? ' checked="checked"' : '', ' class="input_check" />
+								<input type="checkbox" name="override_theme"', $context['board']['override_theme'] ? ' checked="checked"' : '', ' class="input_check">
 							</dd>
 						</dl>
 					</div>';
@@ -476,31 +476,31 @@ function template_modify_board()
 		echo '<div class="information">', $txt['mboards_recycle_disabled_delete'], '</div>';
 
 	echo '
-					<input type="hidden" name="rid" value="', $context['redirect_location'], '" />
-					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />';
+					<input type="hidden" name="rid" value="', $context['redirect_location'], '">
+					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '">';
 
 	// If this board has no children don't bother with the next confirmation screen.
 	if ($context['board']['no_children'])
 		echo '
-					<input type="hidden" name="no_children" value="1" />';
+					<input type="hidden" name="no_children" value="1">';
 
 	if (isset($context['board']['is_new']))
 		echo '
-					<input type="hidden" name="cur_cat" value="', $context['board']['category'], '" />
-					<input type="submit" name="add" value="', $txt['mboards_new_board'], '" onclick="return !isEmptyText(this.form.board_name);" class="button_submit" />';
+					<input type="hidden" name="cur_cat" value="', $context['board']['category'], '">
+					<input type="submit" name="add" value="', $txt['mboards_new_board'], '" onclick="return !isEmptyText(this.form.board_name);" class="button_submit">';
 	else
 		echo '
-					<input type="submit" name="edit" value="', $txt['modify'], '" onclick="return !isEmptyText(this.form.board_name);" class="button_submit" />';
+					<input type="submit" name="edit" value="', $txt['modify'], '" onclick="return !isEmptyText(this.form.board_name);" class="button_submit">';
 
 	if (!isset($context['board']['is_new']) && empty($context['board']['is_recycle']))
 		echo '
-					<span', $context['board']['is_recycle'] ? ' style="visibility:hidden">' : '>', '<input type="submit" name="delete" value="', $txt['mboards_delete_board'], '" onclick="return confirm(\'', $txt['boardConfirm'], '\');"', ' class="button_submit" /></span>';
+					<span', $context['board']['is_recycle'] ? ' style="visibility:hidden">' : '>', '<input type="submit" name="delete" value="', $txt['mboards_delete_board'], '" onclick="return confirm(\'', $txt['boardConfirm'], '\');"', ' class="button_submit"></span>';
 	echo '
 				</div>
 			</div>
 		</form>
 	</div>
-	<br class="clear" />
+	<br class="clear">
 <script type="text/javascript" src="', $settings['default_theme_url'], '/scripts/suggest.js?fin20"></script>
 <script type="text/javascript"><!-- // --><![CDATA[
 	var oModeratorSuggest = new smc_AutoSuggest({
@@ -568,7 +568,7 @@ function template_confirm_board_delete()
 	echo '
 	<div id="manage_boards">
 		<form action="', $scripturl, '?action=admin;area=manageboards;sa=board2" method="post" accept-charset="', $context['character_set'], '">
-			<input type="hidden" name="boardid" value="', $context['board']['id'], '" />
+			<input type="hidden" name="boardid" value="', $context['board']['id'], '">
 
 			<div class="cat_bar">
 				<h3 class="catbg">', $txt['mboards_delete_board'], '</h3>
@@ -592,8 +592,8 @@ function template_confirm_board_delete()
 			<div class="windowbg">
 				<div class="content">
 					<p>
-						<label for="delete_action0"><input type="radio" id="delete_action0" name="delete_action" value="0" class="input_radio" checked="checked" />', $txt['mboards_delete_board_option1'], '</label><br />
-						<label for="delete_action1"><input type="radio" id="delete_action1" name="delete_action" value="1" class="input_radio"', empty($context['can_move_children']) ? ' disabled="disabled"' : '', ' />', $txt['mboards_delete_board_option2'], '</label>:
+						<label for="delete_action0"><input type="radio" id="delete_action0" name="delete_action" value="0" class="input_radio" checked="checked">', $txt['mboards_delete_board_option1'], '</label><br>
+						<label for="delete_action1"><input type="radio" id="delete_action1" name="delete_action" value="1" class="input_radio"', empty($context['can_move_children']) ? ' disabled="disabled"' : '', '>', $txt['mboards_delete_board_option2'], '</label>:
 						<select name="board_to" ', empty($context['can_move_children']) ? 'disabled="disabled"' : '', '>';
 
 	foreach ($context['board_order'] as $board)
@@ -604,15 +604,15 @@ function template_confirm_board_delete()
 	echo '
 						</select>
 					</p>
-					<input type="submit" name="delete" value="', $txt['mboards_delete_confirm'], '" class="button_submit" />
-					<input type="submit" name="cancel" value="', $txt['mboards_delete_cancel'], '" class="button_submit" />
-					<input type="hidden" name="confirmation" value="1" />
-					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
+					<input type="submit" name="delete" value="', $txt['mboards_delete_confirm'], '" class="button_submit">
+					<input type="submit" name="cancel" value="', $txt['mboards_delete_cancel'], '" class="button_submit">
+					<input type="hidden" name="confirmation" value="1">
+					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '">
 				</div>
 			</div>
 		</form>
 	</div>
-	<br class="clear" />';
+	<br class="clear">';
 }
 
 ?>

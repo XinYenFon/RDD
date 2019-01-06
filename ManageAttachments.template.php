@@ -44,16 +44,16 @@ function template_browse()
 		</div>
 		<div class="windowbg2">
 			<div class="content">
-				<a href="', $scripturl, '?action=admin;area=manageattachments;sa=browse">', $context['browse_type'] === 'attachments' ? '<img src="' . $settings['images_url'] . '/selected.gif" alt="&gt;" /> ' : '', $txt['attachment_manager_attachments'], '</a> |
-				<a href="', $scripturl, '?action=admin;area=manageattachments;sa=browse;avatars">', $context['browse_type'] === 'avatars' ? '<img src="' . $settings['images_url'] . '/selected.gif" alt="&gt;" /> ' : '', $txt['attachment_manager_avatars'], '</a> |
-				<a href="', $scripturl, '?action=admin;area=manageattachments;sa=browse;thumbs">', $context['browse_type'] === 'thumbs' ? '<img src="' . $settings['images_url'] . '/selected.gif" alt="&gt;" /> ' : '', $txt['attachment_manager_thumbs'], '</a>
+				<a href="', $scripturl, '?action=admin;area=manageattachments;sa=browse">', $context['browse_type'] === 'attachments' ? '<img src="' . $settings['images_url'] . '/selected.gif" alt="&gt;"> ' : '', $txt['attachment_manager_attachments'], '</a> |
+				<a href="', $scripturl, '?action=admin;area=manageattachments;sa=browse;avatars">', $context['browse_type'] === 'avatars' ? '<img src="' . $settings['images_url'] . '/selected.gif" alt="&gt;"> ' : '', $txt['attachment_manager_avatars'], '</a> |
+				<a href="', $scripturl, '?action=admin;area=manageattachments;sa=browse;thumbs">', $context['browse_type'] === 'thumbs' ? '<img src="' . $settings['images_url'] . '/selected.gif" alt="&gt;"> ' : '', $txt['attachment_manager_thumbs'], '</a>
 			</div>
 		</div>
 	</div>';
 
 	template_show_list('file_list');
 	echo '
-	<br class="clear" />';
+	<br class="clear">';
 
 }
 
@@ -83,7 +83,7 @@ function template_maintenance()
 			<div class="content">
 				<form action="', $scripturl, '?action=admin;area=manageattachments;sa=repair;', $context['session_var'], '=', $context['session_id'], '" method="post" accept-charset="', $context['character_set'], '">
 					<p>', $txt['attachment_integrity_check_desc'], '</p>
-					<input type="submit" name="submit" value="', $txt['attachment_check_now'], '" class="button_submit" />
+					<input type="submit" name="submit" value="', $txt['attachment_check_now'], '" class="button_submit">
 				</form>
 			</div>
 		</div>
@@ -93,34 +93,34 @@ function template_maintenance()
 		<div class="windowbg">
 			<div class="content">
 				<form action="', $scripturl, '?action=admin;area=manageattachments" method="post" accept-charset="', $context['character_set'], '" onsubmit="return confirm(\'', $txt['attachment_pruning_warning'], '\');" style="margin: 0 0 2ex 0;">
-					', $txt['attachment_remove_old'], ' <input type="text" name="age" value="25" size="4" class="input_text" /> ', $txt['days_word'], '<br />
-					', $txt['attachment_pruning_message'], ': <input type="text" name="notice" value="', $txt['attachment_delete_admin'], '" size="40" class="input_text" /><br />
-					<input type="submit" name="submit" value="', $txt['remove'], '" class="button_submit" />
-					<input type="hidden" name="type" value="attachments" />
-					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
-					<input type="hidden" name="sa" value="byAge" />
+					', $txt['attachment_remove_old'], ' <input type="text" name="age" value="25" size="4" class="input_text"> ', $txt['days_word'], '<br>
+					', $txt['attachment_pruning_message'], ': <input type="text" name="notice" value="', $txt['attachment_delete_admin'], '" size="40" class="input_text"><br>
+					<input type="submit" name="submit" value="', $txt['remove'], '" class="button_submit">
+					<input type="hidden" name="type" value="attachments">
+					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '">
+					<input type="hidden" name="sa" value="byAge">
 				</form>
-				<hr />
+				<hr>
 				<form action="', $scripturl, '?action=admin;area=manageattachments" method="post" accept-charset="', $context['character_set'], '" onsubmit="return confirm(\'', $txt['attachment_pruning_warning'], '\');" style="margin: 0 0 2ex 0;">
-					', $txt['attachment_remove_size'], ' <input type="text" name="size" id="size" value="100" size="4" class="input_text" /> ', $txt['kilobyte'], '<br />
-					', $txt['attachment_pruning_message'], ': <input type="text" name="notice" value="', $txt['attachment_delete_admin'], '" size="40" class="input_text" /><br />
-					<input type="submit" name="submit" value="', $txt['remove'], '" class="button_submit" />
-					<input type="hidden" name="type" value="attachments" />
-					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
-					<input type="hidden" name="sa" value="bySize" />
+					', $txt['attachment_remove_size'], ' <input type="text" name="size" id="size" value="100" size="4" class="input_text"> ', $txt['kilobyte'], '<br>
+					', $txt['attachment_pruning_message'], ': <input type="text" name="notice" value="', $txt['attachment_delete_admin'], '" size="40" class="input_text"><br>
+					<input type="submit" name="submit" value="', $txt['remove'], '" class="button_submit">
+					<input type="hidden" name="type" value="attachments">
+					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '">
+					<input type="hidden" name="sa" value="bySize">
 				</form>
-				<hr />
+				<hr>
 				<form action="', $scripturl, '?action=admin;area=manageattachments" method="post" accept-charset="', $context['character_set'], '" onsubmit="return confirm(\'', $txt['attachment_pruning_warning'], '\');" style="margin: 0 0 2ex 0;">
-					', $txt['attachment_manager_avatars_older'], ' <input type="text" name="age" value="45" size="4" class="input_text" /> ', $txt['days_word'], '<br />
-					<input type="submit" name="submit" value="', $txt['remove'], '" class="button_submit" />
-					<input type="hidden" name="type" value="avatars" />
-					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
-					<input type="hidden" name="sa" value="byAge" />
+					', $txt['attachment_manager_avatars_older'], ' <input type="text" name="age" value="45" size="4" class="input_text"> ', $txt['days_word'], '<br>
+					<input type="submit" name="submit" value="', $txt['remove'], '" class="button_submit">
+					<input type="hidden" name="type" value="avatars">
+					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '">
+					<input type="hidden" name="sa" value="byAge">
 				</form>
 			</div>
 		</div>
 	</div>
-	<br class="clear" />';
+	<br class="clear">';
 }
 
 function template_attachment_repair()
@@ -141,7 +141,7 @@ function template_attachment_repair()
 			</div>
 		</div>
 	</div>
-	<br class="clear" />';
+	<br class="clear">';
 	}
 
 	// What about if no errors were even found?
@@ -158,7 +158,7 @@ function template_attachment_repair()
 			</div>
 		</div>
 	</div>
-	<br class="clear" />';
+	<br class="clear">';
 	}
 	// Otherwise, I'm sad to say, we have a problem!
 	else
@@ -178,18 +178,18 @@ function template_attachment_repair()
 		{
 			if (!empty($number))
 			echo '
-					<input type="checkbox" name="to_fix[]" id="', $error, '" value="', $error, '" class="input_check" />
-					<label for="', $error, '">', sprintf($txt['attach_repair_' . $error], $number), '</label><br />';
+					<input type="checkbox" name="to_fix[]" id="', $error, '" value="', $error, '" class="input_check">
+					<label for="', $error, '">', sprintf($txt['attach_repair_' . $error], $number), '</label><br>';
 		}
 
-		echo '		<br />
-					<input type="submit" value="', $txt['repair_attachments_continue'], '" class="button_submit" />
-					<input type="submit" name="cancel" value="', $txt['repair_attachments_cancel'], '" class="button_submit" />
+		echo '		<br>
+					<input type="submit" value="', $txt['repair_attachments_continue'], '" class="button_submit">
+					<input type="submit" name="cancel" value="', $txt['repair_attachments_cancel'], '" class="button_submit">
 				</div>
 			</div>
 		</form>
 	</div>
-	<br class="clear" />';
+	<br class="clear">';
 	}
 }
 

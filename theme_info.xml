@@ -2,7 +2,7 @@
 <theme-info xmlns="http://www.simplemachines.org/xml/theme-info" xmlns:smf="http://www.simplemachines.org/">
 	<!-- For the id, always use something unique - put your name, a colon, and then the package name. -->
 	<id>smf:RDD</id>
-	<version>2.0.14</version>
+	<version>0.1.0</version>
 	<!-- Theme name, used purely for aesthetics. -->
 	<name>RDD</name>
 	<!-- Author: your email address or contact information. The name attribute is optional. -->

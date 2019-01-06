@@ -86,14 +86,14 @@ function template_html_above()
 
 	// The ?fin20 part of this link is just here to make sure browsers don't cache it wrongly.
 	echo '
-	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/index', $context['theme_variant'], '.css?fin20" />
-	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/responsive', $context['theme_variant'], '.css?fin20" />
-	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/all.css" />';
+	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/index', $context['theme_variant'], '.css?fin20">
+	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/responsive', $context['theme_variant'], '.css?fin20">
+	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/all.css">';
 
 	// RTL languages require an additional stylesheet.
 	if ($context['right_to_left'])
 		echo '
-	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/rtl.css" />';
+	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/rtl.css">';
 
 	// Here comes the JavaScript bits!
 	echo '
@@ -118,43 +118,43 @@ function template_html_above()
 	// ]]></script>';
 
 	echo '
-	<meta http-equiv="Content-Type" content="text/html; charset=', $context['character_set'], '" />
-	<meta name="description" content="', $context['page_title_html_safe'], '" />', !empty($context['meta_keywords']) ? '
-	<meta name="keywords" content="' . $context['meta_keywords'] . '" />' : '', '
+	<meta http-equiv="Content-Type" content="text/html; charset=', $context['character_set'], '">
+	<meta name="description" content="', $context['page_title_html_safe'], '">', !empty($context['meta_keywords']) ? '
+	<meta name="keywords" content="' . $context['meta_keywords'] . '">' : '', '
 	<title>', $context['page_title_html_safe'], '</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1" />';
+	<meta name="viewport" content="width=device-width, initial-scale=1">';
 
 	// Please don't index these Mr Robot.
 	if (!empty($context['robot_no_index']))
 		echo '
-	<meta name="robots" content="noindex" />';
+	<meta name="robots" content="noindex">';
 
 	// Present a canonical url for search engines to prevent duplicate content in their indices.
 	if (!empty($context['canonical_url']))
 		echo '
-	<link rel="canonical" href="', $context['canonical_url'], '" />';
+	<link rel="canonical" href="', $context['canonical_url'], '">';
 
 	// Show all the relative links, such as help, search, contents, and the like.
 	echo '
-	<link rel="help" href="', $scripturl, '?action=help" />
-	<link rel="search" href="', $scripturl, '?action=search" />
-	<link rel="contents" href="', $scripturl, '" />';
+	<link rel="help" href="', $scripturl, '?action=help">
+	<link rel="search" href="', $scripturl, '?action=search">
+	<link rel="contents" href="', $scripturl, '">';
 
 	// If RSS feeds are enabled, advertise the presence of one.
 	if (!empty($modSettings['xmlnews_enable']) && (!empty($modSettings['allow_guestAccess']) || $context['user']['is_logged']))
 		echo '
-	<link rel="alternate" type="application/rss+xml" title="', $context['forum_name_html_safe'], ' - ', $txt['rss'], '" href="', $scripturl, '?type=rss;action=.xml" />';
+	<link rel="alternate" type="application/rss+xml" title="', $context['forum_name_html_safe'], ' - ', $txt['rss'], '" href="', $scripturl, '?type=rss;action=.xml">';
 
 	// If we're viewing a topic, these should be the previous and next topics, respectively.
 	if (!empty($context['current_topic']))
 		echo '
-	<link rel="prev" href="', $scripturl, '?topic=', $context['current_topic'], '.0;prev_next=prev" />
-	<link rel="next" href="', $scripturl, '?topic=', $context['current_topic'], '.0;prev_next=next" />';
+	<link rel="prev" href="', $scripturl, '?topic=', $context['current_topic'], '.0;prev_next=prev">
+	<link rel="next" href="', $scripturl, '?topic=', $context['current_topic'], '.0;prev_next=next">';
 
 	// If we're in a board, or a topic for that matter, the index will be the board's index.
 	if (!empty($context['current_board']))
 		echo '
-	<link rel="index" href="', $scripturl, '?board=', $context['current_board'], '.0" />';
+	<link rel="index" href="', $scripturl, '?board=', $context['current_board'], '.0">';
 
 	// Output any remaining HTML headers. (from mods, maybe?)
 	echo $context['html_headers'];
@@ -173,11 +173,11 @@ function template_body_above()
 	<div id="header"><div class="frame">
 		<div id="top_section">
 			<h1 class="forumtitle">
-				<a href="', $scripturl, '">', empty($context['header_logo_url_html_safe']) ? $context['forum_name'] : '<img src="' . $context['header_logo_url_html_safe'] . '" alt="' . $context['forum_name'] . '" />', '</a>
+				<a href="', $scripturl, '">', empty($context['header_logo_url_html_safe']) ? $context['forum_name'] : '<img src="' . $context['header_logo_url_html_safe'] . '" alt="' . $context['forum_name'] . '">', '</a>
 			</h1>';
 
 	echo '
-			', empty($settings['site_slogan']) ? '<img id="smflogo" src="' . $settings['images_url'] . '/smflogo.png" alt="Simple Machines Forum" title="Simple Machines Forum" />' : '<div id="siteslogan" class="floatright">' . $settings['site_slogan'] . '</div>', '
+			', empty($settings['site_slogan']) ? '<img id="smflogo" src="' . $settings['images_url'] . '/smflogo.png" alt="Simple Machines Forum" title="Simple Machines Forum">' : '<div id="siteslogan" class="floatright">' . $settings['site_slogan'] . '</div>', '
 		</div>
 		<div id="upper_section" class="middletext"', empty($options['collapse_header']) ? '' : ' style="display: none;"', '>
 			<div class="title_barIC">';
@@ -214,14 +214,14 @@ function template_body_above()
 					<li>', $context['current_time'], '</li>
 				</ul>
 		</div>
-		<hr class="hrcolor" />';
+		<hr class="hrcolor">';
 	}
 	// Otherwise they're a guest - this time ask them to either register or login - lazy bums...
 	elseif (!empty($context['show_login_bar']))
 	{
 		echo '
 				<div class="titlebg2">', sprintf($txt['welcome_guest'], $txt['guest_title']), '</div>
-				<hr class="hrcolor" />';
+				<hr class="hrcolor">';
 	}
 
 	echo '
@@ -236,33 +236,33 @@ function template_body_above()
 			
 	echo '
 				<form id="search_form" action="', $scripturl, '?action=search2" method="post" accept-charset="', $context['character_set'], '">
-					<input type="submit" name="submit" value="', $txt['search'], '" class="button_submit floatright" style="margin-left: 3px;" />&nbsp;
-					<input type="text" name="search" value="" class="input_text floatright" />
-					<input type="hidden" name="advanced" value="0" />';
+					<input type="submit" name="submit" value="', $txt['search'], '" class="button_submit floatright" style="margin-left: 3px;">&nbsp;
+					<input type="text" name="search" value="" class="input_text floatright">
+					<input type="hidden" name="advanced" value="0">';
 
 	// Search within current topic?
 	if (!empty($context['current_topic']))
 		echo '
-					<input type="hidden" name="topic" value="', $context['current_topic'], '" />';
+					<input type="hidden" name="topic" value="', $context['current_topic'], '">';
 	// If we're on a certain board, limit it to this board ;).
 	elseif (!empty($context['current_board']))
 		echo '
-					<input type="hidden" name="brd[', $context['current_board'], ']" value="', $context['current_board'], '" />';
+					<input type="hidden" name="brd[', $context['current_board'], ']" value="', $context['current_board'], '">';
 
 	echo '</form>
-		<br class="clear" />';
+		<br class="clear">';
 
 	echo '
 				</div>
 			</div>
 		</div>
-		<br class="clear" />';
+		<br class="clear">';
 
 	// Show the menu here, according to the menu sub template.
 	template_menu();
 
 	echo '
-		<br class="clear" />
+		<br class="clear">
 	</div>';
 
 	// The main content should go here.
