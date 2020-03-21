@@ -79,12 +79,6 @@ input, button, select, textarea
 	padding: 7px;
 }
 
-/* Select elements look horrible with the extra padding, so leave them unpadded. */
-select
-{
-	padding: 4px;
-}
-
 /* Add some padding to the options instead. */
 select option
 {
@@ -430,6 +424,11 @@ tr.catbg th a:link, tr.catbg th a:visited, tr.catbg2 td a:link, tr.catbg2 td a:v
 {
 	color: #fff;
 }
+.catbg select
+{
+	height: 1.5em;
+	font-size: 0.85em;
+}
 
 /* Alternating backgrounds for posts, and several other sections of the forum. */
 .windowbg, #preview_body, .lockedbg
@@ -503,17 +502,15 @@ div.pagesection div.floatright input
 /* All the signatures used in the forum.  If your forum users use Mozilla, Opera, or Safari, you might add max-height here ;). */
 .signature, .attachments
 {
-	width: 98%;
 	overflow: auto;
 	clear: right;
-	padding: 1em 0 3px 0;
+	padding: 1em;
 	border-top: 1px solid #aaa;
 	line-height: 1.4em;
 	font-size: 0.85em;
 }
 .custom_fields_above_signature
 {
-	width: 98%;
 	clear: right;
 	padding: 1em 0 3px 0;
 	border-top: 1px solid #aaa;
@@ -974,6 +971,10 @@ table.table_grid thead tr.catbg th
 .buttonlist ul li a.active
 {
 	font-weight: bold;
+}
+.buttonlist ul li:last-of-type a
+{
+	margin-right: 0;
 }
 .align_top ul li a, .align_bottom ul li a
 {
@@ -2475,7 +2476,7 @@ dl
 }
 .signature, .custom_fields_above_signature
 {
-	border-top: 1px #ccc solid;
+	border-top: 1px solid #8e0000;
 }
 .signature h5
 {

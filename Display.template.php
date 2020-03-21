@@ -7,7 +7,7 @@
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
  *
- * @version 2.0
+ * @version 2.0.16
  */
 
 function template_main()
@@ -587,13 +587,13 @@ function template_main()
 		// Can the user modify the contents of this post? (Also show quick-edit here as well)
 		if ($message['can_modify'])
 			echo '
-									<li class="quick_modify_button"><a id="modify_button_', $message['id'], '" onclick="oQuickModify.modifyMsg(\'', $message['id'], '\')"><i class="fa fa-fw fa-spin fa-cog"></i> Quick Modify</a></li>
-									<li class="modify_button"><a href="', $scripturl, '?action=post;msg=', $message['id'], ';topic=', $context['current_topic'], '.', $context['start'], '"><i class="fa fa-fw fa-pencil"></i> ', $txt['modify'], '</a></li>';
+									<li class="quick_modify_button"><a id="modify_button_', $message['id'], '" onclick="oQuickModify.modifyMsg(\'', $message['id'], '\')"><i class="fas fa-fw fa-edit"></i> Quick Modify</a></li>
+									<li class="modify_button"><a href="', $scripturl, '?action=post;msg=', $message['id'], ';topic=', $context['current_topic'], '.', $context['start'], '"><i class="fas fa-fw fa-pen"></i> ', $txt['modify'], '</a></li>';
 
 		// How about... even... remove it entirely?!
 		if ($message['can_remove'])
 			echo '
-									<li class="remove_button"><a href="', $scripturl, '?action=deletemsg;topic=', $context['current_topic'], '.', $context['start'], ';msg=', $message['id'], ';', $context['session_var'], '=', $context['session_id'], '" onclick="return confirm(\'', $txt['remove_message'], '?\');"><i class="fa fa-fw fa-remove"></i> ', $txt['remove'], '</a></li>';
+									<li class="remove_button"><a href="', $scripturl, '?action=deletemsg;topic=', $context['current_topic'], '.', $context['start'], ';msg=', $message['id'], ';', $context['session_var'], '=', $context['session_id'], '" onclick="return confirm(\'', $txt['remove_message'], '?\');"><i class="fas fa-fw fa-trash-alt"></i> ', $txt['remove'], '</a></li>';
 
 		// Maybe they want to report this post to the moderator(s)?
 		if ($context['can_report_moderator'])

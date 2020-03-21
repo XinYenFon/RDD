@@ -7,7 +7,7 @@
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
  *
- * @version 2.0.14
+ * @version 2.0.16
  */
 
 // Template for the profile side bar - goes before any other profile template.

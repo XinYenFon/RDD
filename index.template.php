@@ -99,7 +99,13 @@ function template_html_above()
 	echo '
 	<script type="text/javascript" src="', $settings['default_theme_url'], '/scripts/script.js?fin20"></script>
 	<script type="text/javascript" src="', $settings['theme_url'], '/scripts/theme.js?fin20"></script>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="', $settings['theme_url'], '/scripts/jquery.js?fin20"></script>
+	<script type="text/javascript" src="', $settings['theme_url'], '/scripts/superfish.js?fin20"></script>
+	<script>
+		jQuery(document).ready(function() {
+			jQuery("ul.dropmenu").superfish();
+		});
+	</script>
 	<script type="text/javascript"><!-- // --><![CDATA[
 		var smf_theme_url = "', $settings['theme_url'], '";
 		var smf_default_theme_url = "', $settings['default_theme_url'], '";
@@ -363,8 +369,10 @@ function template_menu()
 	global $context, $settings, $options, $scripturl, $txt;
 
 	echo '
+		<span class="ex_open_menu"></span>
 		<div id="main_menu">
-			<ul class="dropmenu" id="menu_nav">';
+			<ul class="dropmenu" id="menu_nav">
+			<span class="ex_close_menu"></span>';
 
 	foreach ($context['menu_buttons'] as $act => $button)
 	{
@@ -417,7 +425,17 @@ function template_menu()
 
 	echo '
 			</ul>
-		</div>';
+		</div>
+		<script>
+			$( ".ex_open_menu" ).click(function() {
+				$( "#main_menu" ).toggle(function() {
+				});
+			});
+			$( ".ex_close_menu" ).click(function() {
+				$( "#main_menu" ).toggle(function() {
+				});
+			});
+		</script>';
 }
 
 // Generate a strip of buttons.

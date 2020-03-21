@@ -7,7 +7,7 @@
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
  *
- * @version 2.0.15
+ * @version 2.0.16
  */
 
 // This is just the basic "login" form.
