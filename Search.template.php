@@ -297,7 +297,7 @@ function template_results()
 
 			echo '
 			<div class="search_results_posts">
-			<div class="', $message['alternate'] == 0 ? 'windowbg' : 'windowbg2', ' core_posts">
+			<div class="windowbg core_posts">
 				<div class="content flow_auto">';
 
 			foreach ($topic['matches'] as $message)
@@ -435,7 +435,7 @@ function template_results()
 			{
 				echo '
 			<div class="search_results_posts">
-				<div class="', $message['alternate'] == 0 ? 'windowbg' : 'windowbg2', ' core_posts">
+				<div class="windowbg core_posts">
 					<div class="content">
 						<div class="counter">', $message['counter'], '</div>
 						<div class="topic_details">

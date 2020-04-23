@@ -42,7 +42,7 @@ function template_browse()
 		<div class="cat_bar">
 			<h3 class="catbg">', $txt['attachment_manager_browse_files'], '</h3>
 		</div>
-		<div class="windowbg2">
+		<div class="windowbg">
 			<div class="content">
 				<a href="', $scripturl, '?action=admin;area=manageattachments;sa=browse">', $context['browse_type'] === 'attachments' ? '<img src="' . $settings['images_url'] . '/selected.gif" alt="&gt;"> ' : '', $txt['attachment_manager_attachments'], '</a> |
 				<a href="', $scripturl, '?action=admin;area=manageattachments;sa=browse;avatars">', $context['browse_type'] === 'avatars' ? '<img src="' . $settings['images_url'] . '/selected.gif" alt="&gt;"> ' : '', $txt['attachment_manager_avatars'], '</a> |

@@ -176,10 +176,9 @@ function template_folder()
 
 		while ($message = $context['get_pmessage']('message'))
 		{
-			$window_class = $message['alternate'] == 0 ? 'windowbg' : 'windowbg2';
 
 			echo '
-	<div class="', $window_class, ' clear">
+	<div class="windowbg clear">
 		<div class="poster">
 			<a id="msg', $message['id'], '"></a>
 			<h4>';
@@ -558,15 +557,14 @@ function template_subject_list()
 	<tbody>';
 	if (!$context['show_delete'])
 		echo '
-		<tr class="windowbg2">
+		<tr class="windowbg">
 			<td colspan="5">', $txt['msg_alert_none'], '</td>
 		</tr>';
-	$next_alternate = false;
 
 	while ($message = $context['get_pmessage']('subject'))
 	{
 		echo '
-		<tr class="', $next_alternate ? 'windowbg' : 'windowbg2', '">
+		<tr class="windowbg">
 			<td align="center" width="4%">
 			<script type="text/javascript"><!-- // --><![CDATA[
 				currentLabels[', $message['id'], '] = {';
@@ -591,7 +589,6 @@ function template_subject_list()
 			<td>', ($context['from_or_to'] == 'from' ? $message['member']['link'] : (empty($message['recipients']['to']) ? '' : implode(', ', $message['recipients']['to']))), '</td>
 			<td align="center" width="4%"><input type="checkbox" name="pms[]" id="deletelisting', $message['id'], '" value="', $message['id'], '"', $message['is_selected'] ? ' checked="checked"' : '', ' onclick="if (document.getElementById(\'deletedisplay', $message['id'], '\')) document.getElementById(\'deletedisplay', $message['id'], '\').checked = this.checked;" class="input_check"></td>
 		</tr>';
-			$next_alternate = !$next_alternate;
 	}
 
 	echo '
@@ -791,7 +788,6 @@ function template_search_results()
 	</thead>
 	<tbody>';
 
-	$alternate = true;
 	// Print each message out...
 	foreach ($context['personal_messages'] as $message)
 	{
@@ -819,7 +815,7 @@ function template_search_results()
 					echo '
 				</h3>
 			</div>
-			<div class="windowbg', $alternate ? '2': '', '">
+			<div class="windowbg">
 				<div class="content">
 					', $message['body'], '
 					<p class="pm_reply righttext middletext">';
@@ -849,14 +845,12 @@ function template_search_results()
 		{
 			// !!! No context at all of the search?
 			echo '
-			<tr class="', $alternate ? 'windowbg' : 'windowbg2', '" valign="top">
+			<tr class="windowbg" valign="top">
 				<td>', $message['time'], '</td>
 				<td>', $message['link'], '</td>
 				<td>', $message['member']['link'], '</td>
 			</tr>';
 		}
-
-		$alternate = !$alternate;
 	}
 
 	// Finish off the page...
@@ -1048,7 +1042,7 @@ function template_send()
 	<div class="cat_bar">
 		<h3 class="catbg">', $txt['subject'], ': ', $context['quoted_message']['subject'], '</h3>
 	</div>
-	<div class="windowbg2">
+	<div class="windowbg">
 		<div class="content">
 			<div class="clear">
 				<span class="smalltext floatright">', $txt['on'], ': ', $context['quoted_message']['time'], '</span>
@@ -1175,26 +1169,24 @@ function template_labels()
 		<tbody>';
 	if (count($context['labels']) < 2)
 		echo '
-			<tr class="windowbg2">
+			<tr class="windowbg">
 				<td colspan="2" align="center">', $txt['pm_labels_no_exist'], '</td>
 			</tr>';
 	else
 	{
-		$alternate = true;
 		foreach ($context['labels'] as $label)
 		{
 			if ($label['id'] == -1)
 				continue;
 
 				echo '
-			<tr class="', $alternate ? 'windowbg2' : 'windowbg', '">
+			<tr class="windowbg">
 				<td>
 					<input type="text" name="label_name[', $label['id'], ']" value="', $label['name'], '" size="30" maxlength="30" class="input_text">
 				</td>
 				<td width="4%" align="center"><input type="checkbox" class="input_check" name="delete_label[', $label['id'], ']"></td>
 			</tr>';
 
-			$alternate = !$alternate;
 		}
 	}
 	echo '
@@ -1338,17 +1330,16 @@ function template_rules()
 
 	if (empty($context['rules']))
 		echo '
-			<tr class="windowbg2">
+			<tr class="windowbg">
 				<td colspan="2" align="center">
 					', $txt['pm_rules_none'], '
 				</td>
 			</tr>';
 
-	$alternate = false;
 	foreach ($context['rules'] as $rule)
 	{
 		echo '
-			<tr class="', $alternate ? 'windowbg' : 'windowbg2', '">
+			<tr class="windowbg">
 				<td>
 					<a href="', $scripturl, '?action=pm;sa=manrules;add;rid=', $rule['id'], '">', $rule['name'], '</a>
 				</td>
@@ -1356,7 +1347,6 @@ function template_rules()
 					<input type="checkbox" name="delrule[', $rule['id'], ']" class="input_check">
 				</td>
 			</tr>';
-		$alternate = !$alternate;
 	}
 
 	echo '

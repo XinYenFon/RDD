@@ -104,7 +104,7 @@ function template_admin()
 		</div>';
 
 	echo '
-		<div class="windowbg2 clear_right">
+		<div class="windowbg clear_right">
 			<div class="content">
 				<ul id="quick_tasks" class="flow_hidden">';
 
@@ -221,7 +221,7 @@ function template_credits()
 				', $txt['support_resources'], '
 			</h3>
 		</div>
-		<div class="windowbg2">
+		<div class="windowbg">
 			<div class="content">
 				<p>', $txt['support_resources_p1'], '</p>
 				<p>', $txt['support_resources_p2'], '</p>
@@ -235,7 +235,7 @@ function template_credits()
 				<a href="', $scripturl, '?action=helpadmin;help=latest_support" onclick="return reqWin(this.href);" class="help"><i class="fas fa-question-circle"></i></a> ', $txt['support_latest'], '
 			</h3>
 		</div>
-		<div class="windowbg2">
+		<div class="windowbg">
 			<div class="content">
 				<div id="latestSupport">', $txt['support_latest_fetch'], '</div>
 			</div>
@@ -373,28 +373,28 @@ function template_view_versions()
 
 	// The current version of the core SMF package.
 	echo '
-					<tr>
-						<td class="windowbg">
+					<tr  class="windowbg">
+						<td>
 							', $txt['admin_smfpackage'], '
 						</td>
-						<td class="windowbg">
+						<td>
 							<em id="yourSMF">', $context['forum_version'], '</em>
 						</td>
-						<td class="windowbg">
+						<td>
 							<em id="currentSMF">??</em>
 						</td>
 					</tr>';
 
 	// Now list all the source file versions, starting with the overall version (if all match!).
 	echo '
-					<tr>
-						<td class="windowbg">
+					<tr class="windowbg">
+						<td>
 							<a href="#" id="Sources-link">', $txt['dvc_sources'], '</a>
 						</td>
-						<td class="windowbg">
+						<td>
 							<em id="yourSources">??</em>
 						</td>
-						<td class="windowbg">
+						<td>
 							<em id="currentSources">??</em>
 						</td>
 					</tr>
@@ -407,14 +407,14 @@ function template_view_versions()
 	// Loop through every source file displaying its version - using javascript.
 	foreach ($context['file_versions'] as $filename => $version)
 		echo '
-				<tr>
-					<td class="windowbg2" width="50%" style="padding-left: 3ex;">
+				<tr class="windowbg">
+					<td width="50%" style="padding-left: 3ex;">
 						', $filename, '
 					</td>
-					<td class="windowbg2" width="25%">
+					<td width="25%">
 						<em id="yourSources', $filename, '">', $version, '</em>
 					</td>
-					<td class="windowbg2" width="25%">
+					<td width="25%">
 						<em id="currentSources', $filename, '">??</em>
 					</td>
 				</tr>';
@@ -426,14 +426,14 @@ function template_view_versions()
 
 			<table width="100%" class="table_grid">
 				<tbody>
-					<tr>
-						<td class="windowbg" width="50%">
+					<tr class="windowbg">
+						<td width="50%">
 							<a href="#" id="Default-link">', $txt['dvc_default'], '</a>
 						</td>
-						<td class="windowbg" width="25%">
+						<td width="25%">
 							<em id="yourDefault">??</em>
 						</td>
-						<td class="windowbg" width="25%">
+						<td width="25%">
 							<em id="currentDefault">??</em>
 						</td>
 					</tr>
@@ -445,14 +445,14 @@ function template_view_versions()
 
 	foreach ($context['default_template_versions'] as $filename => $version)
 		echo '
-					<tr>
-						<td class="windowbg2" width="50%" style="padding-left: 3ex;">
+					<tr class="windowbg">
+						<td width="50%" style="padding-left: 3ex;">
 							', $filename, '
 						</td>
-						<td class="windowbg2" width="25%">
+						<td width="25%">
 							<em id="yourDefault', $filename, '">', $version, '</em>
 						</td>
-						<td class="windowbg2" width="25%">
+						<td width="25%">
 							<em id="currentDefault', $filename, '">??</em>
 						</td>
 					</tr>';
@@ -464,14 +464,14 @@ function template_view_versions()
 
 			<table width="100%" class="table_grid">
 				<tbody>
-					<tr>
-						<td class="windowbg" width="50%">
+					<tr class="windowbg">
+						<td width="50%">
 							<a href="#" id="Languages-link">', $txt['dvc_languages'], '</a>
 						</td>
-						<td class="windowbg" width="25%">
+						<td width="25%">
 							<em id="yourLanguages">??</em>
 						</td>
-						<td class="windowbg" width="25%">
+						<td width="25%">
 							<em id="currentLanguages">??</em>
 						</td>
 					</tr>
@@ -485,14 +485,14 @@ function template_view_versions()
 	{
 		foreach ($files as $filename => $version)
 			echo '
-					<tr>
-						<td class="windowbg2" width="50%" style="padding-left: 3ex;">
+					<tr class="windowbg">
+						<td width="50%" style="padding-left: 3ex;">
 							', $filename, '.<em>', $language, '</em>.php
 						</td>
-						<td class="windowbg2" width="25%">
+						<td width="25%">
 							<em id="your', $filename, '.', $language, '">', $version, '</em>
 						</td>
-						<td class="windowbg2" width="25%">
+						<td width="25%">
 							<em id="current', $filename, '.', $language, '">??</em>
 						</td>
 					</tr>';
@@ -508,14 +508,14 @@ function template_view_versions()
 		echo '
 			<table width="100%" class="table_grid">
 				<tbody>
-					<tr>
-						<td class="windowbg" width="50%">
+					<tr class="windowbg">
+						<td width="50%">
 							<a href="#" id="Templates-link">', $txt['dvc_templates'], '</a>
 						</td>
-						<td class="windowbg" width="25%">
+						<td width="25%">
 							<em id="yourTemplates">??</em>
 						</td>
-						<td class="windowbg" width="25%">
+						<td width="25%">
 							<em id="currentTemplates">??</em>
 						</td>
 					</tr>
@@ -527,14 +527,14 @@ function template_view_versions()
 
 		foreach ($context['template_versions'] as $filename => $version)
 			echo '
-					<tr>
-						<td class="windowbg2" width="50%" style="padding-left: 3ex;">
+					<tr class="windowbg">
+						<td width="50%" style="padding-left: 3ex;">
 							', $filename, '
 						</td>
-						<td class="windowbg2" width="25%">
+						<td width="25%">
 							<em id="yourTemplates', $filename, '">', $version, '</em>
 						</td>
-						<td class="windowbg2" width="25%">
+						<td width="25%">
 							<em id="currentTemplates', $filename, '">??</em>
 						</td>
 					</tr>';
@@ -586,7 +586,7 @@ function template_edit_censored()
 					', $txt['admin_censored_words'], '
 				</h3>
 			</div>
-			<div class="windowbg2">
+			<div class="windowbg">
 				<div class="content">
 					<p>', $txt['admin_censored_where'], '</p>';
 
@@ -809,7 +809,7 @@ function template_show_settings()
 		{
 			$is_open = true;
 			echo '
-			<div class="windowbg2">
+			<div class="windowbg">
 				<div class="content">
 					<dl class="settings">';
 		}
@@ -1368,11 +1368,10 @@ function template_core_features()
 				</h3>
 			</div>';
 
-	$alternate = true;
 	foreach ($context['features'] as $id => $feature)
 	{
 		echo '
-			<div class="windowbg', $alternate ? '2' : '', '">
+			<div class="windowbg">
 				<div class="content features">
 					<img class="features_image png_fix" src="', $settings['default_images_url'], '/admin/feature_', $id, '.png" alt="', $feature['title'], '">
 					<div class="features_switch" id="js_feature_', $id, '" style="display: none;">
@@ -1389,8 +1388,6 @@ function template_core_features()
 				</div>
 				<span class="botslice clear_right"><span></span></span>
 			</div>';
-
-		$alternate = !$alternate;
 	}
 
 	echo '
@@ -1469,7 +1466,7 @@ function template_add_language()
 
 		foreach ($context['smf_languages'] as $language)
 			echo '
-						<tr class="windowbg2">
+						<tr class="windowbg">
 							<td align="left">', $language['name'], '</td>
 							<td align="left">', $language['description'], '</td>
 							<td align="left">', $language['version'], '</td>
@@ -1574,17 +1571,16 @@ function template_download_language()
 	{
 		$count = 0;
 		echo '
-				<tr class="titlebg">
+				<tr class="title_bar">
 					<td colspan="4">
 						<img src="', $settings['images_url'], '/sort_down.gif" id="toggle_image_', $theme, '" alt="*">&nbsp;', isset($context['theme_names'][$theme]) ? $context['theme_names'][$theme] : $theme, '
 					</td>
 				</tr>';
 
-		$alternate = false;
 		foreach ($group as $file)
 		{
 			echo '
-				<tr class="windowbg', $alternate ? '2' : '', '" id="', $theme, '-', $count++, '">
+				<tr class="windowbg" id="', $theme, '-', $count++, '">
 					<td>
 						<strong>', $file['name'], '</strong><br>
 						<span class="smalltext">', $txt['languages_download_dest'], ': ', $file['destination'], '</span>
@@ -1599,7 +1595,6 @@ function template_download_language()
 						<input type="checkbox" name="copy_file[]" value="', $file['generaldest'], '"', ($file['default_copy'] ? ' checked="checked"' : ''), ' class="input_check">
 					</td>
 				</tr>';
-			$alternate = !$alternate;
 		}
 	}
 
@@ -1817,7 +1812,7 @@ function template_modify_language_entries()
 	if (!empty($context['file_entries']))
 	{
 		echo '
-			<div class="windowbg2">
+			<div class="windowbg">
 				<div class="content">
 					<dl class="settings">';
 
@@ -2104,18 +2099,18 @@ function template_edit_custom_action()
 	echo '
 	<form action="', $scripturl, '?action=admin;area=featuresettings;sa=actionedit', $context['id_action'] ? ';id_action=' . $context['id_action'] : '', '" method="post" accept-charset="', $context['character_set'], '">
 		<table width="80%" align="center" cellpadding="3" cellspacing="0" border="0" class="tborder">
-			<tr class="titlebg">
+			<tr class="title_bar">
 				<td colspan="2">', $context['page_title'], '</td>
 			</tr><tr class="catbg">
 				<td colspan="2">', $txt['custom_action_settings'], ':</td>
-			</tr><tr class="windowbg2">
+			</tr><tr class="windowbg">
 				<td width="50%">
 					<b>', $txt['custom_action_name'], ':</b>
 				</td>
 				<td width="50%">
 					<input type="text" name="name" value="', $context['action']['name'], '" size="20" maxlength="255">
 				</td>
-			</tr><tr class="windowbg2">
+			</tr><tr class="windowbg">
 				<td width="50%">
 					<b>', $txt['custom_action_url'], ':</b>
 					<div class="smalltext">', $txt['custom_action_url_desc'], '</div>
@@ -2123,7 +2118,7 @@ function template_edit_custom_action()
 				<td width="50%">
 					<input type="text" name="url" value="', $context['action']['url'], '" size="20" maxlength="40">
 				</td>
-			</tr><tr class="windowbg2">
+			</tr><tr class="windowbg">
 				<td width="50%">
 					<b>', $txt['custom_action_type'], ':</b>
 				</td>
@@ -2134,7 +2129,7 @@ function template_edit_custom_action()
 						<option value="2" ', $context['action']['type'] == 2 ? 'selected="selected"' : '', '>', $txt['custom_action_type_2'], '</option>
 					</select>
 				</td>
-			</tr><tr class="windowbg2">
+			</tr><tr class="windowbg">
 				<td width="50%">
 					<b>', $txt['custom_action_permissions_mode'], ':</b>
 				</td>
@@ -2148,14 +2143,14 @@ function template_edit_custom_action()
 						', theme_inline_permissions('ca_' . ($context['id_action'] ? $context['id_action'] : 'temp')), '
 					</div>
 				</td>
-			</tr>', !$context['id_parent'] ? '<tr class="windowbg2">
+			</tr>', !$context['id_parent'] ? '<tr class="windowbg">
 				<td width="50%">
 					<b>' . $txt['custom_action_menu'] . ':</b>
 				</td>
 				<td width="50%">
 					<input type="checkbox" name="menu" ' . ($context['action']['menu'] ? 'checked="checked"' : '') . ' class="check">
 				</td>
-			</tr>' : '', '<tr class="windowbg2">
+			</tr>' : '', '<tr class="windowbg">
 				<td width="50%">
 					<b>', $txt['custom_action_enabled'], ':</b>
 				</td>
@@ -2164,7 +2159,7 @@ function template_edit_custom_action()
 				</td>
 			</tr><tr class="catbg">
 				<td colspan="2">', $txt['custom_action_settings_code'], ':</td>
-			</tr><tr class="windowbg2"  valign="top" id="header_box">
+			</tr><tr class="windowbg"  valign="top" id="header_box">
 				<td width="50%" id="header_text">
 					<b>', $txt['custom_action_header'], ':</b>
 					<div class="smalltext">', $txt['custom_action_header_desc'], '</div>
@@ -2176,7 +2171,7 @@ function template_edit_custom_action()
 				<td width="50%">
 					<textarea name="header" rows="10" cols="60">', $context['action']['header'], '</textarea>
 				</td>
-			</tr><tr class="windowbg2" valign="top">
+			</tr><tr class="windowbg" valign="top">
 				<td width="50%" id="body_text">
 					<b>', $txt['custom_action_body'], ':</b>
 					<div class="smalltext">', $txt['custom_action_body_desc'], '</div>
@@ -2192,7 +2187,7 @@ function template_edit_custom_action()
 				<td width="50%">
 					<textarea name="body" rows="20" cols="60">', $context['action']['body'], '</textarea>
 				</td>
-			</tr><tr class="titlebg">
+			</tr><tr class="title_bar">
 				<td colspan="4" align="center">
 					<input type="submit" name="save" value="', $txt['save'], '">';
 

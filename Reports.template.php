@@ -97,7 +97,6 @@ function template_main()
 
 		// Now do each row!
 		$row_number = 0;
-		$alternate = false;
 		foreach ($table['data'] as $row)
 		{
 			if ($row_number == 0 && !empty($table['shading']['top']))
@@ -105,7 +104,7 @@ function template_main()
 				<tr class="windowbg table_caption">';
 			else
 				echo '
-				<tr class="', !empty($row[0]['separator']) ? 'catbg' : ($alternate ? 'windowbg' : 'windowbg2'), '" valign="top">';
+				<tr class="', !empty($row[0]['separator']) ? 'catbg' : 'windowbg', '" valign="top">';
 
 			// Now do each column.
 			$column_number = 0;
@@ -141,7 +140,6 @@ function template_main()
 				</tr>';
 
 			$row_number++;
-			$alternate = !$alternate;
 		}
 		echo '
 			</tbody>
@@ -187,16 +185,15 @@ function template_print()
 				</tr>';
 
 		// Now do each row!
-		$alternate = false;
 		$row_number = 0;
 		foreach ($table['data'] as $row)
 		{
 			if ($row_number == 0 && !empty($table['shading']['top']))
 				echo '
-				<tr class="titlebg" valign="top">';
+				<tr class="title_bar" valign="top">';
 			else
 				echo '
-				<tr class="', $alternate ? 'windowbg' : 'windowbg2', '" valign="top">';
+				<tr class="windowbg" valign="top">';
 
 			// Now do each column!!
 			$column_number = 0;
@@ -231,7 +228,6 @@ function template_print()
 				</tr>';
 
 			$row_number++;
-			$alternate = !$alternate;
 		}
 		echo '
 			</table>

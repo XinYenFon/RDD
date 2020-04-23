@@ -458,10 +458,8 @@ function template_user_subscription()
 			</div>';
 
 		// Print out all the subscriptions.
-		$alternate = false;
 		foreach ($context['subscriptions'] as $id => $subscription)
 		{
-			$alternate = !$alternate;
 
 			// Ignore the inactive ones...
 			if (empty($subscription['active']))
@@ -471,7 +469,7 @@ function template_user_subscription()
 			<div class="cat_bar">
 				<h3 class="catbg">', $subscription['name'], '</h3>
 			</div>
-			<div class="windowbg', $alternate ? '' : '2', '">
+			<div class="windowbg">
 				<div class="content">
 					<p><strong>', $subscription['name'], '</strong></p>
 					<p class="smalltext">', $subscription['desc'], '</p>';
@@ -544,14 +542,12 @@ function template_user_subscription()
 					</td>
 				</tr>';
 
-	$alternate = false;
 	foreach ($context['current'] as $sub)
 	{
-		$alternate = !$alternate;
 
 		if (!$sub['hide'])
 			echo '
-				<tr class="windowbg', $alternate ? '' : '2', '">
+				<tr class="windowbg">
 					<td>
 						', (allowedTo('admin_forum') ? '<a href="' . $scripturl . '?action=admin;area=paidsubscribe;sa=modifyuser;lid=' . $sub['id'] . '">' . $sub['name'] . '</a>' : $sub['name']), '
 					</td><td>
@@ -646,7 +642,7 @@ function template_paid_done()
 		<div class="title_bar">
 			<h3 class="titlebg">', $txt['paid_done'], '</h3>
 		</div>
-		<div class="windowbg2">
+		<div class="windowbg">
 			<div class="content">
 				<p>', $txt['paid_done_desc'], '</p>
 				<br>

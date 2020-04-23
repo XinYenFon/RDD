@@ -28,7 +28,7 @@ function template_main()
 			<div class="information">
 				', $txt['themeadmin_explain'], '
 			</div>
-			<div class="windowbg2">
+			<div class="windowbg">
 				<div class="content">
 					<dl class="settings">
 						<dt>
@@ -295,17 +295,14 @@ function template_reset_list()
 		</div>';
 
 	// Show each theme.... with X for delete and a link to settings.
-	$alternate = false;
-
 	foreach ($context['themes'] as $theme)
 	{
-		$alternate = !$alternate;
 
 		echo '
 		<div class="title_bar">
 			<h3 class="titlebg">', $theme['name'], '</h3>
 		</div>
-		<div class="windowbg', $alternate ? '' : '2','">
+		<div class="windowbg">
 			<div class="content">
 				<ul class="reset">
 					<li>
@@ -341,7 +338,7 @@ function template_set_options()
 			<div class="information">
 				', $context['theme_options_reset'] ? $txt['themeadmin_reset_options_info'] : $txt['theme_options_defaults'], '
 			</div>
-			<div class="windowbg2">
+			<div class="windowbg">
 				<div class="content">
 					<ul class="theme_options">';
 
@@ -445,7 +442,7 @@ function template_set_settings()
 					<img src="', $settings['images_url'], '/icons/config_sm.gif" alt="" class="icon"> ', $txt['theme_url_config'], '
 				</h3>
 			</div>
-			<div class="windowbg2">
+			<div class="windowbg">
 				<div class="content">
 					<dl class="settings">
 						<dt>
@@ -485,7 +482,7 @@ function template_set_settings()
 					<img src="', $settings['images_url'], '/icons/config_sm.gif" alt="" align="top"> ', $txt['theme_variants'], '
 				</h3>
 			</div>
-			<div class="windowbg2">
+			<div class="windowbg">
 				<div class="content">
 					<dl class="settings">
 						<dt>
@@ -651,7 +648,7 @@ function template_pick()
 					<a href="', $scripturl, '?action=theme;sa=pick;u=', $context['current_member'], ';th=', $theme['id'], ';', $context['session_var'], '=', $context['session_id'], '">', $theme['name'], (!empty($theme['variants']) ? ';vrt=' . $theme['selected_variant'] : ''), '</a>
 				</h3>
 			</div>
-			<div class="', $theme['selected'] ? 'windowbg' : 'windowbg2', '">
+			<div class="windowbg">
 				<div class="flow_hidden content">
 					<div class="floatright"><a href="', $scripturl, '?action=theme;sa=pick;u=', $context['current_member'], ';theme=', $theme['id'], ';', $context['session_var'], '=', $context['session_id'], '" id="theme_thumb_preview_', $theme['id'], '" title="', $txt['theme_preview'], '"><img src="', $theme['thumbnail_href'], '" id="theme_thumb_', $theme['id'], '" alt="" class="padding"></a></div>
 					<p>', $theme['description'], '</p>';
@@ -763,11 +760,8 @@ function template_edit_list()
 			<h3 class="catbg">', $txt['themeadmin_edit_title'], '</h3>
 		</div>';
 
-	$alternate = false;
-
 	foreach ($context['themes'] as $theme)
 	{
-		$alternate = !$alternate;
 
 		echo '
 		<div class="title_bar">
@@ -776,7 +770,7 @@ function template_edit_list()
 				<em>(' . $theme['version'] . ')</em>' : '', '
 			</h3>
 		</div>
-		<div class="windowbg', $alternate ? '' : '2','">
+		<div class="windowbg">
 			<div class="content">
 				<ul class="reset">
 					<li><a href="', $scripturl, '?action=admin;area=theme;th=', $theme['id'], ';', $context['session_var'], '=', $context['session_id'], ';sa=edit">', $txt['themeadmin_edit_browse'], '</a></li>', $theme['can_edit_style'] ? '
@@ -808,13 +802,11 @@ function template_copy_template()
 			<div class="content">
 				<ul class="theme_options">';
 
-	$alternate = false;
 	foreach ($context['available_templates'] as $template)
 	{
-		$alternate = !$alternate;
 
 		echo '
-					<li class="reset flow_hidden windowbg', $alternate ? '2' : '', '">
+					<li class="reset flow_hidden windowbg">
 						', $template['filename'], $template['already_exists'] ? ' <span class="error">(' . $txt['themeadmin_edit_exists'] . ')</span>' : '', '
 						<span class="floatright">';
 
@@ -852,14 +844,10 @@ function template_edit_browse()
 		</thead>
 		<tbody>';
 
-	$alternate = false;
-
 	foreach ($context['theme_files'] as $file)
 	{
-		$alternate = !$alternate;
-
 		echo '
-			<tr class="windowbg', $alternate ? '2' : '', '">
+			<tr class="windowbg">
 				<td>';
 
 		if ($file['is_editable'])

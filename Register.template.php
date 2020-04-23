@@ -145,7 +145,7 @@ function template_registration_form()
 			<div class="title_bar">
 				<h4 class="titlebg">', $txt['required_info'], '</h4>
 			</div>
-			<div class="windowbg2">
+			<div class="windowbg">
 				<fieldset class="content">
 					<dl class="register_form">
 						<dt><strong><label for="smf_autov_username">', $txt['username'], ':</label></strong></dt>
@@ -243,7 +243,7 @@ function template_registration_form()
 			<div class="title_bar">
 				<h4 class="titlebg">', $txt['additional_information'], '</h4>
 			</div>
-			<div class="windowbg2">
+			<div class="windowbg">
 				<fieldset class="content">
 					<dl class="register_form" id="custom_group">';
 	}
@@ -356,7 +356,7 @@ function template_registration_form()
 			<div class="title_bar">
 				<h4 class="titlebg">', $txt['verification'], '</h4>
 			</div>
-			<div class="windowbg2">
+			<div class="windowbg">
 				<fieldset class="content centertext">
 					', template_control_verification($context['visual_verification_id'], 'all'), '
 				</fieldset>
@@ -413,7 +413,7 @@ function template_coppa()
 			<div class="title_bar">
 				<h3 class="titlebg">', $context['page_title'], '</h3>
 			</div>
-			<div class="windowbg2">
+			<div class="windowbg">
 				<div class="content">
 					<p>', $context['coppa']['body'], '</p>
 					<p>
@@ -533,7 +533,7 @@ function template_admin_register()
 		<div class="cat_bar">
 			<h3 class="catbg">', $txt['admin_browse_register_new'], '</h3>
 		</div>
-		<form class="windowbg2" action="', $scripturl, '?action=admin;area=regcenter" method="post" accept-charset="', $context['character_set'], '" name="postForm" id="postForm">
+		<form class="windowbg" action="', $scripturl, '?action=admin;area=regcenter" method="post" accept-charset="', $context['character_set'], '" name="postForm" id="postForm">
 			<script type="text/javascript"><!-- // --><![CDATA[
 				function onCheckChange()
 				{
@@ -654,7 +654,7 @@ function template_edit_agreement()
 		<p class="error">', $context['warning'], '</p>';
 
 	echo '
-		<div class="windowbg2" id="registration_agreement">
+		<div class="windowbg" id="registration_agreement">
 			<div class="content">';
 
 	// Is there more than one language to choose from?
@@ -722,7 +722,7 @@ function template_edit_reserved_words()
 		<div class="cat_bar">
 			<h3 class="catbg">', $txt['admin_reserved_set'], '</h3>
 		</div>
-		<form id="registration_agreement" class="windowbg2" action="', $scripturl, '?action=admin;area=regcenter" method="post" accept-charset="', $context['character_set'], '">
+		<form id="registration_agreement" class="windowbg" action="', $scripturl, '?action=admin;area=regcenter" method="post" accept-charset="', $context['character_set'], '">
 			<div class="content">
 				<h4>', $txt['admin_reserved_line'], '</h4>
 				<p class="reserved_names">
@@ -756,7 +756,7 @@ function template_edit_privacy_policy()
 		</div>';
 
 	echo '
-		<div class="windowbg2" id="privacy_policy">
+		<div class="windowbg" id="privacy_policy">
 			<div class="content">';
 
 	// Is there more than one language to choose from?

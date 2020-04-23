@@ -49,7 +49,7 @@ function template_main()
 					<img src="', $settings['images_url'], '/email_sm.gif" alt="" class="icon">', $context['page_title'], '
 				</h3>
 			</div>
-			<div class="windowbg2">
+			<div class="windowbg">
 				<div class="content">
 					<fieldset id="sender" class="send_topic">
 						<dl class="settings send_topic">

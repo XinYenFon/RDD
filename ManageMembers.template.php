@@ -174,7 +174,7 @@ function template_search_members()
 
 			foreach ($context['membergroups'] as $membergroup)
 				echo '
-						<tr class="windowbg2">
+						<tr class="windowbg">
 							<td>', $membergroup['name'], '</td>
 							<td align="center">
 								<input type="checkbox" name="membergroups[1][]" value="', $membergroup['id'], '" checked="checked" class="input_check">
@@ -185,7 +185,7 @@ function template_search_members()
 						</tr>';
 
 			echo '
-						<tr class="windowbg2">
+						<tr class="windowbg">
 							<td>
 								<em>', $txt['check_all'], '</em>
 							</td>
@@ -212,7 +212,7 @@ function template_search_members()
 
 			foreach ($context['postgroups'] as $postgroup)
 				echo '
-						<tr class="windowbg2">
+						<tr class="windowbg">
 							<td>
 								', $postgroup['name'], '
 							</td>
@@ -222,7 +222,7 @@ function template_search_members()
 						</tr>';
 
 			echo '
-						<tr class="windowbg2">
+						<tr class="windowbg">
 							<td>
 								<em>', $txt['check_all'], '</em>
 							</td>

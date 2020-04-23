@@ -262,7 +262,7 @@ function template_reported_posts()
 	foreach ($context['reports'] as $report)
 	{
 		echo '
-		<div class="', $report['alternate'] ? 'windowbg' : 'windowbg2', '">
+		<div class="windowbg">
 			<div class="content">
 				<div>
 					<div class="floatleft">
@@ -295,7 +295,7 @@ function template_reported_posts()
 	// Were none found?
 	if (empty($context['reports']))
 		echo '
-		<div class="windowbg2">
+		<div class="windowbg">
 			<div class="content">
 				<p class="centertext">', $txt['mc_reportedp_none_found'], '</p>
 			</div>
@@ -335,7 +335,7 @@ function template_unapproved_posts()
 	// No posts?
 	if (empty($context['unapproved_items']))
 		echo '
-		<div class="windowbg2">
+		<div class="windowbg">
 			<div class="content">
 				<p class="centertext">', $txt['mc_unapproved_' . $context['current_view'] . '_none_found'], '</p>
 			</div>
@@ -356,7 +356,7 @@ function template_unapproved_posts()
 				<span class="smalltext floatright">', $txt['mc_unapproved_by'], ' ', $item['poster']['link'], ' ', $txt['on'], ': ', $item['time'], '</span>
 			</h3>
 		</div>
-		<div class="', $item['alternate'] ? 'windowbg' : 'windowbg2', '">
+		<div class="windowbg">
 			<div class="content">
 				<div class="post">', $item['body'], '</div>
 				<span class="floatright">
@@ -448,7 +448,7 @@ function template_unapproved_attachments()
 	foreach ($context['unapproved_items'] as $item)
 	{
 		echo '
-				<tr class="', $item['alternate'] ? 'windowbg' : 'windowbg2', '">
+				<tr class="windowbg">
 					<td>
 						', $item['filename'], '
 					</td>
@@ -526,7 +526,7 @@ function template_viewmodreport()
 					</span>
 				</h3>
 			</div>
-			<div class="windowbg2">
+			<div class="windowbg">
 				<div class="content">
 					', $context['report']['body'], '
 				</div>
@@ -550,7 +550,7 @@ function template_viewmodreport()
 			<div class="cat_bar">
 				<h3 class="catbg">', $txt['mc_modreport_mod_comments'], '</h3>
 			</div>
-			<div class="windowbg2">
+			<div class="windowbg">
 				<div class="content">';
 
 	if (empty($context['report']['mod_comments']))
@@ -569,8 +569,6 @@ function template_viewmodreport()
 				</div>
 			</div>
 			<br>';
-
-	$alt = false;
 
 	template_show_list('moderation_actions_list');
 
@@ -595,15 +593,15 @@ function template_viewmodreport()
 		foreach ($context['entries'] as $entry)
 		{
 			echo '
-					<tr class="', $alt ? 'windowbg2' : 'windowbg', '">
+					<tr class="windowbg">
 						<td>', $entry['action'], '</td>
 						<td>', $entry['time'], '</td>
 						<td>', $entry['moderator']['link'], '</td>
 						<td>', $entry['position'], '</td>
 						<td>', $entry['ip'], '</td>
 					</tr>
-					<tr>
-						<td colspan="5" class="', $alt ? 'windowbg2' : 'windowbg', '">';
+					<tr class="windowbg">
+						<td colspan="5">';
 
 			foreach ($entry['extra'] as $key => $value)
 				echo '
@@ -671,7 +669,7 @@ function template_moderation_settings()
 			<div class="information">
 				', $txt['mc_prefs_desc'], '
 			</div>
-			<div class="windowbg2">
+			<div class="windowbg">
 				<div class="content">
 					<dl class="settings">
 						<dt>

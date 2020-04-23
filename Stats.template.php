@@ -26,7 +26,7 @@ function template_main()
 		</div>
 		<div class="flow_hidden">
 			<div id="stats_left">
-				<div class="windowbg2">
+				<div class="windowbg">
 					<div class="content top_row">
 						<dl class="stats">
 							<dt>', $txt['total_members'], ':</dt>
@@ -56,7 +56,7 @@ function template_main()
 				</div>
 			</div>
 			<div id="stats_right">
-				<div class="windowbg2">
+				<div class="windowbg">
 					<div class="content top_row">
 						<dl class="stats">
 							<dt>', $txt['average_members'], ':</dt>
@@ -93,7 +93,7 @@ function template_main()
 						<img src="', $settings['images_url'], '/stats_posters.gif" class="icon" alt=""> ', $txt['top_posters'], '
 					</h4>
 				</div>
-					<div class="windowbg2">
+					<div class="windowbg">
 						<div class="content">
 							<dl class="stats">';
 
@@ -128,7 +128,7 @@ function template_main()
 						<img src="', $settings['images_url'], '/stats_board.gif" class="icon" alt=""> ', $txt['top_boards'], '
 					</h4>
 				</div>
-					<div class="windowbg2">
+					<div class="windowbg">
 						<div class="content">
 							<dl class="stats">';
 
@@ -164,7 +164,7 @@ function template_main()
 						<img src="', $settings['images_url'], '/stats_replies.gif" class="icon" alt=""> ', $txt['top_topics_replies'], '
 					</h4>
 				</div>
-					<div class="windowbg2">
+					<div class="windowbg">
 						<div class="content">
 							<dl class="stats">';
 
@@ -198,7 +198,7 @@ function template_main()
 						<img src="', $settings['images_url'], '/stats_views.gif" class="icon" alt=""> ', $txt['top_topics_views'], '
 					</h4>
 				</div>
-				<div class="windowbg2">
+				<div class="windowbg">
 					<div class="content">
 						<dl class="stats">';
 
@@ -233,7 +233,7 @@ function template_main()
 						<img src="', $settings['images_url'], '/stats_replies.gif" class="icon" alt=""> ', $txt['top_starters'], '
 					</h4>
 				</div>
-				<div class="windowbg2">
+				<div class="windowbg">
 					<div class="content">
 						<dl class="stats">';
 
@@ -268,7 +268,7 @@ function template_main()
 						<img src="', $settings['images_url'], '/stats_views.gif" class="icon" alt=""> ', $txt['most_time_online'], '
 					</h4>
 				</div>
-				<div class="windowbg2">
+				<div class="windowbg">
 					<div class="content">
 						<dl class="stats">';
 
@@ -311,7 +311,7 @@ function template_main()
 		echo '
 		<table border="0" width="100%" cellspacing="1" cellpadding="4" class="table_grid" id="stats">
 			<thead>
-				<tr class="titlebg" valign="middle" align="center">
+				<tr class="title_bar" valign="middle" align="center">
 					<th class="first_th lefttext" width="25%">', $txt['yearly_summary'], '</th>
 					<th width="15%">', $txt['stats_new_topics'], '</th>
 					<th width="15%">', $txt['stats_new_posts'], '</th>
@@ -330,7 +330,7 @@ function template_main()
 		foreach ($context['yearly'] as $id => $year)
 		{
 			echo '
-				<tr class="windowbg2" valign="middle" align="center" id="year_', $id, '">
+				<tr class="windowbg" valign="middle" align="center" id="year_', $id, '">
 					<th class="lefttext" width="25%">
 						<img id="year_img_', $id, '" src="', $settings['images_url'], '/collapse.gif" alt="*"> <a href="#year_', $id, '" id="year_link_', $id, '">', $year['year'], '</a>
 					</th>
@@ -349,8 +349,8 @@ function template_main()
 			foreach ($year['months'] as $month)
 			{
 				echo '
-				<tr class="windowbg2" valign="middle" align="center" id="tr_month_', $month['id'], '">
-					<th class="stats_month">
+				<tr class="windowbg" valign="middle" align="center" id="tr_month_', $month['id'], '">
+					<th class="stats_month lefttext">
 						<img src="', $settings['images_url'], '/', $month['expanded'] ? 'collapse.gif' : 'expand.gif', '" alt="" id="img_', $month['id'], '"> <a id="m', $month['id'], '" href="', $month['href'], '" onclick="return doingExpandCollapse;">', $month['month'], ' ', $month['year'], '</a>
 					</th>
 					<th width="15%">', $month['new_topics'], '</th>
@@ -370,7 +370,7 @@ function template_main()
 					foreach ($month['days'] as $day)
 					{
 						echo '
-				<tr class="windowbg2" valign="middle" align="center" id="tr_day_', $day['year'], '-', $day['month'], '-', $day['day'], '">
+				<tr class="windowbg" valign="middle" align="center" id="tr_day_', $day['year'], '-', $day['month'], '-', $day['day'], '">
 					<td class="stats_day">', $day['year'], '-', $day['month'], '-', $day['day'], '</td>
 					<td>', $day['new_topics'], '</td>
 					<td>', $day['new_posts'], '</td>
@@ -411,7 +411,7 @@ function template_main()
 			sMonthLinkIdPrefix: \'m\',
 
 			reDayPattern: /tr_day_(\d+-\d+-\d+)/,
-			sDayRowClassname: \'windowbg2\',
+			sDayRowClassname: \'windowbg\',
 			sDayRowIdPrefix: \'tr_day_\',
 
 			aCollapsedYears: [';

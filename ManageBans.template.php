@@ -190,7 +190,7 @@ function template_ban_edit()
 					<tbody>';
 		if (empty($context['ban_items']))
 			echo '
-						<tr class="windowbg2">
+						<tr class="windowbg">
 							<td colspan="4">(', $txt['ban_no_triggers'], ')</td>
 						</tr>';
 		else
@@ -198,7 +198,7 @@ function template_ban_edit()
 			foreach ($context['ban_items'] as $ban_item)
 			{
 				echo '
-						<tr class="windowbg2" align="left">
+						<tr class="windowbg" align="left">
 							<td>';
 				if ($ban_item['type'] == 'ip')
 					echo '		<strong>', $txt['ip'], ':</strong>&nbsp;', $ban_item['ip'];
@@ -210,9 +210,9 @@ function template_ban_edit()
 					echo '		<strong>', $txt['username'], ':</strong>&nbsp;', $ban_item['user']['link'];
 				echo '
 							</td>
-							<td class="windowbg" align="center">', $ban_item['hits'], '</td>
-							<td class="windowbg" align="center"><a href="', $scripturl, '?action=admin;area=ban;sa=edittrigger;bg=', $context['ban']['id'], ';bi=', $ban_item['id'], '">', $txt['ban_edit_trigger'], '</a></td>
-							<td align="center" class="windowbg2"><input type="checkbox" name="ban_items[]" value="', $ban_item['id'], '" class="input_check"></td>
+							<td align="center">', $ban_item['hits'], '</td>
+							<td align="center"><a href="', $scripturl, '?action=admin;area=ban;sa=edittrigger;bg=', $context['ban']['id'], ';bi=', $ban_item['id'], '">', $txt['ban_edit_trigger'], '</a></td>
+							<td align="center"><input type="checkbox" name="ban_items[]" value="', $ban_item['id'], '" class="input_check"></td>
 						</tr>';
 			}
 		}

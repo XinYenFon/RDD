@@ -43,7 +43,7 @@ function template_maintain_database()
 			</h3>
 		</div>
 
-		<div class="windowbg2">
+		<div class="windowbg">
 			<div class="content">
 				<form action="', $scripturl, '?action=admin;area=maintain;sa=database;activity=backup" method="post" accept-charset="', $context['character_set'], '">
 					<p>', $txt['maintain_backup_info'], '</p>';
@@ -136,7 +136,7 @@ function template_maintain_routine()
 		<div class="cat_bar">
 			<h3 class="catbg">', $txt['maintain_errors'], '</h3>
 		</div>
-		<div class="windowbg2">
+		<div class="windowbg">
 			<div class="content">
 				<form action="', $scripturl, '?action=admin;area=repairboards" method="post" accept-charset="', $context['character_set'], '">
 					<p>', $txt['maintain_errors_info'], '</p>
@@ -160,7 +160,7 @@ function template_maintain_routine()
 		<div class="cat_bar">
 			<h3 class="catbg">', $txt['maintain_logs'], '</h3>
 		</div>
-		<div class="windowbg2">
+		<div class="windowbg">
 			<div class="content">
 				<form action="', $scripturl, '?action=admin;area=maintain;sa=routine;activity=logs" method="post" accept-charset="', $context['character_set'], '">
 					<p>', $txt['maintain_logs_info'], '</p>
@@ -252,7 +252,7 @@ function template_maintain_members()
 		<div class="cat_bar">
 			<h3 class="catbg">', $txt['maintain_reattribute_posts'], '</h3>
 		</div>
-		<div class="windowbg2">
+		<div class="windowbg">
 			<div class="content">
 				<form action="', $scripturl, '?action=admin;area=maintain;sa=members;activity=reattribute" method="post" accept-charset="', $context['character_set'], '">
 					<p><strong>', $txt['reattribute_guest_posts'], '</strong></p>
@@ -443,7 +443,7 @@ function template_maintain_topics()
 		<div class="cat_bar">
 			<h3 class="catbg">', $txt['move_topics_maintenance'], '</h3>
 		</div>
-		<div class="windowbg2">
+		<div class="windowbg">
 			<div class="content">
 				<form action="', $scripturl, '?action=admin;area=maintain;sa=topics;activity=massmove" method="post" accept-charset="', $context['character_set'], '">
 					<p><label for="id_board_from">', $txt['move_topics_from'], ' </label>

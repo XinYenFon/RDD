@@ -50,13 +50,10 @@ function template_main()
 					<tbody>';
 
 	// For every member display their name, time and action (and more for admin).
-	$alternate = 0;
-
 	foreach ($context['members'] as $member)
 	{
-		// $alternate will either be true or false. If it's true, use "windowbg2" and otherwise use "windowbg".
 		echo '
-						<tr class="windowbg', $alternate ? '2' : '', '">
+						<tr class="windowbg">
 							<td>';
 
 		// Guests don't have information like icq, msn, y!, and aim... and they can't be messaged.
@@ -83,16 +80,13 @@ function template_main()
 							<td nowrap="nowrap" class="hidden">', $member['time'], '</td>
 							<td>', $member['action'], '</td>
 						</tr>';
-
-		// Switch alternate to whatever it wasn't this time. (true -> false -> true -> false, etc.)
-		$alternate = !$alternate;
 	}
 
 	// No members?
 	if (empty($context['members']))
 	{
 		echo '
-						<tr class="windowbg2">
+						<tr class="windowbg">
 							<td colspan="3" align="center">
 							', $txt['who_no_online_' . ($context['show_by'] == 'guests' || $context['show_by'] == 'spiders' ? $context['show_by'] : 'members')], '
 							</td>
@@ -152,7 +146,7 @@ function template_credits()
 		</div>';
 
 		echo '
-		<div class="windowbg2">
+		<div class="windowbg">
 			<div class="content">
 				<dl>';
 

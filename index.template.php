@@ -128,7 +128,11 @@ function template_html_above()
 	<meta name="description" content="', $context['page_title_html_safe'], '">', !empty($context['meta_keywords']) ? '
 	<meta name="keywords" content="' . $context['meta_keywords'] . '">' : '', '
 	<title>', $context['page_title_html_safe'], '</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">';
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:site_name" content="">
+    <meta property="og:title" content="', $context['page_title_html_safe'], '">
+    <meta property="og:url" content="', $scripturl,'">
+    <meta property="og:description" content="">';
 
 	// Please don't index these Mr Robot.
 	if (!empty($context['robot_no_index']))

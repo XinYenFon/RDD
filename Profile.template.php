@@ -114,7 +114,7 @@ function template_summary()
 		</div>
 	</div>
 	<div id="detailedinfo">
-		<div class="windowbg2">
+		<div class="windowbg">
 			<div class="content">
 				<dl>';
 
@@ -351,7 +351,7 @@ function template_showPosts()
 		{
 			echo '
 		<div class="topic">
-			<div class="', $post['alternate'] == 0 ? 'windowbg2' : 'windowbg', ' core_posts">
+			<div class="windowbg core_posts">
 				<div class="content">
 					<div class="counter">', $post['counter'], '</div>
 					<div class="topic_details">
@@ -412,7 +412,7 @@ function template_showPosts()
 		echo '
 		<table border="0" width="100%" cellspacing="1" cellpadding="2" class="table_grid" align="center">
 			<thead>
-				<tr class="titlebg">
+				<tr class="title_bar">
 					<th class="first_th lefttext" scope="col" width="25%">
 						<a href="', $scripturl, '?action=profile;u=', $context['current_member'], ';area=showposts;sa=attach;sort=filename', ($context['sort_direction'] == 'down' && $context['sort_order'] == 'filename' ? ';asc' : ''), '">
 							', $txt['show_attach_filename'], '
@@ -442,24 +442,22 @@ function template_showPosts()
 			<tbody>';
 
 		// Looks like we need to do all the attachments instead!
-		$alternate = false;
 		foreach ($context['attachments'] as $attachment)
 		{
 			echo '
-				<tr class="', $attachment['approved'] ? ($alternate ? 'windowbg' : 'windowbg2') : 'approvebg', '">
+				<tr class="', $attachment['approved'] ? 'windowbg' : 'approvebg', '">
 					<td><a href="', $scripturl, '?action=dlattach;topic=', $attachment['topic'], '.0;attach=', $attachment['id'], '">', $attachment['filename'], '</a>', !$attachment['approved'] ? '&nbsp;<em>(' . $txt['awaiting_approval'] . ')</em>' : '', '</td>
 					<td align="center">', $attachment['downloads'], '</td>
 					<td><a href="', $scripturl, '?topic=', $attachment['topic'], '.msg', $attachment['msg'], '#msg', $attachment['msg'], '" rel="nofollow">', $attachment['subject'], '</a></td>
 					<td>', $attachment['posted'], '</td>
 				</tr>';
-			$alternate = !$alternate;
 		}
 
 	// No posts? Just end the table with a informative message.
 	if ((isset($context['attachments']) && empty($context['attachments'])) || (!isset($context['attachments']) && empty($context['posts'])))
 		echo '
-				<tr>
-					<td class="tborder windowbg2 padding centertext" colspan="4">
+				<tr class="tborder windowbg padding centertext">
+					<td colspan="4">
 						', isset($context['attachments']) ? $txt['show_attachments_none'] : ($context['is_topics'] ? $txt['show_topics_none'] : $txt['show_posts_none']), '
 					</td>
 				</tr>';
@@ -501,16 +499,15 @@ function template_editBuddies()
 	// If they don't have any buddies don't list them!
 	if (empty($context['buddies']))
 		echo '
-			<tr class="windowbg2">
+			<tr class="windowbg">
 				<td colspan="8" align="center"><strong>', $txt['no_buddies'], '</strong></td>
 			</tr>';
 
 	// Now loop through each buddy showing info on each.
-	$alternate = false;
 	foreach ($context['buddies'] as $buddy)
 	{
 		echo '
-			<tr class="', $alternate ? 'windowbg' : 'windowbg2', '">
+			<tr class="windowbg">
 				<td>', $buddy['link'], '</td>
 				<td align="center"><a href="', $buddy['online']['href'], '"><img src="', $buddy['online']['image_href'], '" alt="', $buddy['online']['label'], '" title="', $buddy['online']['label'], '"></a></td>
 				<td align="center">', ($buddy['show_email'] == 'no' ? '' : '<a href="' . $scripturl . '?action=emailuser;sa=email;uid=' . $buddy['id'] . '" rel="nofollow"><img src="' . $settings['images_url'] . '/email_sm.gif" alt="' . $txt['email'] . '" title="' . $txt['email'] . ' ' . $buddy['name'] . '"></a>'), '</td>
@@ -520,8 +517,6 @@ function template_editBuddies()
 				<td align="center">', $buddy['msn']['link'], '</td>
 				<td align="center"><a href="', $scripturl, '?action=profile;area=lists;sa=buddies;u=', $context['id_member'], ';remove=', $buddy['id'], ';', $context['session_var'], '=', $context['session_id'], '"><img src="', $settings['images_url'], '/icons/delete.gif" alt="', $txt['buddy_remove'], '" title="', $txt['buddy_remove'], '"></a></td>
 			</tr>';
-
-		$alternate = !$alternate;
 	}
 
 	echo '
@@ -585,16 +580,15 @@ function template_editIgnoreList()
 	// If they don't have anyone on their ignore list, don't list it!
 	if (empty($context['ignore_list']))
 		echo '
-			<tr class="windowbg2">
+			<tr class="windowbg">
 				<td colspan="8" align="center"><strong>', $txt['no_ignore'], '</strong></td>
 			</tr>';
 
 	// Now loop through each buddy showing info on each.
-	$alternate = false;
 	foreach ($context['ignore_list'] as $member)
 	{
 		echo '
-			<tr class="', $alternate ? 'windowbg' : 'windowbg2', '">
+			<tr class="windowbg">
 				<td>', $member['link'], '</td>
 				<td align="center"><a href="', $member['online']['href'], '"><img src="', $member['online']['image_href'], '" alt="', $member['online']['label'], '" title="', $member['online']['label'], '"></a></td>
 				<td align="center">', ($member['show_email'] == 'no' ? '' : '<a href="' . $scripturl . '?action=emailuser;sa=email;uid=' . $member['id'] . '" rel="nofollow"><img src="' . $settings['images_url'] . '/email_sm.gif" alt="' . $txt['email'] . '" title="' . $txt['email'] . ' ' . $member['name'] . '"></a>'), '</td>
@@ -605,7 +599,6 @@ function template_editIgnoreList()
 				<td align="center"><a href="', $scripturl, '?action=profile;u=', $context['id_member'], ';area=lists;sa=ignore;remove=', $member['id'], ';', $context['session_var'], '=', $context['session_id'], '"><img src="', $settings['images_url'], '/icons/delete.gif" alt="', $txt['ignore_remove'], '" title="', $txt['ignore_remove'], '"></a></td>
 			</tr>';
 
-		$alternate = !$alternate;
 	}
 
 	echo '
@@ -656,7 +649,7 @@ function template_trackActivity()
 
 	// The last IP the user used.
 	echo '
-			<div id="tracking" class="windowbg2">
+			<div id="tracking" class="windowbg">
 				<div class="content">
 					<dl class="noborder">
 						<dt>', $txt['most_recent_ip'], ':
@@ -711,7 +704,7 @@ function template_trackIP()
 		<div class="cat_bar">
 			<h3 class="catbg">', $txt['trackIP'], '</h3>
 		</div>
-		<div class="windowbg2">
+		<div class="windowbg">
 			<form action="', $context['base_url'], '" method="post" accept-charset="', $context['character_set'], '">
 				<div class="padding">', $txt['enter_ip'], ':&nbsp;&nbsp;<input type="text" name="searchip" value="', $context['ip'], '" class="input_text">&nbsp;&nbsp;<input type="submit" value="', $txt['trackIP'], '" class="button_submit"></div>
 			</form>
@@ -725,7 +718,7 @@ function template_trackIP()
 			<div class="title_bar">
 				<h3 class="titlebg">', $txt['whois_title'], ' ', $context['ip'], '</h3>
 			</div>
-			<div class="windowbg2">
+			<div class="windowbg">
 				<div class="padding">';
 			foreach ($context['whois_servers'] as $server)
 				echo '
@@ -743,7 +736,7 @@ function template_trackIP()
 		</div>';
 	if (empty($context['ips']))
 		echo '
-		<p class="windowbg2 description"><em>', $txt['no_members_from_ip'], '</em></p>';
+		<p class="windowbg description"><em>', $txt['no_members_from_ip'], '</em></p>';
 	else
 	{
 		echo '
@@ -759,9 +752,9 @@ function template_trackIP()
 		// Loop through each of the members and display them.
 		foreach ($context['ips'] as $ip => $memberlist)
 			echo '
-				<tr>
-					<td class="windowbg2"><a href="', $context['base_url'], ';searchip=', $ip, '">', $ip, '</a></td>
-					<td class="windowbg2">', implode(', ', $memberlist), '</td>
+				<tr class="windowbg">
+					<td><a href="', $context['base_url'], ';searchip=', $ip, '">', $ip, '</a></td>
+					<td>', implode(', ', $memberlist), '</td>
 				</tr>';
 
 		echo '
@@ -826,7 +819,7 @@ function template_showPermissions()
 			echo '
 					<table class="table_grid" width="100%" cellspacing="0">
 						<thead>
-							<tr class="titlebg">
+							<tr class="title_bar">
 								<th class="lefttext first_th" scope="col" width="50%">', $txt['showPermissions_permission'], '</th>
 								<th class="lefttext last_th" scope="col" width="50%">', $txt['showPermissions_status'], '</th>
 							</tr>
@@ -836,11 +829,11 @@ function template_showPermissions()
 			foreach ($context['member']['permissions']['general'] as $permission)
 			{
 				echo '
-							<tr>
-								<td class="windowbg" title="', $permission['id'], '">
+							<tr class="windowbg">
+								<td title="', $permission['id'], '">
 									', $permission['is_denied'] ? '<del>' . $permission['name'] . '</del>' : $permission['name'], '
 								</td>
-								<td class="windowbg2 smalltext">';
+								<td class="smalltext">';
 
 				if ($permission['is_denied'])
 					echo '
@@ -860,7 +853,7 @@ function template_showPermissions()
 		}
 		else
 			echo '
-			<p class="windowbg2 description">', $txt['showPermissions_none_general'], '</p>';
+			<p class="windowbg description">', $txt['showPermissions_none_general'], '</p>';
 
 		// Board permission section.
 		echo '
@@ -890,7 +883,7 @@ function template_showPermissions()
 			echo '
 				<table class="table_grid" width="100%" cellspacing="0">
 					<thead>
-						<tr class="titlebg">
+						<tr class="title_bar">
 							<th class="lefttext first_th" scope="col" width="50%">', $txt['showPermissions_permission'], '</th>
 							<th class="lefttext last_th" scope="col" width="50%">', $txt['showPermissions_status'], '</th>
 						</tr>
@@ -899,11 +892,11 @@ function template_showPermissions()
 			foreach ($context['member']['permissions']['board'] as $permission)
 			{
 				echo '
-						<tr>
-							<td class="windowbg" title="', $permission['id'], '">
+						<tr class="windowbg">
+							<td title="', $permission['id'], '">
 								', $permission['is_denied'] ? '<del>' . $permission['name'] . '</del>' : $permission['name'], '
 							</td>
-							<td class="windowbg2 smalltext">';
+							<td class="smalltext">';
 
 				if ($permission['is_denied'])
 				{
@@ -925,7 +918,7 @@ function template_showPermissions()
 		}
 		else
 			echo '
-			<p class="windowbg2 description">', $txt['showPermissions_none_board'], '</p>';
+			<p class="windowbg description">', $txt['showPermissions_none_board'], '</p>';
 	echo '
 			</div>
 		</div>';
@@ -947,7 +940,7 @@ function template_statPanel()
 					', $txt['statPanel_generalStats'], ' - ', $context['member']['name'], '
 				</h3>
 			</div>
-			<div class="windowbg2">
+			<div class="windowbg">
 				<div class="content">
 					<dl>
 						<dt>', $txt['statPanel_total_time_online'], ':</dt>
@@ -973,7 +966,7 @@ function template_statPanel()
 					<img src="', $settings['images_url'], '/stats_history.gif" alt="" class="icon">', $txt['statPanel_activityTime'], '
 				</h3>
 			</div>
-			<div class="windowbg2">
+			<div class="windowbg">
 				<div class="content">';
 
 	// If they haven't post at all, don't draw the graph.
@@ -1020,7 +1013,7 @@ function template_statPanel()
 						<img src="', $settings['images_url'], '/stats_replies.gif" alt="" class="icon">', $txt['statPanel_topBoards'], '
 					</h3>
 				</div>
-				<div class="windowbg2">
+				<div class="windowbg">
 					<div class="content">';
 
 	if (empty($context['popular_boards']))
@@ -1059,7 +1052,7 @@ function template_statPanel()
 						<img src="', $settings['images_url'], '/stats_replies.gif" alt="" class="icon">', $txt['statPanel_topBoardsActivity'], '
 					</h3>
 				</div>
-				<div class="windowbg2">
+				<div class="windowbg">
 					<div class="content">';
 
 	if (empty($context['board_activity']))
@@ -1127,7 +1120,7 @@ function template_edit_options()
 			<p class="windowbg description">', $context['page_desc'], '</p>';
 
 	echo '
-			<div class="windowbg2">
+			<div class="windowbg">
 				<div class="content">';
 
 	// Any bits at the start?
@@ -1564,7 +1557,7 @@ function template_notification()
 				</h3>
 			</div>
 			<p class="windowbg description">', $txt['notification_info'], '</p>
-			<div class="windowbg2">
+			<div class="windowbg">
 				<div class="content">
 					<form action="', $scripturl, '?action=profile;area=notification;save" method="post" accept-charset="', $context['character_set'], '" id="notify_options" class="flow_hidden">';
 
@@ -1673,11 +1666,10 @@ function template_groupMembership()
 				</thead>
 				<tbody>';
 
-		$alternate = true;
 		foreach ($context['groups']['member'] as $group)
 		{
 			echo '
-					<tr class="', $alternate ? 'windowbg' : 'windowbg2', '" id="primdiv_', $group['id'], '">';
+					<tr class="windowbg" id="primdiv_', $group['id'], '">';
 
 				if ($context['can_edit_primary'])
 					echo '
@@ -1698,7 +1690,6 @@ function template_groupMembership()
 				echo '
 						</td>
 					</tr>';
-			$alternate = !$alternate;
 		}
 
 		echo '
@@ -1727,11 +1718,10 @@ function template_groupMembership()
 				</thead>
 				<tbody>';
 
-			$alternate = true;
 			foreach ($context['groups']['available'] as $group)
 			{
 				echo '
-					<tr class="', $alternate ? 'windowbg' : 'windowbg2', '">
+					<tr class="windowbg">
 						<td>
 							<strong>', (empty($group['color']) ? $group['name'] : '<span style="color: ' . $group['color'] . '">' . $group['name'] . '</span>'), '</strong>', (!empty($group['desc']) ? '<br><span class="smalltext">' . $group['desc'] . '</span>' : ''), '
 						</td>
@@ -1750,7 +1740,6 @@ function template_groupMembership()
 				echo '
 						</td>
 					</tr>';
-				$alternate = !$alternate;
 			}
 			echo '
 				</tbody>
@@ -1811,7 +1800,7 @@ function template_ignoreboards()
 			</h3>
 		</div>
 		<p class="description">', $txt['ignoreboards_info'], '</p>
-		<div class="windowbg2">
+		<div class="windowbg">
 			<div class="content flow_hidden">
 				<ul class="ignoreboards floatleft">';
 
@@ -2207,7 +2196,7 @@ function template_issueWarning()
 		</div>
 		<table border="0" width="100%" cellspacing="0" cellpadding="5" class="table_grid">
 			<thead>
-				<tr class="titlebg lefttext">
+				<tr class="title_bar lefttext">
 					<th class="first_th" scope="col" width="20%">', $txt['profile_warning_previous_issued'], '</th>
 					<th scope="col" width="30%">', $txt['profile_warning_previous_time'], '</th>
 					<th scope="col">', $txt['profile_warning_previous_reason'], '</th>
@@ -2217,12 +2206,10 @@ function template_issueWarning()
 			<tbody>';
 
 	// Print the warnings.
-	$alternate = 0;
 	foreach ($context['previous_warnings'] as $warning)
 	{
-		$alternate = !$alternate;
 		echo '
-				<tr class="', $alternate ? 'windowbg' : 'windowbg2', '">
+				<tr class="windowbg">
 					<td class="smalltext">', $warning['issuer']['link'], '</td>
 					<td class="smalltext">', $warning['time'], '</td>
 					<td class="smalltext">
@@ -2243,7 +2230,7 @@ function template_issueWarning()
 
 	if (empty($context['previous_warnings']))
 		echo '
-				<tr class="windowbg2">
+				<tr class="windowbg">
 					<td align="center" colspan="4">
 						', $txt['profile_warning_previous_none'], '
 					</td>
@@ -2284,9 +2271,9 @@ function template_deleteAccount()
 	// If deleting another account give them a lovely info box.
 	if (!$context['user']['is_owner'])
 		echo '
-			<p class="windowbg2 description">', $txt['deleteAccount_desc'], '</p>';
+			<p class="windowbg description">', $txt['deleteAccount_desc'], '</p>';
 	echo '
-			<div class="windowbg2">
+			<div class="windowbg">
 				<div class="content">';
 
 	// If they are deleting their account AND the admin needs to approve it - give them another piece of info ;)
@@ -2823,7 +2810,7 @@ function template_authentication_method()
 				</h3>
 			</div>
 			<p class="windowbg description">', $txt['change_authentication'], '</p>
-			<div class="windowbg2">
+			<div class="windowbg">
 				<div class="content">
 					<dl>
 						<dt>

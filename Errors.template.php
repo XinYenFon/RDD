@@ -53,8 +53,8 @@ function template_error_log()
 				</h3>
 			</div>
 			<table border="0" cellspacing="1" class="table_grid" id="error_log">
-				<tr>
-					<td colspan="3" class="windowbg">
+				<tr class="windowbg">
+					<td colspan="3">
 						&nbsp;&nbsp;', $txt['apply_filter_of_type'], ':';
 
 	$error_types = array();
@@ -66,7 +66,7 @@ function template_error_log()
 					</td>
 				</tr>
 				<tr>
-					<td colspan="3" class="windowbg">
+					<td colspan="3">
 						&nbsp;&nbsp;', $txt['pages'], ': ', $context['page_index'], '
 					</td>
 				</tr>';
@@ -74,14 +74,14 @@ function template_error_log()
 	if ($context['has_filter'])
 		echo '
 				<tr>
-					<td colspan="3" class="windowbg">
+					<td colspan="3">
 						<strong>', $txt['applying_filter'], ':</strong> ', $context['filter']['entity'], ' ', $context['filter']['value']['html'], ' (<a href="', $scripturl, '?action=admin;area=logs;sa=errorlog', $context['sort_direction'] == 'down' ? ';desc' : '', '">', $txt['clear_filter'], '</a>)
 					</td>
 				</tr>';
 
 	if (!empty($context['errors']))
 		echo '
-				<tr class="titlebg">
+				<tr class="title_bar">
 					<td colspan="3" class="lefttext">
 						<div class="floatright"><input type="submit" value="', $txt['remove_selection'], '" onclick="lastClicked = \'remove_selection\';" class="button_submit"> <input type="submit" name="delall" value="', $context['has_filter'] ? $txt['remove_filtered_results'] : $txt['remove_all'], '" onclick="lastClicked = \'remove_all\';" class="button_submit"></div>
 						<label for="check_all1"><input type="checkbox" id="check_all1" onclick="invertAll(this, this.form, \'delete[]\'); this.form.check_all2.checked = this.checked;" class="input_check"><strong>', $txt['check_all'], '</strong></label>
@@ -91,7 +91,7 @@ function template_error_log()
 	foreach ($context['errors'] as $error)
 	{
 		echo '
-				<tr class="windowbg', $error['alternate'] ? '2' : '', '">
+				<tr class="windowbg">
 					<td rowspan="2" class="checkbox_column">
 						<input type="checkbox" name="delete[]" value="', $error['id'], '" class="input_check">
 					</td>
@@ -118,7 +118,7 @@ function template_error_log()
 						', $txt['error_type'], ': ', $error['error_type']['name'], '
 					</td>
 				</tr>
-				<tr class="windowbg', $error['alternate'] ? '2' : '', '">
+				<tr class="windowbg">
 					<td colspan="2">
 						<div class="clear_left floatleft"><a href="', $scripturl, '?action=admin;area=logs;sa=errorlog', $context['sort_direction'] == 'down' ? ';desc' : '', ';filter=url;value=', $error['url']['href'], '" title="', $txt['apply_filter'], ': ', $txt['filter_only_url'], '"><img src="', $settings['images_url'], '/filter.gif" alt="', $txt['apply_filter'], ': ', $txt['filter_only_url'], '"></a></div>
 						<div class="floatleft marginleft"><a href="', $error['url']['html'], '">', $error['url']['html'], '</a></div>
@@ -140,7 +140,7 @@ function template_error_log()
 
 	if (!empty($context['errors']))
 		echo '
-				<tr class="titlebg">
+				<tr class="title_bar">
 					<td colspan="3" class="lefttext">
 						<div class="floatright"><input type="submit" value="', $txt['remove_selection'], '" onclick="lastClicked = \'remove_selection\';" class="button_submit"> <input type="submit" name="delall" value="', $context['has_filter'] ? $txt['remove_filtered_results'] : $txt['remove_all'], '" onclick="lastClicked = \'remove_all\';" class="button_submit"></div>
 						&nbsp;<label for="check_all2"><input type="checkbox" id="check_all2" onclick="invertAll(this, this.form, \'delete[]\'); this.form.check_all1.checked = this.checked;" class="input_check"><strong>', $txt['check_all'], '</strong></label>
@@ -148,13 +148,13 @@ function template_error_log()
 				</tr>';
 	else
 		echo '
-				<tr>
-					<td colspan="3" class="windowbg2">', $txt['errlog_no_entries'], '</td>
+				<tr  class="windowbg">
+					<td colspan="3">', $txt['errlog_no_entries'], '</td>
 				</tr>';
 
 	echo '
-				<tr>
-					<td colspan="3" class="windowbg">
+				<tr class="windowbg">
+					<td colspan="3">
 						&nbsp;&nbsp;', $txt['pages'], ': ', $context['page_index'], '
 					</td>
 				</tr>

@@ -222,7 +222,7 @@ function template_select()
 
 						// Let\'s create a nice container for the message.
 						newItem = document.createElement("LI");
-						newItem.className = "windowbg2";
+						newItem.className = "windowbg";
 						newItem.id = curSection + "_" + curId;
 						newItem.innerHTML = "<span class=\\"topslice\\"><span></span></span><div class=\\"content\\"><div class=\\"message_header\\"><a class=\\"split_icon float" + (curSection == "selected" ? "left" : "right") + "\\" href=\\"" + smf_prepareScriptUrl(smf_scripturl) + "action=splittopics;sa=selectTopics;subname=', $context['topic']['subject'], ';topic=', $context['topic']['id'], '.', $context['not_selected']['start'], ';start2=', $context['selected']['start'], ';move=" + (curSection == "selected" ? "up" : "down") + ";msg=" + curId + "\\" onclick=\\"return select(\'" + (curSection == "selected" ? "up" : "down") + "\', " + curId + ");\\"><img src=\\"', $settings['images_url'], '/split_" + (curSection == "selected" ? "de" : "") + "select.gif\\" alt=\\"" + (curSection == "selected" ? "&lt;-" : "-&gt;") + "\\"></a><strong>" + curChange.getElementsByTagName("subject")[0].firstChild.nodeValue + "</strong> ', $txt['by'], ' <strong>" + curChange.getElementsByTagName("poster")[0].firstChild.nodeValue + "</strong><br><em>" + curChange.getElementsByTagName("time")[0].firstChild.nodeValue + "</em></div><div class=\\"post\\">" + curChange.getElementsByTagName("body")[0].firstChild.nodeValue + "</div></div><span class=\\"botslice\\"><span></span></span>";
 
@@ -335,7 +335,7 @@ function template_merge()
 			<div class="pagesection">
 				<strong>', $txt['pages'], ':</strong> ', $context['page_index'], '
 			</div>
-			<div class="windowbg2">
+			<div class="windowbg">
 				<div class="content">
 					<ul class="reset merge_topics">';
 
@@ -382,7 +382,7 @@ function template_merge_extra_options()
 				<tbody>';
 		foreach ($context['topics'] as $topic)
 			echo '
-					<tr class="windowbg2">
+					<tr class="windowbg">
 						<td align="center">
 							<input type="checkbox" class="input_check" name="topics[]" value="' . $topic['id'] . '" checked="checked">
 						</td>

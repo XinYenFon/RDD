@@ -287,7 +287,7 @@ function template_show_month_grid($grid_name)
 	if (empty($calendar_data['disable_day_titles']))
 	{
 		echo '
-					<tr class="titlebg2">';
+					<tr class="title_bar">';
 
 		if (!empty($calendar_data['show_week_links']))
 			echo '
@@ -307,11 +307,11 @@ function template_show_month_grid($grid_name)
 	foreach ($calendar_data['weeks'] as $week)
 	{
 		echo '
-					<tr>';
+					<tr class="windowbg">';
 
 		if (!empty($calendar_data['show_week_links']))
 			echo '
-						<td class="windowbg2 weeks">
+						<td class="weeks">
 							<a href="', $scripturl, '?action=calendar;viewweek;year=', $calendar_data['current_year'], ';month=', $calendar_data['current_month'], ';day=', $week['days'][0]['day'], '">&#187;</a>
 						</td>';
 
@@ -456,8 +456,8 @@ function template_show_week_grid($grid_name)
 							</div>
 						</td>
 					</tr>
-					<tr>
-						<td class="windowbg">';
+					<tr class="windowbg">
+						<td>';
 
 			// Should the day number be a link?
 			if (!empty($modSettings['cal_daysaslink']) && $context['can_post'])
@@ -469,7 +469,7 @@ function template_show_week_grid($grid_name)
 
 			echo '
 						</td>
-						<td class="', $day['is_today'] ? 'calendar_today' : 'windowbg2', ' weekdays">';
+						<td class="', $day['is_today'] ? 'calendar_today' : '', ' weekdays">';
 
 			// Are there any holidays?
 			if (!empty($day['holidays']))
@@ -628,23 +628,21 @@ function template_hms()
 	echo '
 <table cellpadding="0" cellspacing="1" align="center">
 	<caption class="titlebg">Binary Clock</caption>';
-	$alt = false;
 	foreach ($context['clockicons'] as $t => $v)
 	{
 		echo '
-	<tr class="', $alt ? 'windowbg2' : 'windowbg', '">
+	<tr class="windowbg">
 		<td align="right">';
 		foreach ($v as $i)
 			echo '
 			<img src="', $context['offimg'], '" alt="" id="', $t, '_', $i, '">';
 		echo '
 		</td>';
-		$alt = !$alt;
 	}
 
 	echo '
 	</tr>
-	<tr class="', $alt ? 'windowbg2' : 'windowbg', '"><td colspan="6" align="center"><a href="', $scripturl, '?action=clock">Too tough for you?</a></td></tr>
+	<tr class="windowbg"><td colspan="6" align="center"><a href="', $scripturl, '?action=clock">Too tough for you?</a></td></tr>
 </table>';
 
 	echo '
@@ -712,18 +710,16 @@ function template_omfg()
 	echo '
 <table cellpadding="0" cellspacing="1" align="center">
 	<caption class="titlebg">OMFG Binary Clock</caption>';
-	$alt = false;
 	foreach ($context['clockicons'] as $t => $v)
 	{
 		echo '
-	<tr class="', $alt ? 'windowbg2' : 'windowbg', '">
+	<tr class="windowbg">
 		<td align="right">';
 		foreach ($v as $i)
 			echo '
 			<img src="', $context['offimg'], '" alt="" id="', $t, '_', $i, '">';
 		echo '
 		</td>';
-		$alt = !$alt;
 	}
 
 	echo '
@@ -799,18 +795,16 @@ function template_thetime()
 	echo '
 <table cellpadding="0" cellspacing="0" border="1" align="center">
 	<caption>The time you requested</caption>';
-	$alt = false;
 	foreach ($context['clockicons'] as $t => $v)
 	{
 		echo '
-	<tr class="', $alt ? 'windowbg2' : 'windowbg', '">
+	<tr class="windowbg">
 		<td align="right">';
 		foreach ($v as $i)
 			echo '
 			<img src="', $i ? $context['onimg'] : $context['offimg'], '" alt="">';
 		echo '
 		</td>';
-		$alt = !$alt;
 	}
 
 	echo '

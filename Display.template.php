@@ -206,13 +206,11 @@ function template_main()
 
 	$ignoredMsgs = array();
 	$removableMessageIDs = array();
-	$alternate = false;
 
 	// Get all the messages...
 	while ($message = $context['get_message']())
 	{
 		$ignoring = false;
-		$alternate = !$alternate;
 		if ($message['can_remove'])
 			$removableMessageIDs[] = $message['id'];
 
@@ -229,7 +227,7 @@ function template_main()
 				<a id="msg', $message['id'], '"></a>', $message['first_new'] ? '<a id="new"></a>' : '';
 
 		echo '
-				<div class="', $message['approved'] ? ($message['alternate'] == 0 ? 'windowbg' : 'windowbg2') : 'approvebg', ' nopad">
+				<div class="', $message['approved'] ? 'windowbg' : 'approvebg', ' nopad">
 					<div class="post_wrapper">';
 
 		// Show information about the poster of this message.

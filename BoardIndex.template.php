@@ -134,8 +134,8 @@ function template_main()
 			foreach ($category['boards'] as $board)
 			{
 				echo '
-				<tr id="board_', $board['id'], '" class="windowbg2">
-					<td class="icon windowbg"', !empty($board['children']) ? ' rowspan="2"' : '', '>
+				<tr id="board_', $board['id'], '" class="windowbg">
+					<td class="icon"', !empty($board['children']) ? ' rowspan="2"' : '', '>
 						<a href="', ($board['is_redirect'] || $context['user']['is_guest'] ? $board['href'] : $scripturl . '?action=unread;board=' . $board['id'] . '.0;children'), '">';
 
 				// If the board or children is new, show an indicator.
@@ -174,7 +174,7 @@ function template_main()
 				// Show some basic information about the number of posts, etc.
 					echo '
 					</td>
-					<td class="stats windowbg">
+					<td class="stats">
 						<p>', comma_format($board['posts']), ' ', $board['is_redirect'] ? $txt['redirects'] : $txt['posts'], ' <br>
 						', $board['is_redirect'] ? '' : comma_format($board['topics']) . ' ' . $txt['board_topics'], '
 						</p>

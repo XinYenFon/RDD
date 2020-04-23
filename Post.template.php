@@ -790,7 +790,7 @@ function template_main()
 				$ignored_posts[] = $ignoring = $post['id'];
 
 			echo '
-				<div class="', $post['alternate'] == 0 ? 'windowbg' : 'windowbg2', ' core_posts">
+				<div class="windowbg core_posts">
 				<div class="content" id="msg', $post['id'], '">
 					<div class="floatleft">
 						<h5>', $txt['posted_by'], ': ', $post['poster'], '</h5>
@@ -1007,7 +1007,7 @@ function template_announce()
 			<div class="information">
 				', $txt['announce_desc'], '
 			</div>
-			<div class="windowbg2">
+			<div class="windowbg">
 				<div class="content">
 					<p>
 						', $txt['announce_this_topic'], ' <a href="', $scripturl, '?topic=', $context['current_topic'], '.0">', $context['topic_subject'], '</a>
@@ -1046,7 +1046,7 @@ function template_announcement_send()
 	echo '
 	<div id="announcement">
 		<form action="' . $scripturl . '?action=announce;sa=send" method="post" accept-charset="', $context['character_set'], '" name="autoSubmit" id="autoSubmit">
-			<div class="windowbg2">
+			<div class="windowbg">
 				<div class="content">
 					<p>', $txt['announce_sending'], ' <a href="', $scripturl, '?topic=', $context['current_topic'], '.0" target="_blank" class="new_win">', $context['topic_subject'], '</a></p>
 					<p><strong>', $context['percentage_done'], '% ', $txt['announce_done'], '</strong></p>

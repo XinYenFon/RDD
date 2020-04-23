@@ -52,7 +52,7 @@ function template_view_package()
 			<div class="cat_bar">
 				<h3 class="catbg">', $txt['package_' . ($context['uninstalling'] ? 'un' : '') . 'install_readme'], '</h3>
 			</div>
-			<div class="windowbg2">
+			<div class="windowbg">
 				<div class="content">
 					', $context['package_readme'], '
 					<span class="floatright">', $txt['package_available_readme_language'], '
@@ -79,7 +79,7 @@ function template_view_package()
 	if ($context['uninstalling'] && !empty($context['database_changes']))
 	{
 		echo '
-			<div class="windowbg2">
+			<div class="windowbg">
 				<div class="content">
 					<label for="do_db_changes"><input type="checkbox" name="do_db_changes" id="do_db_changes" class="input_check">', $txt['package_db_uninstall'], '</label> [<a href="#" onclick="return swap_database_changes();">', $txt['package_db_uninstall_details'], '</a>]
 					<div id="db_changes_div">
@@ -120,7 +120,6 @@ function template_view_package()
 			</thead>
 			<tbody>';
 
-		$alternate = true;
 		$i = 1;
 		$action_num = 1;
 		$js_operations = array();
@@ -130,7 +129,7 @@ function template_view_package()
 			$js_operations[$action_num] = isset($packageaction['failed']) ? $packageaction['failed'] : 0;
 
 			echo '
-				<tr class="windowbg', $alternate ? '' : '2', '">
+				<tr class="windowbg">
 					<td>', isset($packageaction['operations']) ? '<img id="operation_img_' . $action_num . '" src="' . $settings['images_url'] . '/sort_down.gif" alt="*" style="display: none;">' : '', '</td>
 					<td>', $i++, '.</td>
 					<td>', $packageaction['type'], '</td>
@@ -147,7 +146,6 @@ function template_view_package()
 						<table border="0" cellpadding="3" cellspacing="0" width="100%">';
 
 				// Show the operations.
-				$alternate2 = true;
 				$operation_num = 1;
 				foreach ($packageaction['operations'] as $operation)
 				{
@@ -155,7 +153,7 @@ function template_view_package()
 					$operation_text = $operation['position'] == 'replace' ? 'operation_replace' : ($operation['position'] == 'before' ? 'operation_after' : 'operation_before');
 
 					echo '
-							<tr class="windowbg', $alternate2 ? '' : '2', '">
+							<tr class="windowbg">
 								<td width="0"></td>
 								<td width="30" class="smalltext"><a href="' . $scripturl . '?action=admin;area=packages;sa=showoperations;operation_key=', $operation['operation_key'], ';package=', $_REQUEST['package'], ';filename=', $operation['filename'], ($operation['is_boardmod'] ? ';boardmod' : ''), (isset($_REQUEST['sa']) && $_REQUEST['sa'] == 'uninstall' ? ';reverse' : ''), '" onclick="return reqWin(this.href, 680, 400, false);"><img src="', $settings['default_images_url'], '/admin/package_ops.gif" alt=""></a></td>
 								<td width="30" class="smalltext">', $operation_num, '.</td>
@@ -165,7 +163,6 @@ function template_view_package()
 							</tr>';
 
 					$operation_num++;
-					$alternate2 = !$alternate2;
 				}
 
 				echo '
@@ -176,12 +173,10 @@ function template_view_package()
 				// Increase it.
 				$action_num++;
 			}
-			$alternate = !$alternate;
 		}
 					echo '
 			</tbody>
-			</table>
-			';
+			</table>';
 
 		// What if we have custom themes we can install into? List them too!
 		if (!empty($context['theme_actions']))
@@ -223,7 +218,7 @@ function template_view_package()
 				foreach ($theme['actions'] as $action)
 				{
 					echo '
-					<tr class="windowbg', $alternate ? '' : '2', '">
+					<tr class="windowbg">
 						<td>', isset($packageaction['operations']) ? '<img id="operation_img_' . $action_num . '" src="' . $settings['images_url'] . '/sort_down.gif" alt="*" style="display: none;">' : '', '</td>
 						<td width="30" align="center">
 							<input type="checkbox" name="theme_changes[]" value="', !empty($action['value']) ? $action['value'] : '', '" id="dummy_theme_', $id, '" class="input_check" ', (!empty($action['not_mod']) ? '' : 'disabled="disabled"'), ' ', !empty($context['themes_locked']) ? 'checked="checked"' : '', '/>
@@ -237,11 +232,10 @@ function template_view_package()
 					if (isset($action['operations']))
 					{
 						echo '
-					<tr id="operation_', $action_num, '">
-						<td colspan="5" class="windowbg3">
+					<tr id="operation_', $action_num, '"  class="windowbg">
+						<td colspan="5">
 							<table border="0" cellpadding="3" cellspacing="0" width="100%">';
 
-						$alternate2 = true;
 						$operation_num = 1;
 						foreach ($action['operations'] as $operation)
 						{
@@ -249,7 +243,7 @@ function template_view_package()
 							$operation_text = $operation['position'] == 'replace' ? 'operation_replace' : ($operation['position'] == 'before' ? 'operation_after' : 'operation_before');
 
 							echo '
-								<tr class="windowbg', $alternate2 ? '' : '2', '">
+								<tr class="windowbg">
 									<td width="0"></td>
 									<td width="30" class="smalltext"><a href="' . $scripturl . '?action=admin;area=packages;sa=showoperations;operation_key=', $operation['operation_key'], ';package=', $_REQUEST['package'], ';filename=', $operation['filename'], ($operation['is_boardmod'] ? ';boardmod' : ''), (isset($_REQUEST['sa']) && $_REQUEST['sa'] == 'uninstall' ? ';reverse' : ''), '" onclick="return reqWin(this.href, 600, 400, false);"><img src="', $settings['default_images_url'], '/admin/package_ops.gif" alt=""></a></td>
 									<td width="30" class="smalltext">', $operation_num, '.</td>
@@ -258,7 +252,7 @@ function template_view_package()
 									<td width="20%" class="smalltext">', $operation['description'], !empty($operation['ignore_failure']) ? ' (' . $txt['operation_ignore'] . ')' : '', '</td>
 								</tr>';
 							$operation_num++;
-							$alternate2 = !$alternate2;
+
 						}
 
 						echo '
@@ -270,8 +264,6 @@ function template_view_package()
 						$action_num++;
 					}
 				}
-
-				$alternate = !$alternate;
 			}
 
 			echo '
@@ -518,17 +510,15 @@ function template_view_installed()
 		</thead>
 		<tbody>';
 
-		$alt = false;
 		foreach ($context['installed_mods'] as $i => $file)
 		{
 			echo '
-			<tr class="', $alt ? 'windowbg' : 'windowbg2', '">
+			<tr class="windowbg">
 				<td><span class="smalltext">', ++$i, '.</span></td>
 				<td><span class="smalltext">', $file['name'], '</span></td>
 				<td><span class="smalltext">', $file['version'], '</span></td>
 				<td align="right"><span class="smalltext"><a href="', $scripturl, '?action=admin;area=packages;sa=uninstall;package=', $file['filename'], ';pid=', $file['id'], '">[ ', $txt['uninstall'], ' ]</a></span></td>
 			</tr>';
-			$alt = !$alt;
 		}
 
 		echo '
@@ -554,7 +544,7 @@ function template_browse()
 				<a href="', $scripturl, '?action=helpadmin;help=latest_packages" onclick="return reqWin(this.href);" class="help"><i class="fas fa-question-circle"></i></a> ', $txt['packages_latest'], '
 			</h3>
 		</div>
-		<div class="windowbg2">
+		<div class="windowbg">
 			<div class="content">
 				<div id="packagesLatest">', $txt['packages_latest_fetch'], '</div>
 			</div>
@@ -620,11 +610,10 @@ function template_browse()
 		</thead>
 		<tbody>';
 
-		$alt = false;
 		foreach ($context['available_mods'] as $i => $package)
 		{
 			echo '
-			<tr class="', $alt ? 'windowbg2' : 'windowbg', '">
+			<tr class="windowbg">
 				<td>', ++$i, '.</td>
 				<td>', $package['name'], '</td>
 				<td>
@@ -653,7 +642,6 @@ function template_browse()
 					<a href="', $scripturl, '?action=admin;area=packages;sa=remove;package=', $package['filename'], ';', $context['session_var'], '=', $context['session_id'], '"', $package['is_installed'] && $package['is_current'] ? ' onclick="return confirm(\'' . $txt['package_delete_bad'] . '\');"' : '', '>[ ', $txt['package_delete'], ' ]</a>
 				</td>
 			</tr>';
-			$alt = !$alt;
 		}
 
 		echo '
@@ -682,7 +670,7 @@ function template_browse()
 		foreach ($context['available_avatars'] as $i => $package)
 		{
 			echo '
-			<tr class="windowbg2">
+			<tr class="windowbg">
 				<td>', ++$i, '.</td>
 				<td>', $package['name'], '</td>
 				<td>', $package['version'];
@@ -794,7 +782,7 @@ function template_browse()
 		foreach ($context['available_other'] as $i => $package)
 		{
 			echo '
-			<tr class="windowbg2">
+			<tr class="windowbg">
 				<td>' . ++$i . '.</td>
 				<td>' . $package['name'] . '</td>
 				<td>' . $package['version'];
@@ -943,7 +931,7 @@ function template_servers()
 	}
 
 	echo '
-		<div class="windowbg2">
+		<div class="windowbg">
 			<div class="content">
 				<fieldset>
 					<legend>' . $txt['package_servers'] . '</legend>
@@ -1087,8 +1075,6 @@ function template_package_list()
 			echo '
 						<', $context['list_type'], ' id="package_section_', $i, '" class="packages">';
 
-			$alt = false;
-
 			foreach ($packageSection['items'] as $id => $package)
 			{
 				echo '
@@ -1152,7 +1138,6 @@ function template_package_list()
 								<li class="package_section"><div class="information">', $txt['package_description'], ':&nbsp; ', $package['description'], '</div></li>
 							</ul>';
 				}
-				$alt = !$alt;
 				echo '
 						</li>';
 			}
@@ -1331,7 +1316,7 @@ function template_control_chmod()
 	}
 
 	echo '
-				<div class="bordercolor" id="ftp_error_div" style="', (!empty($context['package_ftp']['error']) ? '' : 'display:none;'), 'padding: 1px; margin: 1ex;"><div class="windowbg2" id="ftp_error_innerdiv" style="padding: 1ex;">
+				<div class="bordercolor" id="ftp_error_div" style="', (!empty($context['package_ftp']['error']) ? '' : 'display:none;'), 'padding: 1px; margin: 1ex;"><div class="windowbg" id="ftp_error_innerdiv" style="padding: 1ex;">
 					<tt id="ftp_error_message">', !empty($context['package_ftp']['error']) ? $context['package_ftp']['error'] : '', '</tt>
 				</div></div>';
 
@@ -1829,7 +1814,7 @@ function template_file_permissions()
 	{
 		echo '
 			<tbody>
-				<tr class="windowbg2">
+				<tr class="windowbg">
 					<td width="30%"><strong>';
 
 				if (!empty($dir['type']) && ($dir['type'] == 'dir' || $dir['type'] == 'dir_recursive'))

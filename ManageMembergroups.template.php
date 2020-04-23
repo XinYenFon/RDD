@@ -167,7 +167,7 @@ function template_edit_group()
 				<h3 class="catbg">', $txt['membergroups_edit_group'], ' - ', $context['group']['name'], '
 				</h3>
 			</div>
-			<div class="windowbg2">
+			<div class="windowbg">
 				<div class="content">
 					<dl class="settings">
 						<dt>
@@ -463,14 +463,14 @@ function template_group_members()
 
 	if (empty($context['members']))
 		echo '
-					<tr class="windowbg2">
+					<tr class="windowbg">
 						<td colspan="6" align="center">', $txt['membergroups_members_no_members'], '</td>
 					</tr>';
 
 	foreach ($context['members'] as $member)
 	{
 		echo '
-					<tr class="windowbg2">
+					<tr class="windowbg">
 						<td>', $member['name'], '</td>
 						<td', $member['show_email'] == 'no_through_forum' && $settings['use_image_buttons'] ? ' align="center"' : '', '>';
 
@@ -493,8 +493,8 @@ function template_group_members()
 
 		echo '
 						</td>
-						<td class="windowbg">', $member['last_online'], '</td>
-						<td class="windowbg">', $member['registered'], '</td>
+						<td>', $member['last_online'], '</td>
+						<td>', $member['registered'], '</td>
 						<td', empty($context['group']['assignable']) ? ' colspan="2"' : '', '>', $member['posts'], '</td>';
 		if (!empty($context['group']['assignable']))
 			echo '

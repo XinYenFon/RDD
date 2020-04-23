@@ -108,16 +108,13 @@ function template_find_members()
 		echo '
 					<ul class="reset padding">';
 
-		$alternate = true;
 		foreach ($context['results'] as $result)
 		{
 			echo '
-						<li class="', $alternate ? 'windowbg2' : 'windowbg', '">
+						<li class="windowbg">
 							<a href="', $result['href'], '" target="_blank" class="new_win"><img src="', $settings['images_url'], '/icons/profile_sm.gif" alt="', $txt['view_profile'], '" title="', $txt['view_profile'], '"></a>
 							<a href="javascript:void(0);" onclick="addMember(this.innerHTML); return false;">', $result['name'], '</a>
 						</li>';
-
-			$alternate = !$alternate;
 		}
 
 		echo '
@@ -156,7 +153,7 @@ function template_manual()
 				<h3 class="catbg">', $txt['manual_smf_user_help'], '</h3>
 			</div>
 			<div id="help_container">
-				<div class="windowbg2">
+				<div class="windowbg">
 					<div id="helpmain">
 						<p>', sprintf($txt['manual_welcome'], $context['forum_name']), '</p>
 						<p>', $txt['manual_introduction'], '</p>
