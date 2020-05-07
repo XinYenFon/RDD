@@ -3280,6 +3280,7 @@ tr.catbg {
 }
 .nopad {
 	padding: 10px 0 0 0;
+	margin: 0 0 10px 0;
 }
 .collapsed {
 	opacity: 0.5;
@@ -3307,6 +3308,9 @@ tr.catbg {
 .quickbuttons .fa-fw {
 	vertical-align: top;
 }
+i {
+	margin: 0 5px 0 0;
+}
 
 /* On/Off Icons (User) */
 .on, .off {
@@ -3333,4 +3337,71 @@ tr.catbg {
 }
 #header > * {
 	flex: 1 100%;
+}
+/* H3 Flex */
+h3.catbg {
+	display: flex;
+}
+h3.catbg > * {
+	flex: 1 50%;
+	height: inherit;
+	align-self: center;
+}
+h3.catbg > a[id^="c"]:empty {
+	display: none;
+}
+/* Features Flex */
+.features {
+	display: flex;
+	padding: 10px 5px 0 5px;
+}
+.features > i, .features > .features_switch {
+	flex: 1 5%;
+	align-self: center;
+}
+.features > .features_text {
+	flex: 1 90%;
+	align-self: center;
+}
+.f_on {
+	color: green;
+}
+.f_off {
+	color: red;
+}
+/* bytwo */
+.bytwo {
+	column-count: 2;
+}
+
+/* Icon Sync -this... I should have done earlier...- */
+.fa-cd:before {
+	content: "\f133";
+}
+.fa-cp:before {
+	content: "\f2c1";
+}
+.fa-k:before {
+	content: "\f6ad";
+}
+.fa-ml:before {
+	content: "\f46d";	
+}
+.fa-pm:before {
+	content: "\f577";
+}
+.fa-ps:before {
+	content: "\f155";
+}
+.fa-rg:before {
+	content: "\f71e";
+}
+.fa-w:before {
+	content: "\f071";	
+}
+.fa-sp:before {
+	content: "\f002";
+}
+.fa-gdpr:before {
+	content: "\f7a2";
 }
