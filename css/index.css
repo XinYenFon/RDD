@@ -34,7 +34,7 @@ table
 body
 {
 	color: #888;
-	background: #0e0e0e;
+	background: #121212;
 	font: small Verdana, sans-serif;
 	margin: 0 auto;
 	padding: 15px 0;
@@ -378,6 +378,7 @@ code.bbc_code
 .bbc_list
 {
 	text-align: left;
+	line-height: 1.75em;
 }
 .bbc_tt
 {
@@ -424,19 +425,14 @@ tr.catbg th a:link, tr.catbg th a:visited, tr.catbg2 td a:link, tr.catbg2 td a:v
 {
 	color: #fff;
 }
-.catbg select
-{
-	height: 1.5em;
-	font-size: 0.85em;
-}
 
 /* Alternating backgrounds for posts, and several other sections of the forum. */
-.windowbg, #preview_body, .lockedbg
+.windowbg:nth-child(odd), #preview_body, .lockedbg
 {
 	color: #888;
-	background-color: #131313;
+	background-color: #25252590;
 }
-.windowbg2, .windowbg3, .lockedbg2
+.windowbg:nth-child(even), .windowbg2, .windowbg3, .lockedbg2
 {
 	color: #999;
 	background-color: #1c1c1c;
@@ -446,10 +442,7 @@ tr.catbg th a:link, tr.catbg th a:visited, tr.catbg2 td a:link, tr.catbg2 td a:v
 .pagesection
 {
 	color: #FFF;
-	font-size: 0.9em;
-	padding: 0.2em;
-	overflow: hidden;
-	margin-bottom: 1px;
+	padding: 0.5em 0;
 }
 div.pagesection div.floatright input
 {
@@ -699,11 +692,11 @@ h4.titlebg img.icon
 }
 div.cat_bar
 {
-	background: #0a0a0a;
+	background: #222222;
 	border-radius: 6px 6px 0 0;
 	padding: 10px 7px;
 	border: 1px solid #131313;
-	border-bottom: none;
+	border-bottom: 1px solid #69696950;
 }
 div.cat_bar .catbg, .catbg a {
 	color: #F00;
@@ -720,15 +713,11 @@ img#upshrink_ic, img#newsupshrink
 	float: right;
 	margin: 10px 5px 0 0;
 }
-table.table_list a.unreadlink
-{
-	float: right;
-}
 /* Take this collapse class as generic */
 a.collapse
 {
-	margin: 2px 5px 0 1em;
-	float: right;
+	margin: 2px 0 0 0.5em;
+	text-align: right;
 }
 
 /* The half-round header bars for some tables. */
@@ -786,7 +775,7 @@ table.table_grid thead tr.catbg th
 {
 	clear: both;
 	padding: 10px;
-	background: #131313;
+	background-color: #44444450;
 	border: 1px solid #131313;
 }
 .roundframe dl, .roundframe dt, .roundframe p
@@ -856,7 +845,7 @@ table.table_grid thead tr.catbg th
 }
 .dropmenu li
 {
-	float: left;
+	display: inline-block;
 	padding: 0;
 	margin: 0;
 	position: relative;
@@ -951,7 +940,7 @@ table.table_grid thead tr.catbg th
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	float: left;
+	display: inline-block;
 }
 .buttonlist ul li a
 {
@@ -1218,9 +1207,6 @@ p.moderators
 /* the posting icons */
 #posting_icons {
 	width: 100%;
-}
-#posting_icons
-{
 	margin: 0 0 1em 0;
 	line-height: 1em;
 }
@@ -1448,13 +1434,6 @@ h4#pollquestion
 {
 	border-top: 1px solid #9999aa;
 	padding: 1em 2.5em 0 2em;
-	margin: 0 0 1em 0;
-}
-#poll_options div.submitbutton
-{
-	border-bottom: 1px solid #9999aa;
-	clear: both;
-	padding: 0 0 1em 2em;
 	margin: 0 0 1em 0;
 }
 
@@ -1693,10 +1672,6 @@ img.smiley
 #forumposts .signature, .post .signature
 {
 	margin: 1em 0 0 0;
-}
-#forumposts span.botslice
-{
-	clear: both;
 }
 .attachments hr
 {
@@ -2523,10 +2498,6 @@ dl
 	display: none;
 	clear: both;
 }
-#main_admsection #basicinfo .botslice
-{
-	clear: both;
-}
 
 /* Simple feedback messages */
 div#profile_error, div#profile_success
@@ -2665,8 +2636,8 @@ div#profile_success
 
 .counter
 {
-	margin: 0 0 0 0;
-	padding: 0.2em 0.5em 0.1em 0.2em;
+	margin: 0;
+	padding: 0 0.5em 0 0.2em;
 	font-size: 2.2em;
 	font-weight: bold;
 	color: #3f3f3f;
@@ -2877,13 +2848,13 @@ dl.stats dd
 	background: url(../images/bar_stats.png) no-repeat 100%;
 	height: 16px;
 }
-tr.windowbg2 th.stats_month
+tr.windowbg th.stats_month, tr.windowbg2 th.stats_month
 {
 	width: 25%;
 	padding: 0 2em;
 	text-align: left;
 }
-tr.windowbg2 td.stats_day
+tr.windowbg td.stats_day, tr.windowbg2 td.stats_day
 {
 	padding: 0 3.5em;
 	text-align: left;
@@ -3076,7 +3047,7 @@ span.hidelink
 #mlist_search
 {
 	margin: auto;
-	width: 500px;
+	width: 600px;
 }
 
 /* Styles for the basic search section.
@@ -3098,7 +3069,6 @@ span.hidelink
 }
 #search_term_input
 {
-	font-size: 115%;
 	margin: 0 0 1em;
 }
 
@@ -3155,12 +3125,6 @@ span.hidelink
 
 /* Styles for the help section.
 ------------------------------------------------- */
-
-#help_container
-{
-	margin: 4px 0 0 0;
-	padding: 0 0 8px 0;
-}
 #helpmain
 {
 	padding: 0 1em;
@@ -3225,10 +3189,13 @@ a.subject:hover, .member_link > a:hover, .catbg a:hover,
 	border-top: none;
 }*/
 div.title_barIC, div.title_bar , .description, .plainbox, .information {
-	border: 1px solid #131313;
+	border: 1px solid #69696950;
 	background-image: linear-gradient(to top, #070707 0%, #1f1f1f 100%);
 	padding: 8px;
 	color: #F00;
+}
+.information {
+	border-top: none;
 }
 h3.titlebg, h4.titlebg {
 	color: #FFF;
@@ -3369,6 +3336,14 @@ h3.catbg > a[id^="c"]:empty {
 .f_off {
 	color: red;
 }
+.new_button {
+	background: orange;
+	padding: 2px 4px;
+	border-radius: 3px;
+	color: #FFF;
+	font-weight: bold;
+	font-size: smaller;
+}
 /* bytwo */
 .bytwo {
 	column-count: 2;
@@ -3387,7 +3362,8 @@ h3.catbg > a[id^="c"]:empty {
 .fa-ml:before {
 	content: "\f46d";	
 }
-.fa-pm:before {
+.fa-pm:before,
+.fa-permissions:before {
 	content: "\f577";
 }
 .fa-ps:before {
@@ -3404,4 +3380,25 @@ h3.catbg > a[id^="c"]:empty {
 }
 .fa-gdpr:before {
 	content: "\f7a2";
+}
+.fa-support:before {
+	content: "\f1cd";
+}
+.fa-forum:before {
+	content: "\f7d9";	
+}
+.fa-themes:before {
+	content: "\f1fc";	
+}
+.fa-smilies:before {
+	content: "\f5b8";
+}
+.fa-features:before {
+	content: "\f0ae";
+}
+.fa-packages:before {
+	content: "\f187";
+}
+.fa-members:before {
+	content: "\f0c0";
 }

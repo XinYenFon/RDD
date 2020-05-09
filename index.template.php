@@ -272,7 +272,6 @@ function template_body_above()
 	template_menu();
 
 	echo '
-		<br class="clear">
 	</div>';
 
 	// The main content should go here.
