@@ -309,8 +309,8 @@
 		margin: 0;
 	}
 	/* Tables (still interesting) */
-	.table_grid tbody tr {
-		border: 1px solid #CCC;
+	tr.catbg th:empty() {
+		display: none;
 	}
 	.table_grid th,
 	.table_grid td {
@@ -321,12 +321,6 @@
 		padding: 5px 0 !important;
 		width: 100%;
 		text-align: center;
-	}
-	.table_grid tr:nth-of-type(even) {
-		background: #e7eaef;
-	}
-	.table_grid tr:nth-of-type(odd) {
-		background: #f0f4f7;
 	}
 	.table_grid td {
 		background: none;
@@ -451,6 +445,12 @@
 		background: none;
 		text-align: center;
 		width: 100% !important;
+	}
+	.pagesection div {
+		float: none;
+	}
+	.pagelinks {
+		padding: 2px 5px;
 	}
 	.buttonlist ul {
 		margin: 0;
